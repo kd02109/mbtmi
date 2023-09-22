@@ -1,0 +1,37 @@
+
+{
+  "extends": [
+    "next/core-web-vitals", 
+    "plugin:prettier/recommended", 
+    "plugin:import/typescript",
+    "plugin:import/recommended"
+  ],
+  "settings": {
+    "import/resolver": {
+      "node": {},
+      "typescript": {
+        "directory": "./src"
+      }
+    },
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    }
+  },
+  "rules": {
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", "parent", "sibling", "index"],
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        },
+        "newlines-between": "never"
+      }
+    ],
+    "import/no-unresolved": "off",
+    "import/export": "off",
+    "import/named": 0,
+    "import/no-named-as-default": 0
+  }
+}
