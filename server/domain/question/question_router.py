@@ -11,5 +11,6 @@ router = APIRouter(
 
 @router.get("/list", response_model=list[question_schema.Question])
 def question_list(db: Session = Depends(get_db)):
+    print("Test")
     _question_list = question_crud.get_question_list(db)
     return _question_list
