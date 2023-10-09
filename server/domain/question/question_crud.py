@@ -8,3 +8,7 @@ def get_question_list(db: Session):
         .order_by(Question.create_date.desc())\
         .all()
     return question_list
+
+def get_user_mbtmi(user_id: int):
+    print('mbtmi')
+    return {'mbtmi': 'ENTP'}

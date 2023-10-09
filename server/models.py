@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Text, DateTime, ForeignKey
+from sqlalchemy import Column, Integer, String, Text, DateTime, ForeignKey, Boolean
 from sqlalchemy.orm import relationship
 
 from database import Base
@@ -21,3 +21,13 @@ class Answer(Base):
     create_date = Column(DateTime, nullable=False)
     question_id = Column(Integer, ForeignKey("question.id"))
     question = relationship("Question", backref="answers")
+
+class UserTable(Base):
+    __tablename__ = "user"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    gender = Column(Boolean, nullable=False)
+    nickname = Column(Text, nullable=False)
+    mbti = Column(Text, nullable=True)
+    jwt_token = Column(Text, nullable=True)
+    create_date = Column(DateTime, nullable=False)
