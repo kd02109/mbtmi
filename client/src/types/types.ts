@@ -1,5 +1,5 @@
 export type SvgSize = {
-    width: string;
-    height: string;
-    style?: string
-}
+  width: string;
+  height: string;
+  style?: string;
+};
