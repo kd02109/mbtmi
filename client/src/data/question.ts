@@ -1,6 +1,7 @@
 export const questions = [
   {
     id: 'question1',
+    name: '준석',
     questionMan: ['안녕', '오늘 저녁 뭐 먹을까?'],
     questionWoman: ['안녕', '오늘 저녁 뭐 먹을까?'],
     visited: false,
@@ -9,6 +10,7 @@ export const questions = [
   },
   {
     id: 'question2',
+    name: '준석',
     questionMan: ['안녕', '오늘 저녁 뭐 먹을까?'],
     questionWoman: ['안녕', '오늘 저녁 뭐 먹을까?'],
     visited: false,
@@ -17,6 +19,7 @@ export const questions = [
   },
   {
     id: 'question3',
+    name: '준석',
     questionMan: ['안녕', '오늘 저녁 뭐 먹을까?'],
     questionWoman: ['안녕', '오늘 저녁 뭐 먹을까?'],
     visited: false,
@@ -25,6 +28,7 @@ export const questions = [
   },
   {
     id: 'question4',
+    name: '준석',
     questionMan: ['안녕', '오늘 저녁 뭐 먹을까?'],
     questionWoman: ['안녕', '오늘 저녁 뭐 먹을까?'],
     visited: false,
@@ -33,6 +37,7 @@ export const questions = [
   },
   {
     id: 'question5',
+    name: '준석',
     questionMan: ['안녕', '오늘 저녁 뭐 먹을까?'],
     questionWoman: ['안녕', '오늘 저녁 뭐 먹을까?'],
     visited: false,
@@ -41,6 +46,7 @@ export const questions = [
   },
   {
     id: 'question6',
+    name: '준석',
     questionMan: ['안녕', '오늘 저녁 뭐 먹을까?'],
     questionWoman: ['안녕', '오늘 저녁 뭐 먹을까?'],
     visited: false,

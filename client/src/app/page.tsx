@@ -5,7 +5,7 @@ import Logo from '@/components/svg/Logo';
 const NUMBER = 1000;
 export default async function Home() {
   return (
-    <main className="flex w-full max-w-xl m-auto flex-col items-center py-8 px-4 bg-white">
+    <main className="flex w-full h-screen min-h-max  max-w-xl m-auto flex-col items-center py-8 px-4 bg-white">
       <Logo width="30%" height="30%" style="mb-8" />
       <section className="w-100 flex flex-col mb-8">
         <p className="text-center font-bold text-base leading-8">
