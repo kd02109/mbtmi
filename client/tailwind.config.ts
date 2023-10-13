@@ -10,9 +10,10 @@ const config: Config = {
     extend: {
       colors: {
         bgGray: '#f5f5f5',
+        bgChating: '#AFC0CF',
       },
     },
   },
-  plugins: [],
+  plugins: [require('daisyui')],
 };
 export default config;

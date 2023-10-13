@@ -1,4 +1,6 @@
-export const questions = [
+import { Data } from '@/types/types';
+
+export const questions: Data[] = [
   {
     id: 'question1',
     name: '준석',

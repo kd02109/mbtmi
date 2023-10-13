@@ -7,7 +7,6 @@ export default function SlugLayout({
 }) {
   return (
     <main className="flex w-full min-h-screen max-w-xl m-auto flex-col items-center  bg-white">
-      <ChatingHeader />
       {children}
     </main>
   );
