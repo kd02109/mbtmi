@@ -10,7 +10,8 @@ router = APIRouter(
 
 @router.post("/starting")
 def user_create(_user_create: user_schema.UserCreate, db: Session = Depends(get_db)):
-    user_crud.create_user(db=db, user_create=_user_create)
+    user_token = user_crud.create_user(db=db, user_create=_user_create)
+    return user_token
 
 @router.get("/mbtmi")
 def question_list():
