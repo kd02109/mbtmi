@@ -24,7 +24,7 @@ export default function ChoiceSex() {
     <form onSubmit={handleSubmit} className="mb-10">
       <fieldset className="w-80 max-w-sm py-4 px-10 border-solid border-red-300 border-2 rounded-lg flex flex-col items-center">
         <legend className="px-4 mx-[-10%] font-bold">Profile</legend>
-        <section className="flex gap-10">
+        <section className="flex gap-10 ">
           <Radio handleChange={handleChange} sex={sex} value={'man'} />
           <Radio handleChange={handleChange} sex={sex} value={'woman'} />
         </section>
@@ -41,7 +41,7 @@ export default function ChoiceSex() {
             }}
             required
             autoFocus
-            className="focus:outline-red-300 px-4 py-2 border-2 border-solid rounded-xl"
+            className="focus:outline-red-300 focus:outline-none focus:border-none px-4 py-2 border-2 border-solid rounded-xl bg-white"
           />
         </section>
         <button className="px-4 py-2 rounded-lg font-bold mt-4 bg-red-400 text-white hover:bg-transparent hover:text-red-400 transition hover:shadow-lg">
