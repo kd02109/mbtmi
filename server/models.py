@@ -16,11 +16,13 @@ class Question(Base):
 class Answer(Base):
     __tablename__ = "answer"
 
-    id = Column(Integer, primary_key=True)
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    user_id = Column(Integer, ForeignKey("user.id"))
+    # question_id = Column(Integer, ForeignKey("question.id"))
+    question_id = Column(Integer, nullable=False)
     content = Column(Text, nullable=False)
     create_date = Column(DateTime, nullable=False)
-    question_id = Column(Integer, ForeignKey("question.id"))
-    question = relationship("Question", backref="answers")
+    user = relationship("UserTable", backref="answers")
 
 class UserTable(Base):
     __tablename__ = "user"
@@ -28,6 +30,7 @@ class UserTable(Base):
     id = Column(Integer, primary_key=True, autoincrement=True)
     gender = Column(Boolean, nullable=False)
     nickname = Column(Text, nullable=False)
+    mbtmi = Column(String, nullable=True)
     mbti = Column(Text, nullable=True)
     jwt_token = Column(Text, nullable=True)
     create_date = Column(DateTime, nullable=False)
