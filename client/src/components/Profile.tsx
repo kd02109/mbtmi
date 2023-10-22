@@ -26,7 +26,7 @@ export default function Profile({
         className="mr-2"
       />
       <div>
-        <h3 className="font-bold text-xl">{name}</h3>
+        <h3 className="font-bold text-xl text-black">{name}</h3>
         {message && answer && (
           <span className="text-sm text-gray-400">
             {answer.length === 0

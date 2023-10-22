@@ -22,7 +22,7 @@ export default function SpeechBubble({
           />
         </div>
       </div>
-      <div className="chat-header">{name}</div>
+      <div className="chat-header text-black">{name}</div>
       <div className="chat-bubble bg-white text-black">{message}</div>
     </div>
   );
