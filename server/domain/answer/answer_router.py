@@ -21,5 +21,4 @@ def answer_create(question_id: int, answer_create: answer_schema.AnswerCreate, _
 @router.get("/visiting", response_model=list[answer_schema.RecentAnswerGet])
 def recent_answer_get(_user_token: Optional[str] = Header(None), db: Session = Depends(get_db)):
     user_data, recent_answer = answer_crud.get_recent_answer(db=db, token=_user_token)
-    print(recent_answer)
     return recent_answer
