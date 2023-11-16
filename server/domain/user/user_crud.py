@@ -8,15 +8,19 @@ from auth.auth_handler import signJWT
 def create_user(db: Session, user_create: UserCreate):
     print("create new user")
     create_date = datetime.now()
-    jwt_token = signJWT(user_create.nickname, create_date)
+    jwt_token = signJWT(user_nickname=user_create.nickname, create_date=create_date)
     db_user = UserTable(gender=user_create.gender,
                         nickname=user_create.nickname,
                         jwt_token=jwt_token['token'],
                         create_date=create_date
                         )
     db.add(db_user)
+    jwt_token = signJWT(user_create.nickname, create_date)
     db.commit()
     return jwt_token
+
+def get_user_by_jwt(db: Session, token):
+    pass
 
 def get_user_mbtmi(user_id: int):
     print('mbtmi')

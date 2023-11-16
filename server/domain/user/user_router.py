@@ -5,7 +5,7 @@ from database import get_db
 from domain.user import user_schema, user_crud
 
 router = APIRouter(
-    prefix="/api/user",
+    prefix="/user",
 )
 
 @router.post("/starting")

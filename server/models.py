@@ -12,18 +12,6 @@ class Question(Base):
     content = Column(Text, nullable=False)
     create_date = Column(DateTime, nullable=False)
 
-
-class Answer(Base):
-    __tablename__ = "answer"
-
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    user_id = Column(Integer, ForeignKey("user.id"))
-    # question_id = Column(Integer, ForeignKey("question.id"))
-    question_id = Column(Integer, nullable=False)
-    content = Column(Text, nullable=False)
-    create_date = Column(DateTime, nullable=False)
-    user = relationship("UserTable", backref="answers")
-
 class UserTable(Base):
     __tablename__ = "user"
 
@@ -34,3 +22,14 @@ class UserTable(Base):
     mbti = Column(Text, nullable=True)
     jwt_token = Column(Text, nullable=True)
     create_date = Column(DateTime, nullable=False)
+    answer = relationship("Answer", backref="users")
+
+class Answer(Base):
+    __tablename__ = "answer"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    user_id = Column(Integer, ForeignKey("user.id"))
+    question_id = Column(Integer, nullable=False)
+    content = Column(Text, nullable=False)
+    create_date = Column(DateTime, nullable=False)
+    user = relationship("UserTable", backref="answers")
