@@ -16,7 +16,7 @@ class UserTable(Base):
     __tablename__ = "user"
 
     id = Column(Integer, primary_key=True, autoincrement=True)
-    gender = Column(Boolean, nullable=False)
+    gender = Column(Text, nullable=False)
     nickname = Column(Text, nullable=False)
     mbtmi = Column(String, nullable=True)
     mbti = Column(Text, nullable=True)
