@@ -1,17 +1,28 @@
 'use client';
+import { useLocalStorage } from '@uidotdev/usehooks';
 import { useRouter } from 'next/navigation';
 import { ChangeEvent, useState } from 'react';
+import { postUser } from '@/api/clientApi';
 import Radio from '@/components/Radio';
+import { VISITED } from '@/config';
+import { Gender } from '@/types/types';
 
 export default function ChoiceSex() {
-  const [sex, setSex] = useState<'man' | 'woman' | ''>('man');
+  const [sex, setSex] = useState<Gender>('man');
   const [nickname, setNickName] = useState('');
+  const [, saveToken] = useLocalStorage('token', null);
+  const [, saveIsVisited] = useLocalStorage('isVisited', null);
   const router = useRouter();
-  const handleSubmit = (e: ChangeEvent<HTMLFormElement>) => {
+
+  const handleSubmit = async (e: ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(e.target);
     if (nickname.trim() === '') alert('Nickname을 작성해주세요!');
-    router.push(`/chating-list`);
+    const jwt = await postUser(nickname, sex);
+    if (jwt) {
+      saveToken(jwt.token);
+      saveIsVisited(VISITED);
+      router.push(`/chating-list`);
+    } else alert('token 생성에 실패했습니다.');
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {

@@ -13,5 +13,14 @@ export type Data = {
   answer: string[];
   profile: string;
 };
+export type Gender = 'man' | 'woman';
+export type DataManOrWoman = Data & { sex: Gender };
 
-export type DataManOrWoman = Data & { sex: 'man' | 'woman' };
+export type ValueOf<T> = T[keyof T];
+
+export type Method = {
+  postStarting: '/user/starting';
+  getMbtmi: '/user/mbtmi';
+  postQuestion: (id: number) => `/answer/message/${typeof id}`;
+  getVisiting: 'answer/visiting';
+};
