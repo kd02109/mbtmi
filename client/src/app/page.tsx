@@ -1,10 +1,24 @@
+'use client';
+
 import ChoiceSex from '@/components/ChoiceSex';
 import Footer from '@/components/layout/Footer';
 import NumberCount from '@/components/NumberCount';
 import Logo from '@/components/svg/Logo';
+import { PATH } from '@/config';
+import useRedirectIfKeyExists from '@/hooks/usePageSwitch';
 
 const NUMBER = 1000;
-export default async function Home() {
+export default function Home() {
+  const isLoading = useRedirectIfKeyExists(PATH.chatingList);
+
+  if (isLoading) {
+    return (
+      <main className="flex w-full min-h-screen max-w-xl m-auto flex-col items-center justify-center">
+        <Logo width="50%" height="50%" style="mb-8" />
+      </main>
+    );
+  }
+
   return (
     <main className="flex w-full min-h-screen max-w-xl m-auto flex-col items-center py-8 px-4 bg-white">
       <Logo width="30%" height="30%" style="mb-8" />

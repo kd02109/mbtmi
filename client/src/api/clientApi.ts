@@ -16,7 +16,7 @@ async function postUser(user: string, sex: Gender) {
     const data = await instance.post<{ token: string }>(
       `${SERVER_URL}${END_POINT.postStarting}`,
       {
-        gender: sex,
+        gender: true,
         nickname: user,
       },
     );
