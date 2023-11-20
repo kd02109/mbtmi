@@ -14,11 +14,14 @@ router = APIRouter(
 )
 
 @router.post("/message/{question_id}")
-def answer_create(question_id: int, answer_create: answer_schema.AnswerCreate, _user_token: Optional[str] = Header(None), db: Session = Depends(get_db)):
+def answer_create(question_id: str, answer_create: answer_schema.AnswerCreate, _user_token: Optional[str] = Header(None), db: Session = Depends(get_db)):
     answer_crud.create_answer(db=db, answer_create=answer_create, token=_user_token, question_id=question_id)
-    return None
+    return -1
 
-@router.get("/visiting", response_model=list[answer_schema.RecentAnswerGet])
+@router.get("/visiting")
 def recent_answer_get(_user_token: Optional[str] = Header(None), db: Session = Depends(get_db)):
     user_data, recent_answer = answer_crud.get_recent_answer(db=db, token=_user_token)
-    return recent_answer
+    return {
+        'user': {'gender': user_data[1], 'nickname': user_data[2]},
+        'answer': recent_answer
+    }
