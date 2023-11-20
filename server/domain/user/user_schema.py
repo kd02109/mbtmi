@@ -4,5 +4,5 @@ class UserCreate(BaseModel):
     gender: str
     nickname: str
 
-class UserGet(UserCreate):
-    id: int
+class MbtiInsert(BaseModel):
+    mbti: str

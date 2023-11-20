@@ -22,7 +22,7 @@ class UserTable(Base):
     mbti = Column(Text, nullable=True)
     jwt_token = Column(Text, nullable=True)
     create_date = Column(DateTime, nullable=False)
-    answer = relationship("Answer", backref="users")
+    # answer = relationship("Answer", backref="users")
 
 class Answer(Base):
     __tablename__ = "answer"
