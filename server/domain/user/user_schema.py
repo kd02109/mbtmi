@@ -1,6 +1,8 @@
 from pydantic import BaseModel
 
-
 class UserCreate(BaseModel):
-    gender: bool
+    gender: str
     nickname: str
+
+class MbtiInsert(BaseModel):
+    mbti: str
