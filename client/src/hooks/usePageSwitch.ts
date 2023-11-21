@@ -1,16 +1,19 @@
 'use client';
 import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import useLocalStorage from '@/hooks/useLocalStorage';
 const useRedirectIfKeyExists = (redirectTo: string) => {
   const [token] = useLocalStorage('token', null);
-  const isLoading = token ? true : false;
+  const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
 
   useEffect(() => {
-    if (token) {
-      router.replace(redirectTo);
-    }
+    if (token) router.replace(redirectTo);
+  }, [token, redirectTo, router]);
+
+  useEffect(() => {
+    if (!token) setIsLoading(false);
+    else if (token) router.replace(redirectTo);
   }, [token, redirectTo, router]);
 
   return isLoading;

@@ -1,8 +1,8 @@
 import { Data } from '@/types/types';
 
-export const questions: Data[] = [
+export const QUESTIONS: Data[] = [
   {
-    id: 'question1',
+    id: '1',
     name: '준석',
     questionMan: ['안녕', '오늘 저녁 뭐 먹을까?'],
     questionWoman: ['안녕', '오늘 저녁 뭐 먹을까?'],
@@ -11,7 +11,7 @@ export const questions: Data[] = [
     profile: '#',
   },
   {
-    id: 'question2',
+    id: '2',
     name: '준석',
     questionMan: ['안녕', '오늘 저녁 뭐 먹을까?'],
     questionWoman: ['안녕', '오늘 저녁 뭐 먹을까?'],
@@ -20,7 +20,7 @@ export const questions: Data[] = [
     profile: '#',
   },
   {
-    id: 'question3',
+    id: '3',
     name: '준석',
     questionMan: ['안녕', '오늘 저녁 뭐 먹을까?'],
     questionWoman: ['안녕', '오늘 저녁 뭐 먹을까?'],
@@ -29,7 +29,7 @@ export const questions: Data[] = [
     profile: '#',
   },
   {
-    id: 'question4',
+    id: '4',
     name: '준석',
     questionMan: ['안녕', '오늘 저녁 뭐 먹을까?'],
     questionWoman: ['안녕', '오늘 저녁 뭐 먹을까?'],
@@ -38,7 +38,7 @@ export const questions: Data[] = [
     profile: '#',
   },
   {
-    id: 'question5',
+    id: '5',
     name: '준석',
     questionMan: ['안녕', '오늘 저녁 뭐 먹을까?'],
     questionWoman: ['안녕', '오늘 저녁 뭐 먹을까?'],
@@ -47,7 +47,7 @@ export const questions: Data[] = [
     profile: '#',
   },
   {
-    id: 'question6',
+    id: '6',
     name: '준석',
     questionMan: ['안녕', '오늘 저녁 뭐 먹을까?'],
     questionWoman: ['안녕', '오늘 저녁 뭐 먹을까?'],

@@ -1,22 +1,26 @@
 import { instance } from '@/api/axios';
 import { END_POINT, SERVER_URL } from '@/api/url';
-import { Gender, Method, ValueOf } from '@/types/types';
+import { Gender, Id, Method, ValueOf } from '@/types/types';
 
 async function getApiWhitToken(method: ValueOf<Method>, jwt: string) {
-  const data = await instance.get(`${SERVER_URL}${method}`, {
-    headers: {
-      _user_token: jwt,
-    },
-  });
-  return data.data;
+  try {
+    const data = await instance.get(`${method}`, {
+      headers: {
+        _user_token: jwt,
+      },
+    });
+    return data.data;
+  } catch (e) {
+    console.log(e);
+  }
 }
 
 async function postUser(user: string, sex: Gender) {
   try {
     const data = await instance.post<{ token: string }>(
-      `${SERVER_URL}${END_POINT.postStarting}`,
+      `${END_POINT.postStarting}`,
       {
-        gender: true,
+        gender: sex,
         nickname: user,
       },
     );
@@ -27,5 +31,25 @@ async function postUser(user: string, sex: Gender) {
   }
 }
 
-export { postUser, getApiWhitToken };
-export const ClientApi = { postUser, getApiWhitToken };
+async function postAnswer(answer: string, id: Id, token: string) {
+  try {
+    const data = await instance.post<{ token: string }>(
+      `${END_POINT.postQuestion(id)}`,
+      {
+        content: answer,
+      },
+      {
+        headers: {
+          _user_token: token,
+        },
+      },
+    );
+    const jwt = data.data;
+    return jwt;
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+export { postUser, getApiWhitToken, postAnswer };
+export const ClientApi = { postUser, getApiWhitToken, postAnswer };

@@ -1,7 +1,8 @@
 import ChatPage from '@/components/chat/ChatPage';
-import { questions } from '@/data/question';
+import { QUESTIONS } from '@/data/question';
 export default function ChatingPage({ params }: { params: { slug: string } }) {
-  const question = questions.find(item => item.id === params.slug)!;
+  const question = QUESTIONS.find(item => item.id === params.slug)!;
+  question.visited = true;
   console.log(question);
   return <ChatPage {...question} />;
 }

@@ -2,6 +2,7 @@
 
 import ChoiceSex from '@/components/ChoiceSex';
 import Footer from '@/components/layout/Footer';
+import Loading from '@/components/Loading';
 import NumberCount from '@/components/NumberCount';
 import Logo from '@/components/svg/Logo';
 import { PATH } from '@/config';
@@ -11,13 +12,7 @@ const NUMBER = 1000;
 export default function Home() {
   const isLoading = useRedirectIfKeyExists(PATH.chatingList);
 
-  if (isLoading) {
-    return (
-      <main className="flex w-full min-h-screen max-w-xl m-auto flex-col items-center justify-center">
-        <Logo width="50%" height="50%" style="mb-8" />
-      </main>
-    );
-  }
+  if (isLoading) return <Loading />;
 
   return (
     <main className="flex w-full min-h-screen max-w-xl m-auto flex-col items-center py-8 px-4 bg-white">

@@ -1,10 +1,10 @@
 'use client';
+import { useLocalStorage } from '@uidotdev/usehooks';
 import { useRouter } from 'next/navigation';
 import { ChangeEvent, useState } from 'react';
 import { postUser } from '@/api/clientApi';
 import Radio from '@/components/Radio';
 import { PATH, VISITED, GENDER } from '@/config';
-import useLocalStorage from '@/hooks/useLocalStorage';
 import { Gender } from '@/types/types';
 
 export default function ChoiceSex() {

@@ -1,22 +1,48 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
+import { postAnswer } from '@/api/clientApi';
 import Chat from '@/components/chat/Chat';
 import SpeechBubble from '@/components/chat/SpeechBubble';
 import ChatingDetailHeader from '@/components/layout/ChatingDetailHeader';
+import useLocalStorage from '@/hooks/useLocalStorage';
 import { Data } from '@/types/types';
 
 export default function ChatPage(prop: Data) {
-  const { name, profile, questionMan, questionWoman } = prop;
+  const { name, profile, questionMan, questionWoman, id, visited } = prop;
+  const [token] = useLocalStorage<null | string>('token', null);
+  const [isVisiting, setIsVisitng] = useState(false);
+  const [, saveVisiting] = useLocalStorage<null | {
+    [key: string]: boolean;
+  }>('isVisited', null);
   const [message, setMessage] = useState('');
-  const [answer, setAnswer] = useState<string[]>([]);
+  const [answers, setAnswers] = useState<string[]>([]);
   const textRef = useRef<HTMLTextAreaElement>(null);
+
+  const handleSendMessage = async () => {
+    setAnswers(prev => [...prev, message]);
+    if (token) await postAnswer(answers[answers.length - 1], id, token);
+    setMessage('');
+    if (textRef.current) textRef.current.focus();
+  };
 
   useEffect(() => {
     if (textRef.current) {
       textRef.current.focus();
     }
   }, []);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsVisitng(true);
+    }, 500);
+    if (isVisiting) {
+      saveVisiting(prev => {
+        return { ...prev, [id]: visited };
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isVisiting]);
 
   return (
     <section className="bg-bgChating flex w-full h-full min-h-screen max-w-xl m-auto flex-col justify-between">
@@ -30,8 +56,8 @@ export default function ChatPage(prop: Data) {
             key={item}
           />
         ))}
-        {answer.length > 0
-          ? answer.map((item, index) => <Chat key={index} message={item} />)
+        {answers.length > 0
+          ? answers.map((item, index) => <Chat key={index} message={item} />)
           : null}
       </section>
       <section className="relative w-full h-full">
@@ -51,11 +77,7 @@ export default function ChatPage(prop: Data) {
             message.trim().length < 1 &&
             'text-gray-300 border-gray-300 bg-white'
           }`}
-          onClick={() => {
-            answer.push(message);
-            setMessage('');
-            if (textRef.current) textRef.current.focus();
-          }}>
+          onClick={handleSendMessage}>
           전송
         </button>
       </section>
