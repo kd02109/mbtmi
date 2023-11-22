@@ -1,4 +1,4 @@
-const SERVER_URL = 'https://mbtmi.site/';
+const SERVER_URL = 'http://127.0.0.1:8000/';
 const END_POINT = Object.freeze({
   postStarting: 'user/starting',
   getMbtmi: 'user/mbtmi',

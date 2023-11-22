@@ -20,8 +20,10 @@ export default function useGetTokenAndVisited() {
         END_POINT.getAnswerVisiting,
         token!,
       );
+      console.log(data);
       return data;
     }
+
     if (token && visited) {
       getData().then(data => {
         const questions = QUESTIONS.map(question => {

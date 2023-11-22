@@ -3,13 +3,13 @@
 import { useState, useRef, useEffect } from 'react';
 import { postAnswer } from '@/api/clientApi';
 import Chat from '@/components/chat/Chat';
-import SpeechBubble from '@/components/chat/SpeechBubble';
+import SelectMessageForm from '@/components/chat/SelectMessageForm';
 import ChatingDetailHeader from '@/components/layout/ChatingDetailHeader';
 import useLocalStorage from '@/hooks/useLocalStorage';
 import { Data } from '@/types/types';
 
 export default function ChatPage(prop: Data) {
-  const { name, profile, questionMan, questionWoman, id, visited } = prop;
+  const { name, profile, questions, id, visited, memberCount } = prop;
   const [token] = useLocalStorage<null | string>('token', null);
   const [isVisiting, setIsVisitng] = useState(false);
   const [, saveVisiting] = useLocalStorage<null | {
@@ -21,7 +21,7 @@ export default function ChatPage(prop: Data) {
 
   const handleSendMessage = async () => {
     setAnswers(prev => [...prev, message]);
-    if (token) await postAnswer(answers[answers.length - 1], id, token);
+    if (token) await postAnswer(message, id, token);
     setMessage('');
     if (textRef.current) textRef.current.focus();
   };
@@ -46,14 +46,14 @@ export default function ChatPage(prop: Data) {
 
   return (
     <section className="bg-bgChating flex w-full h-full min-h-screen max-w-xl m-auto flex-col justify-between">
-      <ChatingDetailHeader name={name} number={2} profile={profile} />
+      <ChatingDetailHeader name={name} number={memberCount} profile={profile} />
       <section className="flex flex-col px-4 my-4 gap-4 grow max-h-[500PX] max-md:max-h-96 overflow-y-auto ">
-        {questionMan.map(item => (
-          <SpeechBubble
-            profile={profile}
+        {questions.map((item, index) => (
+          <SelectMessageForm
+            key={index}
+            item={item}
             name={name}
-            message={item}
-            key={item}
+            profile={profile}
           />
         ))}
         {answers.length > 0

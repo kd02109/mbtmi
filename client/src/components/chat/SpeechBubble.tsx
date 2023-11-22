@@ -1,8 +1,6 @@
 import Image from 'next/image';
-import { $ } from '@/util/core';
 
 export default function SpeechBubble({
-  profile,
   message,
   name,
 }: {

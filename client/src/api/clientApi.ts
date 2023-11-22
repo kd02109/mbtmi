@@ -6,7 +6,7 @@ async function getApiWhitToken(method: ValueOf<Method>, jwt: string) {
   try {
     const data = await instance.get(`${method}`, {
       headers: {
-        _user_token: jwt,
+        '-user-token': jwt,
       },
     });
     return data.data;
@@ -32,8 +32,9 @@ async function postUser(user: string, sex: Gender) {
 }
 
 async function postAnswer(answer: string, id: Id, token: string) {
+  console.log(token, answer, id);
   try {
-    const data = await instance.post<{ token: string }>(
+    const data = await instance.post(
       `${END_POINT.postQuestion(id)}`,
       {
         content: answer,
