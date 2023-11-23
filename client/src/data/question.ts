@@ -114,7 +114,6 @@ export const QUESTIONS: Data[] = [
       {
         type: 'message',
         user: '12기_영훈',
-        message: '사진',
         picture: '/images/welcome.gif',
         time: '18:10',
       },

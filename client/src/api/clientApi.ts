@@ -2,9 +2,9 @@ import { instance } from '@/api/axios';
 import { END_POINT, SERVER_URL } from '@/api/url';
 import { Gender, Id, Method, ValueOf } from '@/types/types';
 
-async function getApiWhitToken(method: ValueOf<Method>, jwt: string) {
+async function getApiWhitToken<T>(method: ValueOf<Method>, jwt: string) {
   try {
-    const data = await instance.get(`${method}`, {
+    const data = await instance.get<T>(`${method}`, {
       headers: {
         '-user-token': jwt,
       },

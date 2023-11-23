@@ -1,16 +1,17 @@
 import Image from 'next/image';
 import Chat from '@/components/chat/Chat';
+import ChatImage from '@/components/chat/ChatImage';
 import SpeechBubble from '@/components/chat/SpeechBubble';
 import SpeechBubbleImage from '@/components/chat/SpeechBubbleImage';
 import { MessageOrDate } from '@/types/types';
 
 type Prop = {
   item: MessageOrDate;
-  name: string;
+  nickname: string;
   profile: string;
 };
 
-export default function SelectMessageForm({ item, name, profile }: Prop) {
+export default function SelectMessageForm({ item, nickname, profile }: Prop) {
   if (item.type === 'message') {
     if (item.message && item.user === 'me') {
       return <Chat message={item.message} />;
@@ -24,17 +25,24 @@ export default function SelectMessageForm({ item, name, profile }: Prop) {
         />
       );
     }
-    if (typeof item.messageFn === 'function') {
-      const message = item.messageFn(name);
+    if (typeof item.messageFn === 'function' && item.user !== 'me') {
+      const message = item.messageFn(nickname);
       return (
         <SpeechBubble profile={profile} name={item.user} message={message} />
       );
     }
-    if (item.picture) {
+    if (typeof item.messageFn === 'function' && item.user === 'me') {
+      const message = item.messageFn(nickname);
+      return <Chat message={message} />;
+    }
+    if (item.picture && item.user !== 'me') {
       return (
         //<Image src={item.picture} alt={'image'} width={100} height={100} />
         <SpeechBubbleImage src={item.picture} name={item.user} />
       );
+    }
+    if (item.picture && item.user === 'me') {
+      return <ChatImage src={item.picture} />;
     }
   } else {
     return (

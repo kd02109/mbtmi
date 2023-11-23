@@ -4,7 +4,6 @@ export type SvgSize = {
   style?: string;
 };
 
-export type Id = '1' | '2' | '3' | '4' | '5' | '6';
 export type Message = {
   type: 'message';
   user: string;
@@ -17,9 +16,9 @@ export type Date = {
   type: 'date';
   date: string;
 };
-
 export type MessageOrDate = Message | Date;
 
+export type Id = '1' | '2' | '3' | '4' | '5' | '6';
 export type Data = {
   id: Id;
   name: string;
@@ -31,7 +30,7 @@ export type Data = {
   memberCount: number;
 };
 export type Gender = 'man' | 'woman';
-export type DataManOrWoman = Data & { sex: Gender };
+export type DataManOrWoman = Data & UserInfo;
 
 export type ValueOf<T> = T[keyof T];
 export type Method = {
@@ -41,27 +40,18 @@ export type Method = {
   getVisiting: 'answer/visiting';
 };
 
+export type UserInfo = {
+  gender: Gender;
+  nickname: string;
+};
 export type AnswerData = {
-  user: {
-    sex: Gender;
-    nickname: string;
-  };
-  '1': {
-    answer: string[];
-  };
-  '2': {
-    answer: string[];
-  };
-  '3': {
-    answer: string[];
-  };
-  '4': {
-    answer: string[];
-  };
-  '5': {
-    answer: string[];
-  };
-  '6': {
-    answer: string[];
+  user: UserInfo;
+  answer: {
+    '1': string[];
+    '2': string[];
+    '3': string[];
+    '4': string[];
+    '5': string[];
+    '6': string[];
   };
 };

@@ -41,7 +41,7 @@ export default function Profile({
       />
       <div>
         <h3 className="font-bold text-lg text-black">{name}</h3>
-        {answer && answer.length > 1 && (
+        {answer && answer.length > 0 && (
           <span className="text-sm text-gray-400">
             {answer[answer.length - 1]}
           </span>

@@ -19,7 +19,10 @@ export default function SpeechBubbleImage({
           />
         </div>
       </div>
-      <div className="chat-header text-black">{name}</div>
+      <div className="chat-header text-black">
+        {name}
+        <time className="text-xs opacity-50">12:45</time>
+      </div>
       <div className="chat-bubble bg-white text-black">
         <Image
           src={src}
