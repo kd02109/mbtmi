@@ -1,9 +1,10 @@
 import React, { ChangeEvent } from 'react';
+import { Gender } from '@/types/types';
 
 type Prop = {
   handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  sex: string;
-  value: 'woman' | 'man';
+  sex: Gender;
+  value: Gender;
 };
 
 export default function Radio({ handleChange, sex, value }: Prop) {

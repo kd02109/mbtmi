@@ -1,8 +1,5 @@
-import Image from 'next/image';
 import Chat from '@/components/chat/Chat';
-import ChatImage from '@/components/chat/ChatImage';
 import SpeechBubble from '@/components/chat/SpeechBubble';
-import SpeechBubbleImage from '@/components/chat/SpeechBubbleImage';
 import { MessageOrDate } from '@/types/types';
 
 type Prop = {
@@ -14,7 +11,7 @@ type Prop = {
 export default function SelectMessageForm({ item, nickname, profile }: Prop) {
   if (item.type === 'message') {
     if (item.message && item.user === 'me') {
-      return <Chat message={item.message} />;
+      return <Chat message={item.message} time={item.time} />;
     }
     if (item.message && item.user !== 'me') {
       return (
@@ -22,27 +19,37 @@ export default function SelectMessageForm({ item, nickname, profile }: Prop) {
           profile={profile}
           name={item.user}
           message={item.message}
+          time={item.time}
         />
       );
     }
     if (typeof item.messageFn === 'function' && item.user !== 'me') {
       const message = item.messageFn(nickname);
       return (
-        <SpeechBubble profile={profile} name={item.user} message={message} />
+        <SpeechBubble
+          profile={profile}
+          name={item.user}
+          message={message}
+          time={item.time}
+        />
       );
     }
     if (typeof item.messageFn === 'function' && item.user === 'me') {
       const message = item.messageFn(nickname);
-      return <Chat message={message} />;
+      return <Chat message={message} time={item.time} />;
     }
     if (item.picture && item.user !== 'me') {
       return (
-        //<Image src={item.picture} alt={'image'} width={100} height={100} />
-        <SpeechBubbleImage src={item.picture} name={item.user} />
+        <SpeechBubble
+          image={item.picture}
+          name={item.user}
+          time={item.time}
+          profile={profile}
+        />
       );
     }
     if (item.picture && item.user === 'me') {
-      return <ChatImage src={item.picture} />;
+      return <Chat image={item.picture} time={item.time} />;
     }
   } else {
     return (
