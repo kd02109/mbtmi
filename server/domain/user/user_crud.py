@@ -17,7 +17,6 @@ def create_user(db: Session, user_create: UserCreate):
                         create_date=create_date
                         )
     db.add(db_user)
-    jwt_token = signJWT(user_create.nickname, create_date)
     db.commit()
     return jwt_token
 
