@@ -1,6 +1,7 @@
 import Chat from '@/components/chat/Chat';
 import SpeechBubble from '@/components/chat/SpeechBubble';
 import { MessageOrDate } from '@/types/types';
+import changeKrTime from '@/util/changeKrTime';
 
 type Prop = {
   item: MessageOrDate;
@@ -10,8 +11,9 @@ type Prop = {
 
 export default function SelectMessageForm({ item, nickname, profile }: Prop) {
   if (item.type === 'message') {
+    const time = changeKrTime(item.time);
     if (item.message && item.user === 'me') {
-      return <Chat message={item.message} time={item.time} />;
+      return <Chat message={item.message} time={time} />;
     }
     if (item.message && item.user !== 'me') {
       return (
@@ -19,7 +21,7 @@ export default function SelectMessageForm({ item, nickname, profile }: Prop) {
           profile={profile}
           name={item.user}
           message={item.message}
-          time={item.time}
+          time={time}
         />
       );
     }
@@ -30,26 +32,26 @@ export default function SelectMessageForm({ item, nickname, profile }: Prop) {
           profile={profile}
           name={item.user}
           message={message}
-          time={item.time}
+          time={time}
         />
       );
     }
     if (typeof item.messageFn === 'function' && item.user === 'me') {
       const message = item.messageFn(nickname);
-      return <Chat message={message} time={item.time} />;
+      return <Chat message={message} time={time} />;
     }
     if (item.picture && item.user !== 'me') {
       return (
         <SpeechBubble
           image={item.picture}
           name={item.user}
-          time={item.time}
+          time={time}
           profile={profile}
         />
       );
     }
     if (item.picture && item.user === 'me') {
-      return <Chat image={item.picture} time={item.time} />;
+      return <Chat image={item.picture} time={time} />;
     }
   } else {
     return (

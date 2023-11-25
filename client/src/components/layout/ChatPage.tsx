@@ -79,9 +79,7 @@ export default function ChatPage({ pageId, isVisited }: Prop) {
             />
           ))}
           {answers.length > 0
-            ? answers.map((item, index) => (
-                <Chat key={index} message={item} time={'time'} />
-              ))
+            ? answers.map((item, index) => <Chat key={index} message={item} />)
             : null}
         </section>
         <section className="relative w-full h-full">

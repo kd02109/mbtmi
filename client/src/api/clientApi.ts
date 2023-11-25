@@ -15,6 +15,15 @@ async function getApiWhitToken<T>(method: ValueOf<Method>, jwt: string) {
   }
 }
 
+async function getUserNumber() {
+  try {
+    const data = await instance.get<{ number: number }>(END_POINT.userNumber);
+    return data.data.number;
+  } catch (e) {
+    console.log(e);
+  }
+}
+
 async function postUser(user: string, sex: Gender) {
   try {
     const data = await instance.post<{ token: string }>(
@@ -52,5 +61,28 @@ async function postAnswer(answer: string, id: Id, token: string) {
   }
 }
 
-export { postUser, getApiWhitToken, postAnswer };
-export const ClientApi = { postUser, getApiWhitToken, postAnswer };
+async function postResult(token: string) {
+  try {
+    const data = await instance.post<{ mbtmi: string }>(
+      `${SERVER_URL}${END_POINT.postResult}`,
+      {},
+      {
+        headers: {
+          _user_token: token,
+        },
+      },
+    );
+    return data.data;
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+export { postUser, getApiWhitToken, postAnswer, getUserNumber, postResult };
+export const ClientApi = {
+  postUser,
+  getApiWhitToken,
+  postAnswer,
+  getUserNumber,
+  postResult,
+};

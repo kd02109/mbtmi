@@ -6,13 +6,14 @@ import Loading from '@/components/Loading';
 import NumberCount from '@/components/NumberCount';
 import Logo from '@/components/svg/Logo';
 import { PATH } from '@/config';
+import useGetNumber from '@/hooks/useGetNumber';
 import useRedirectIfKeyExists from '@/hooks/usePageSwitch';
 
 const NUMBER = 1000;
 export default function Home() {
   const isLoading = useRedirectIfKeyExists(PATH.chatingList);
-
-  if (isLoading) return <Loading />;
+  const [isNumberLoading, userNumber] = useGetNumber();
+  if (isLoading || isNumberLoading) return <Loading />;
 
   return (
     <main className="flex w-full min-h-screen max-w-xl m-auto flex-col items-center py-8 px-4 bg-white">
@@ -21,7 +22,7 @@ export default function Home() {
         <p className="text-center font-bold text-base leading-8">
           대화에 참여하고 자유롭게 답해주세요! <br></br>
           당신의 MBTI를 확인해보세요! <br></br>
-          현재 <NumberCount number={NUMBER} />
+          현재 <NumberCount number={NUMBER + userNumber} />
           명이 참여했어요!
         </p>
       </section>

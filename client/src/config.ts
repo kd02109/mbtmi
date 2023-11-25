@@ -1,11 +1,12 @@
-const CONFIG = {
+const CONFIG = Object.freeze({
   info: {
     github: 'https://github.com/kd02109/mbtmi',
     notion: 'https://www.notion.so/MBTMI-0cfcd7f18fca4719ace3d62d65abfb22',
   },
   copyright: 'mbtmi All rights reserved.',
+  title: 'mbtmi',
   since: 2023,
-};
+});
 
 const VISITED = {
   '1': false,
@@ -16,22 +17,17 @@ const VISITED = {
   '6': false,
 };
 
-const PATH = {
+const PATH = Object.freeze({
   chatingList: '/chating-list',
-  question1: '/question1',
-  question2: '/question2',
-  question3: '/question3',
-  question4: '/question4',
-  question5: '/question5',
-  question6: '/question6',
-};
+  loading: '/loading',
+});
 
 const GENDER: {
   man: 'man';
   woman: 'woman';
-} = {
+} = Object.freeze({
   man: 'man',
   woman: 'woman',
-};
+});
 export const CONSTANT = { CONFIG, VISITED, PATH, GENDER };
 export { CONFIG, VISITED, PATH, GENDER };
