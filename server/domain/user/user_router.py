@@ -16,9 +16,10 @@ def user_create(_user_create: user_schema.UserCreate, db: Session = Depends(get_
 
 @router.post("/answers")
 def mbtmi_update(_user_token: Optional[str] = Header(None), db: Session = Depends(get_db)):
-    user_crud.update_user_mbtmi(db=db, token=_user_token)
+    user_data = user_crud.update_user_mbtmi(db=db, token=_user_token)
     return {
-        'done': True
+        'done': True,
+        'user': {'gender': user_data.gender, 'nickname': user_data.nickname, 'mbtmi': user_data.mbtmi}
     }
 
 @router.patch("/mbti")
