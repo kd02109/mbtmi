@@ -30,7 +30,7 @@ def update_user_mbtmi(db: Session, token):
     user_data.mbtmi = 'ENTP'
     db.add(user_data)
     db.commit()
-    return -1
+    return user_data
 
 def update_user_mbti(db: Session, mbti_insert, token):
     user_data = db.query(UserTable).filter(UserTable.jwt_token == token).first()
