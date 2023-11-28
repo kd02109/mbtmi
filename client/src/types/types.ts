@@ -44,6 +44,7 @@ export type UserInfo = {
   gender: Gender;
   nickname: string;
 };
+
 export type AnswerData = {
   user: UserInfo;
   answer: {
@@ -53,5 +54,14 @@ export type AnswerData = {
     '4': string[];
     '5': string[];
     '6': string[];
+  };
+};
+
+export type MbtmiResult = {
+  done: boolean;
+  user: {
+    gender: Gender;
+    nickname: string;
+    mbtmi: string;
   };
 };

@@ -1,6 +1,6 @@
 import { instance } from '@/api/axios';
 import { END_POINT, SERVER_URL } from '@/api/url';
-import { Gender, Id, Method, ValueOf } from '@/types/types';
+import { Gender, Id, MbtmiResult, Method, ValueOf } from '@/types/types';
 
 async function getApiWhitToken<T>(method: ValueOf<Method>, jwt: string) {
   try {
@@ -41,7 +41,6 @@ async function postUser(user: string, sex: Gender) {
 }
 
 async function postAnswer(answer: string, id: Id, token: string) {
-  console.log(token, answer, id);
   try {
     const data = await instance.post(
       `${END_POINT.postQuestion(id)}`,
@@ -50,7 +49,7 @@ async function postAnswer(answer: string, id: Id, token: string) {
       },
       {
         headers: {
-          _user_token: token,
+          '-user-token': token,
         },
       },
     );
@@ -63,12 +62,12 @@ async function postAnswer(answer: string, id: Id, token: string) {
 
 async function postResult(token: string) {
   try {
-    const data = await instance.post<{ mbtmi: string }>(
+    const data = await instance.post<MbtmiResult>(
       `${SERVER_URL}${END_POINT.postResult}`,
       {},
       {
         headers: {
-          _user_token: token,
+          '-user-token': token,
         },
       },
     );

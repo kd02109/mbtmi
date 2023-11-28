@@ -1,9 +1,11 @@
 'use client';
+
 import { useState, useEffect } from 'react';
 import { getApiWhitToken } from '@/api/clientApi';
 import { END_POINT } from '@/api/url';
 import { QUESTIONS } from '@/data/question';
 import useLocalStorage from '@/hooks/useLocalStorage';
+import useRedirect from '@/hooks/useRedirect';
 import { AnswerData, Data, Id, UserInfo } from '@/types/types';
 
 export default function useGetOneAnswer(id: Id): [boolean, Data, UserInfo] {
@@ -18,6 +20,9 @@ export default function useGetOneAnswer(id: Id): [boolean, Data, UserInfo] {
     gender: 'man',
     nickname: 'person',
   });
+
+  useRedirect(token, visited);
+
   useEffect(() => {
     async function getData() {
       const data = await getApiWhitToken<AnswerData>(

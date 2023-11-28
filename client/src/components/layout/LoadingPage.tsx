@@ -1,15 +1,15 @@
 'use client';
 
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import useGetMbtmi from '@/hooks/useGetMbtmi';
 export default function LoadingPage() {
   const router = useRouter();
-  const mbtmi = useGetMbtmi();
+  const data = useGetMbtmi();
   useEffect(() => {
-    if (mbtmi) {
-      router.push(`/${mbtmi}`);
+    if (data?.user.mbtmi) {
+      router.push(`/${data?.user.mbtmi}`);
     }
-  }, [mbtmi, router]);
+  }, [data, router]);
   return <div>Loading</div>;
 }

@@ -1,10 +1,11 @@
 'use client';
-import { useRouter } from 'next/navigation';
+
 import { useState, useEffect } from 'react';
 import { getApiWhitToken } from '@/api/clientApi';
 import { END_POINT } from '@/api/url';
 import { QUESTIONS } from '@/data/question';
 import useLocalStorage from '@/hooks/useLocalStorage';
+import useRedirect from '@/hooks/useRedirect';
 import { AnswerData, Data, UserInfo } from '@/types/types';
 export default function useGetTokenAndVisited(): [
   boolean,
@@ -13,21 +14,22 @@ export default function useGetTokenAndVisited(): [
   string,
 ] {
   const [isLoading, setIsLoading] = useState(true);
-  const [token, saveToken] = useLocalStorage<null | string>('token', null);
-  const [visited, saveVisited] = useLocalStorage<null | {
-    [key: string]: boolean;
-  }>('isVisited', null);
+  const [token] = useLocalStorage<null | string>('token', null);
+  const [visited] = useLocalStorage<null | { [key: string]: boolean }>(
+    'isVisited',
+    null,
+  );
   const [questions, setQuestion] = useState<Data[]>([]);
   const [userInfo, setUserInfo] = useState<UserInfo>({
     gender: 'man',
     nickname: 'person',
   });
-  const router = useRouter();
 
+  useRedirect(token, visited);
   useEffect(() => {
     if (token && visited) {
-      getApiWhitToken<AnswerData>(END_POINT.getAnswerVisiting, token!)
-        .then(data => {
+      getApiWhitToken<AnswerData>(END_POINT.getAnswerVisiting, token!).then(
+        data => {
           const questions = QUESTIONS.map(question => {
             question.visited = visited[question.id];
             const answers = data?.answer[question.id];
@@ -44,15 +46,10 @@ export default function useGetTokenAndVisited(): [
 
           setQuestion(questions);
           setIsLoading(false);
-        })
-        .catch(() => {
-          alert('유저정보를 불러오는 것에 실패했습니다..');
-          saveToken(null);
-          saveVisited(null);
-          router.push('/');
-        });
+        },
+      );
     }
-  }, [token, visited, router]);
+  }, [token, visited]);
 
   return [isLoading, questions, userInfo, token!];
 }

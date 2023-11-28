@@ -9,6 +9,7 @@ import useGetTokenAndVisited from '@/hooks/useGetAnswer';
 export default function ChatingList() {
   // 전체 정보 받아오기
   const [isLoading, question, userInfo, token] = useGetTokenAndVisited();
+
   //const isLoading = false;
   if (isLoading) return <Loading />;
 

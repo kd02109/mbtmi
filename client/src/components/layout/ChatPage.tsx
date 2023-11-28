@@ -42,7 +42,7 @@ export default function ChatPage({ pageId, isVisited }: Prop) {
   }, []);
 
   useEffect(() => {
-    setTimeout(() => {
+    const id = setTimeout(() => {
       setIsVisitng(true);
     }, 500);
     if (isVisiting) {
@@ -50,13 +50,18 @@ export default function ChatPage({ pageId, isVisited }: Prop) {
         return { ...prev, [pageId]: isVisited };
       });
     }
+
+    return () => {
+      clearTimeout(id);
+    };
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isVisiting]);
 
   useEffect(() => {
-    if (isLoading && question) {
-      console.log(question);
-      setAnswers(question.answer);
+    if (!isLoading && question) {
+      console.log('done');
+      setAnswers([...question.answer]);
     }
   }, [isLoading, question]);
 
