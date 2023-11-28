@@ -7,21 +7,20 @@ export default function ChatContainer(prop: DataManOrWoman) {
   const {
     profile,
     name,
-    questionMan,
-    questionWoman,
+    questions,
     visited,
     answer,
     id,
-    sex,
+    newMessage,
+    nickname,
   } = prop;
 
-  const message = sex === 'man' ? questionMan : questionWoman;
-
   return (
-    <Link href={`/chating-list/${id}`}>
+    <Link
+      href={{ pathname: `/chating-list/${id}`, query: { nickname: nickname } }}>
       <article className="w-full flex justify-between items-center mb-2 hover:bg-bgGray p-4">
-        <Profile profile="#" name={name} message={message} answer={answer} />
-        {!visited && <NewCircle number={message.length} />}
+        <Profile profile="#" name={name} message={questions} answer={answer} />
+        {!visited && <NewCircle number={newMessage} />}
       </article>
     </Link>
   );
