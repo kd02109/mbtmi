@@ -55,7 +55,7 @@ export default function ChatPage({ pageId, isVisited }: Prop) {
     if (chatDivRef.current) {
       chatDivRef.current.scrollTop = chatDivRef.current.scrollHeight;
     }
-  }, []);
+  }, [answers]);
 
   if (isLoading) return <Loading />;
   else {
