@@ -15,7 +15,7 @@ export default function ChatingDetailHeader({
   const router = useRouter();
 
   return (
-    <header className="w-full p-2 sticky top-0 flex z-10 bg-bgChating">
+    <header className="w-full p-2 fixed top-0 flex z-10 bg-bgChating ">
       <button className="mr-4" onClick={() => router.push(`/chating-list`)}>
         <Back />
       </button>
