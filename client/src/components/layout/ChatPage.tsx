@@ -31,6 +31,9 @@ export default function ChatPage({ pageId, isVisited }: Prop) {
     if (token) await postAnswer(message, question.id, token);
     setMessage('');
     if (textRef.current) textRef.current.focus();
+    if (chatDivRef.current) {
+      chatDivRef.current.scrollTop = chatDivRef.current.scrollHeight;
+    }
   };
 
   useEffect(() => {
@@ -52,7 +55,7 @@ export default function ChatPage({ pageId, isVisited }: Prop) {
     if (chatDivRef.current) {
       chatDivRef.current.scrollTop = chatDivRef.current.scrollHeight;
     }
-  }, [answers]);
+  }, []);
 
   if (isLoading) return <Loading />;
   else {
@@ -85,7 +88,7 @@ export default function ChatPage({ pageId, isVisited }: Prop) {
               setMessage(e.target.value);
             }}
             rows={3}
-            className="w-full pr-24 pl-4 py-2 focus:outline-none resize-none scroll-div"
+            className="w-full pr-24 pl-4 py-2 focus:outline-none resize-none scroll-div bg-white"
             autoFocus
             ref={textRef}
           />
