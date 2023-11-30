@@ -16,14 +16,14 @@ export default function ChatingList() {
   return (
     <>
       <ChatingHeader />
-      <article className="w-full h-full">
-        <section className="w-full h-full p-4 font-bold mb-2 border-solid border-2">
+      <article className="w-full h-full relative">
+        <section className="w-full h-full p-4 font-bold mb-2">
           광고 구역
         </section>
-        {question.map(item => (
-          <ChatContainer key={item.id} {...item} {...userInfo} />
-        ))}
-        <div className="flex justify-center">
+        <div>
+          {question.map(item => (
+            <ChatContainer key={item.id} {...item} {...userInfo} />
+          ))}
           <SubmitBtn data={question} token={token} />
         </div>
       </article>

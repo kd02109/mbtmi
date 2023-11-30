@@ -21,11 +21,9 @@ export default function SubmitBtn({ data, token }: Prop) {
     }
   };
   return (
-    <div className="relative flex justify-center items-center">
+    <div className="flex justify-center items-center mb-4 sticky bottom-2">
       <button
-        className={
-          'p-3 w-[300px] mb-4 rounded-lg font-bold mt-6 bg-red-400 text-white hover:bg-bgGray hover:text-red-400 transition hover:shadow-lg'
-        }
+        className="p-3 w-[300px] rounded-lg font-bold  bg-red-400 text-white hover:bg-bgGray hover:text-red-400 transition hover:shadow-lg"
         onClick={handleBtn}>
         TEST
       </button>

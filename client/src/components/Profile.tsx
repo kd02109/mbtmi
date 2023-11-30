@@ -40,14 +40,20 @@ export default function Profile({
         className="mr-2"
       />
       <div>
-        <h3 className="font-bold text-lg text-black">{name}</h3>
+        <h3 className="font-bold text-lg text-black ">{name}</h3>
         {answer && answer.length > 0 && (
-          <span className="text-sm text-gray-400">
-            {answer[answer.length - 1]}
+          <span className="text-sm text-gray-400 truncate">
+            {answer[answer.length - 1].length > 20
+              ? `${answer[answer.length - 1].slice(0, 20)}...`
+              : answer[answer.length - 1]}
           </span>
         )}
         {answer && answer.length < 1 && (
-          <span className="text-sm text-gray-400">{lastMessage}</span>
+          <span className="text-sm text-gray-400 truncate">
+            {lastMessage.length > 20
+              ? `${lastMessage.slice(0, 20)}...`
+              : lastMessage}
+          </span>
         )}
         {number && (
           <div className="flex items-center">
