@@ -60,14 +60,14 @@ export default function ChatPage({ pageId, isVisited }: Prop) {
   if (isLoading) return <Loading />;
   else {
     return (
-      <section className="bg-bgChating flex w-full h-full min-h-screen max-w-xl flex-col justify-between">
+      <section className="bg-bgChating flex min-h-screen max-w-xl flex-col justify-between">
         <ChatingDetailHeader
           name={question.name}
           number={question.memberCount}
           profile={question.profile}
         />
         <section
-          className="flex flex-col px-4 gap-2 max-h-96 grow max-md:max-h-96 overflow-y-auto scroll-div"
+          className="flex flex-col px-4 gap-2 max-h-[75vh] grow overflow-y-auto scroll-div"
           ref={chatDivRef}>
           {question.questions.map((item, index) => (
             <SelectMessageForm
