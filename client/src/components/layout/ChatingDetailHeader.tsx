@@ -21,7 +21,7 @@ export default forwardRef(function ChatingDetailHeader(
   return (
     <header
       ref={forwardRef}
-      className="w-full h-[10vh] p-2 sticky top-0 flex z-10 bg-bgChating min-w-40">
+      className="w-full p-2 sticky top-0 flex z-10 bg-bgChating min-w-40">
       <button className="mr-4" onClick={() => router.push(`/chating-list`)}>
         <Back />
       </button>

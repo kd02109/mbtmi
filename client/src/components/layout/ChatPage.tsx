@@ -53,14 +53,6 @@ export default function ChatPage({ pageId, isVisited }: Prop) {
     if (chatDivRef.current) {
       chatDivRef.current.scrollTop = chatDivRef.current.scrollHeight;
     }
-    if (textRef.current && headerRef.current) {
-      window.addEventListener('focus', () => {
-        window.scrollTo({
-          top: headerRef.current?.offsetHeight,
-          behavior: 'smooth',
-        });
-      });
-    }
   }, [answers]);
 
   if (isLoading) return <Loading />;
