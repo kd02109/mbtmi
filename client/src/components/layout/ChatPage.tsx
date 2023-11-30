@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useEffect, useLayoutEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { postAnswer } from '@/api/clientApi';
 import Chat from '@/components/chat/Chat';
 import SelectMessageForm from '@/components/chat/SelectMessageForm';
@@ -48,7 +48,7 @@ export default function ChatPage({ pageId, isVisited }: Prop) {
     [isLoading, question],
   );
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (chatDivRef.current) {
       chatDivRef.current.scrollTop = chatDivRef.current.scrollHeight;
     }
@@ -64,7 +64,7 @@ export default function ChatPage({ pageId, isVisited }: Prop) {
           profile={question.profile}
         />
         <section
-          className="flex flex-col px-4 gap-2 max-h-[70vh] grow overflow-y-auto scroll-div"
+          className="flex flex-col px-4 gap-2 max-h-[75vh] grow overflow-y-auto scroll-div"
           ref={chatDivRef}>
           {question.questions.map((item, index) => (
             <SelectMessageForm
