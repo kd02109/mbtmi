@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useLayoutEffect } from 'react';
 import { postAnswer } from '@/api/clientApi';
 import Chat from '@/components/chat/Chat';
 import SelectMessageForm from '@/components/chat/SelectMessageForm';
@@ -48,7 +48,7 @@ export default function ChatPage({ pageId, isVisited }: Prop) {
     [isLoading, question],
   );
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (chatDivRef.current) {
       chatDivRef.current.scrollTop = chatDivRef.current.scrollHeight;
     }
@@ -57,14 +57,14 @@ export default function ChatPage({ pageId, isVisited }: Prop) {
   if (isLoading) return <Loading />;
   else {
     return (
-      <section className="bg-bgChating flex min-h-screen max-w-xl flex-col justify-between">
+      <section className="bg-bgChating flex w-full min-h-screen max-h-screen max-w-xl min-w-xl flex-col justify-between">
         <ChatingDetailHeader
           name={question.name}
           number={question.memberCount}
           profile={question.profile}
         />
         <section
-          className="flex flex-col px-4 gap-2 max-h-[75vh] grow overflow-y-auto scroll-div"
+          className="flex flex-col px-4 gap-2 max-h-[70vh] grow overflow-y-auto scroll-div"
           ref={chatDivRef}>
           {question.questions.map((item, index) => (
             <SelectMessageForm
@@ -78,7 +78,7 @@ export default function ChatPage({ pageId, isVisited }: Prop) {
             ? answers.map((item, index) => <Chat key={index} message={item} />)
             : null}
         </section>
-        <section className="relative w-full h-full bg-white">
+        <section className="relative w-full bg-white">
           <textarea
             value={message}
             onChange={e => {

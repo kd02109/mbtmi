@@ -12,7 +12,7 @@ export default function SlugLayout({
   children: React.ReactNode;
 }) {
   return (
-    <main className="flex w-full h-full min-h-screen max-w-xl mx-auto flex-col items-center  bg-white">
+    <main className="flex w-full min-h-screen max-h-screen max-w-xl mx-auto flex-col items-center  bg-white">
       {children}
     </main>
   );
