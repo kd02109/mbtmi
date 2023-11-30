@@ -8,6 +8,7 @@ import ChatingDetailHeader from '@/components/layout/ChatingDetailHeader';
 import Loading from '@/components/Loading';
 import useGetOneAnswer from '@/hooks/useGetOneAnswer';
 import useLocalStorage from '@/hooks/useLocalStorage';
+import useSetVisited from '@/hooks/useSetVisited';
 import { Id } from '@/types/types';
 
 type Prop = {
@@ -17,16 +18,13 @@ type Prop = {
 
 export default function ChatPage({ pageId, isVisited }: Prop) {
   const [isLoading, question, userInfo] = useGetOneAnswer(pageId);
-
-  const [isVisiting, setIsVisitng] = useState(false);
-  const [, saveVisiting] = useLocalStorage<null | {
-    [key: string]: boolean;
-  }>('isVisited', null);
   const [token] = useLocalStorage<null | string>('token', null);
-
   const [message, setMessage] = useState('');
   const [answers, setAnswers] = useState<string[]>([]);
   const textRef = useRef<HTMLTextAreaElement>(null);
+  const chatDivRef = useRef<HTMLTableSectionElement>(null);
+
+  useSetVisited(isVisited, pageId);
 
   const handleSendMessage = async () => {
     setAnswers(prev => [...prev, message]);
@@ -41,40 +39,33 @@ export default function ChatPage({ pageId, isVisited }: Prop) {
     }
   }, []);
 
-  useEffect(() => {
-    const id = setTimeout(() => {
-      setIsVisitng(true);
-    }, 500);
-    if (isVisiting) {
-      saveVisiting(prev => {
-        return { ...prev, [pageId]: isVisited };
-      });
-    }
-
-    return () => {
-      clearTimeout(id);
-    };
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isVisiting]);
+  useEffect(
+    function fillAnswers() {
+      if (!isLoading && question) {
+        setAnswers([...question.answer]);
+      }
+    },
+    [isLoading, question],
+  );
 
   useEffect(() => {
-    if (!isLoading && question) {
-      console.log('done');
-      setAnswers([...question.answer]);
+    if (chatDivRef.current) {
+      chatDivRef.current.scrollTop = chatDivRef.current.scrollHeight;
     }
-  }, [isLoading, question]);
+  }, [answers]);
 
   if (isLoading) return <Loading />;
   else {
     return (
-      <section className="bg-bgChating flex w-full h-full min-h-screen max-w-xl m-auto flex-col justify-between">
+      <section className="bg-bgChating flex w-full h-full min-h-screen max-w-xl flex-col justify-between">
         <ChatingDetailHeader
           name={question.name}
           number={question.memberCount}
           profile={question.profile}
         />
-        <section className="flex flex-col px-4 my-4 gap-4 grow max-h-[500PX] max-md:max-h-96 overflow-y-auto ">
+        <section
+          className="flex flex-col px-4 gap-2 max-h-96 grow max-md:max-h-96 overflow-y-auto scroll-div"
+          ref={chatDivRef}>
           {question.questions.map((item, index) => (
             <SelectMessageForm
               key={index}
@@ -87,14 +78,14 @@ export default function ChatPage({ pageId, isVisited }: Prop) {
             ? answers.map((item, index) => <Chat key={index} message={item} />)
             : null}
         </section>
-        <section className="relative w-full h-full">
+        <section className="relative w-full h-full bg-white">
           <textarea
             value={message}
             onChange={e => {
               setMessage(e.target.value);
             }}
-            rows={4}
-            className="w-full pr-20 pl-4 py-2 focus:outline-none resize-none bg-white"
+            rows={3}
+            className="w-full pr-24 pl-4 py-2 focus:outline-none resize-none scroll-div"
             autoFocus
             ref={textRef}
           />
