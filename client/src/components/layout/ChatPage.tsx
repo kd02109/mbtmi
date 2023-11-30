@@ -23,6 +23,7 @@ export default function ChatPage({ pageId, isVisited }: Prop) {
   const [answers, setAnswers] = useState<string[]>([]);
   const textRef = useRef<HTMLTextAreaElement>(null);
   const chatDivRef = useRef<HTMLTableSectionElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
 
   useSetVisited(isVisited, pageId);
 
@@ -52,6 +53,14 @@ export default function ChatPage({ pageId, isVisited }: Prop) {
     if (chatDivRef.current) {
       chatDivRef.current.scrollTop = chatDivRef.current.scrollHeight;
     }
+    if (textRef.current && headerRef.current) {
+      window.addEventListener('focus', () => {
+        window.scrollTo({
+          top: headerRef.current?.offsetHeight,
+          behavior: 'smooth',
+        });
+      });
+    }
   }, [answers]);
 
   if (isLoading) return <Loading />;
@@ -62,6 +71,7 @@ export default function ChatPage({ pageId, isVisited }: Prop) {
           name={question.name}
           number={question.memberCount}
           profile={question.profile}
+          ref={headerRef}
         />
         <section
           className="flex flex-col px-4 gap-2 max-h-[80vh] grow overflow-y-auto scroll-div"

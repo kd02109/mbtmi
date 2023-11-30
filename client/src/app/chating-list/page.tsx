@@ -16,10 +16,8 @@ export default function ChatingList() {
   return (
     <>
       <ChatingHeader />
-      <article className="w-full h-full relative">
-        <section className="w-full h-full p-4 font-bold mb-2">
-          광고 구역
-        </section>
+      <article className="w-full relative">
+        <section className="w-full p-4 font-bold mb-2">광고 구역</section>
         <div>
           {question.map(item => (
             <ChatContainer key={item.id} {...item} {...userInfo} />
