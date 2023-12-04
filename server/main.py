@@ -1,3 +1,4 @@
+import sys
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 
@@ -9,7 +10,7 @@ app = FastAPI()
 
 origins = [
     "http://localhost:3000",
-    "https://mbtmi.vercel.app/"
+    "https://mbtmi.vercel.app"
 ]
 
 app.add_middleware(
@@ -19,6 +20,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 # app.include_router(question_router.router)
 app.include_router(user_router.router)
