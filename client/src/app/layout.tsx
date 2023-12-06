@@ -1,12 +1,23 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Open_Sans } from 'next/font/google';
+import { CONFIG } from '@/config';
+
+declare global {
+  interface Window {
+    Kakao: any;
+  }
+}
 
 const openSans = Open_Sans({ subsets: ['latin'] });
 export const metadata: Metadata = {
-  title: 'mbtmi',
-  description:
-    '기존의 O,X 선택지에서 벗어나 정확도가 높은 대화형 mbti app 구현을 목표로 합니다',
+  title: CONFIG.title,
+  description: CONFIG.description,
+  openGraph: {
+    title: `${CONFIG.title}/chating-list`,
+    description: CONFIG.description,
+    images: 'https://source.unsplash.com/random/300×300',
+  },
 };
 
 export default function RootLayout({
@@ -15,8 +26,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="kn">
-      <body className={`${openSans.className} bg-bgGray`}>{children}</body>
+    <html lang="kn" className="bg-bgGray">
+      <head>
+        <script
+          defer
+          src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+      </head>
+      <body className={`${openSans.className}`}>{children}</body>
     </html>
   );
 }

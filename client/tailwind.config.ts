@@ -10,7 +10,8 @@ const config: Config = {
     extend: {
       colors: {
         bgGray: '#f5f5f5',
-        bgChating: '#AFC0CF',
+        bgChating: '#D5EBFF',
+        bgBrown: '#401D1D',
       },
     },
   },
