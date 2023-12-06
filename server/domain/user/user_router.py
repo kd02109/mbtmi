@@ -4,6 +4,7 @@ from typing import Optional, Union
 from fastapi.encoders import jsonable_encoder
 from database import get_db
 from domain.user import user_schema, user_crud
+from model.MBTI_classifier_CPU import MBTISentimentPredictor, get_model
 
 router = APIRouter(
     prefix="/user",
@@ -14,9 +15,17 @@ def user_create(_user_create: user_schema.UserCreate, db: Session = Depends(get_
     user_token = user_crud.create_user(db=db, user_create=_user_create)
     return user_token
 
+# @router.post("/answers")
+# def mbtmi_update(_user_token: Optional[str] = Header(None), db: Session = Depends(get_db)):
+#     user_data = user_crud.update_user_mbtmi(db=db, token=_user_token)
+#     return {
+#         'done': True,
+#         'user': {'gender': user_data.gender, 'nickname': user_data.nickname, 'mbtmi': user_data.mbtmi}
+#     }
+
 @router.post("/answers")
-def mbtmi_update(_user_token: Optional[str] = Header(None), db: Session = Depends(get_db)):
-    user_data = user_crud.update_user_mbtmi(db=db, token=_user_token)
+def mbtmi_update(_user_token: Optional[str] = Header(None), db: Session = Depends(get_db), model: MBTISentimentPredictor = Depends(get_model)):
+    user_data = user_crud.update_user_mbtmi(db=db, token=_user_token, model=model)
     return {
         'done': True,
         'user': {'gender': user_data.gender, 'nickname': user_data.nickname, 'mbtmi': user_data.mbtmi}

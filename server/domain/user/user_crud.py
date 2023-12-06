@@ -20,14 +20,27 @@ def create_user(db: Session, user_create: UserCreate):
     db.commit()
     return jwt_token
 
-def update_user_mbtmi(db: Session, token):
+# def update_user_mbtmi(db: Session, token):
+#     user_data = db.query(UserTable).filter(UserTable.jwt_token == token).first()
+#     answer_data = db.query(Answer.question_id, Answer.content).filter(Answer.user_id == user_data.id).order_by(Answer.create_date).all()
+#     answer_dict = defaultdict(list)
+#     for i in answer_data:
+#         answer_dict[i[0]].append(i[1])
+#     print("answer_dict model에 집어넣어 결과값 추출 !")
+#     user_data.mbtmi = 'ENTP'
+#     db.add(user_data)
+#     db.commit()
+#     return user_data
+
+def update_user_mbtmi(db: Session, token, model):
     user_data = db.query(UserTable).filter(UserTable.jwt_token == token).first()
     answer_data = db.query(Answer.question_id, Answer.content).filter(Answer.user_id == user_data.id).order_by(Answer.create_date).all()
     answer_dict = defaultdict(list)
     for i in answer_data:
         answer_dict[i[0]].append(i[1])
     print("answer_dict model에 집어넣어 결과값 추출 !")
-    user_data.mbtmi = 'ENTP'
+    user_mbti = model.predict_all(answer_dict)
+    user_data.mbtmi = user_mbti
     db.add(user_data)
     db.commit()
     return user_data
