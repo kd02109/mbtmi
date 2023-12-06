@@ -62,7 +62,7 @@ export type MbtmiResult = {
   user: {
     gender: Gender;
     nickname: string;
-    mbtmi: string;
+    mbtmi: Mbti;
   };
 };
 

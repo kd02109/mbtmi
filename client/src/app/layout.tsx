@@ -21,6 +21,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="kn">
+      <head>
+        <script
+          defer
+          src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+      </head>
       <body className={`${openSans.className} bg-bgGray`}>{children}</body>
     </html>
   );
