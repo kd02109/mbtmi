@@ -34,10 +34,12 @@ export type DataManOrWoman = Data & UserInfo;
 
 export type ValueOf<T> = T[keyof T];
 export type Method = {
-  postStarting: 'user/starting';
-  getMbtmi: 'user/mbtmi';
+  postStarting: '/user/starting';
+  getMbtmi: '/user/mbtmi';
   postQuestion: (id: number) => `/answer/message/${typeof id}`;
-  getVisiting: 'answer/visiting';
+  getAnswerVisiting: '/answer/visiting';
+  userNumber: '/user/number';
+  postResult: '/user/answers';
 };
 
 export type UserInfo = {
