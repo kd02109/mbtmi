@@ -65,3 +65,50 @@ export type MbtmiResult = {
     mbtmi: string;
   };
 };
+
+export type Mbti =
+  | 'istj'
+  | 'istp'
+  | 'isfj'
+  | 'isfp'
+  | 'intj'
+  | 'intp'
+  | 'infj'
+  | 'infp'
+  | 'estj'
+  | 'esfp'
+  | 'enfp'
+  | 'entp'
+  | 'esfj'
+  | 'estp'
+  | 'enfj'
+  | 'entj';
+
+export type ResultInfo = {
+  path: string;
+  name: string;
+  mbti: string;
+  reading: { title: string; ratio: number };
+  basicFeatures: string[];
+  friendName: {
+    title: string;
+    features: string[];
+    example: [
+      {
+        가족: string;
+        친구: string;
+        '사회적 관계': string;
+      },
+    ];
+  };
+  myMbtiChat: {
+    title: string;
+    mesage: string[];
+    feature: string[];
+  };
+  oppositeMbtiChat: {
+    title: string;
+    message: string[];
+    feature: string[];
+  };
+};

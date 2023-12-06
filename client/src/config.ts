@@ -6,6 +6,8 @@ const CONFIG = Object.freeze({
   copyright: 'mbtmi All rights reserved.',
   title: 'mbtmi',
   since: 2023,
+  description:
+    '기존의 O,X 선택지에서 벗어나 정확도가 높은 대화형 mbti app 구현을 목표로 합니다',
 });
 
 const VISITED = {

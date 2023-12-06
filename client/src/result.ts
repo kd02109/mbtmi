@@ -1,4 +1,6 @@
-const MBTI_RESULT = Object.freeze({
+import { Mbti, ResultInfo } from '@/types/types';
+
+const MBTI_RESULT: { [key in Mbti]: ResultInfo } = {
   istj: {
     path: '12',
     name: '소금맛 붕어빵',
@@ -91,7 +93,6 @@ const MBTI_RESULT = Object.freeze({
       ],
     },
     myMbtiChat: {
-      path: '15',
       title: '내 유형이 가장 많이 말한 단어 TOP3',
       mesage: ['이해해', '맞아', '그래도 괜찮아'],
       feature: ['섬세함', '이상주의'],
@@ -104,7 +105,7 @@ const MBTI_RESULT = Object.freeze({
   },
 
   intj: {
-    path: '16',
+    path: '15',
     name: '붕어빵 연구원',
     mbti: 'INTJ',
     reading: { title: '나의 카톡 읽씹 지수', ratio: 0.75 },
@@ -138,7 +139,7 @@ const MBTI_RESULT = Object.freeze({
   },
 
   istp: {
-    path: '17',
+    path: '16',
     name: '붕어맛 붕어빵',
     mbti: 'ISTP',
     reading: { title: '나의 카톡 읽씹 지수', ratio: 0.88 },
@@ -172,7 +173,7 @@ const MBTI_RESULT = Object.freeze({
   },
 
   isfp: {
-    path: '18',
+    path: '17',
     name: '슈크림 붕어빵',
     mbti: 'ISFP',
     reading: { title: '나의 카톡 읽씹 지수', ratio: 0.5 },
@@ -205,7 +206,7 @@ const MBTI_RESULT = Object.freeze({
   },
 
   intp: {
-    path: '19',
+    path: '18',
     name: '초전도체 붕어빵',
     mbti: 'INTP',
     reading: { title: '나의 카톡 읽씹 지수', ratio: 1 },
@@ -238,7 +239,7 @@ const MBTI_RESULT = Object.freeze({
   },
 
   infp: {
-    path: '20',
+    path: '19',
     name: '무지개맛 붕어빵',
     mbti: 'INFP',
     reading: { title: '나의 카톡 읽씹 지수', ratio: 0.63 },
@@ -273,7 +274,7 @@ const MBTI_RESULT = Object.freeze({
   },
 
   estp: {
-    path: '21',
+    path: '20',
     name: '바다로 간 붕어빵',
     mbti: 'ESTP',
     reading: { title: '나의 카톡 읽씹 지수', ratio: 0.25 },
@@ -308,7 +309,7 @@ const MBTI_RESULT = Object.freeze({
   },
 
   esfp: {
-    path: '22',
+    path: '21',
     name: '탕후루 붕어빵',
     mbti: 'ESFP',
     reading: { title: '나의 카톡 읽씹 지수', ratio: 0.13 },
@@ -343,7 +344,7 @@ const MBTI_RESULT = Object.freeze({
   },
 
   enfp: {
-    path: '23',
+    path: '22',
     name: '자체발광 붕어빵',
     mbti: 'ENFP',
     reading: { title: '나의 카톡 읽씹 지수', ratio: 0.38 },
@@ -379,7 +380,7 @@ const MBTI_RESULT = Object.freeze({
   },
 
   estj: {
-    path: '24',
+    path: '23',
     name: '캐비어맛 붕어빵',
     mbti: 'ESTJ',
     reading: { title: '나의 카톡 읽씹 지수', ratio: 0.5 },
@@ -414,7 +415,7 @@ const MBTI_RESULT = Object.freeze({
   },
 
   esfj: {
-    path: '25',
+    path: '24',
     name: '어장속의 붕어빵',
     mbti: 'ESFJ',
     reading: { title: '나의 카톡 읽씹 지수', ratio: 0.25 },
@@ -449,7 +450,7 @@ const MBTI_RESULT = Object.freeze({
   },
 
   entj: {
-    path: '26',
+    path: '25',
     name: '엑스라지 붕어빵',
     mbti: 'ENTJ',
     reading: { title: '나의 카톡 읽씹 지수', ratio: 0.25 },
@@ -484,7 +485,7 @@ const MBTI_RESULT = Object.freeze({
   },
 
   entp: {
-    path: '27',
+    path: '26',
     name: '마라맛 붕어빵',
     mbti: 'ENTP',
     reading: { title: '나의 카톡 읽씹 지수', ratio: 0.75 },
@@ -519,7 +520,7 @@ const MBTI_RESULT = Object.freeze({
   },
 
   enfj: {
-    path: '28',
+    path: '27',
     name: '호호 불어먹는 붕어빵',
     mbti: 'ENFJ',
     reading: { title: '나의 카톡 읽씹 지수', ratio: 0.38 },
@@ -553,6 +554,6 @@ const MBTI_RESULT = Object.freeze({
       feature: ['실용적', '탐구적'],
     },
   },
-});
+};
 
 export { MBTI_RESULT };
