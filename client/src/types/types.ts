@@ -93,17 +93,15 @@ export type ResultInfo = {
   friendName: {
     title: string;
     features: string[];
-    example: [
-      {
-        가족: string;
-        친구: string;
-        '사회적 관계': string;
-      },
-    ];
+    example: {
+      가족: string;
+      친구: string;
+      '사회적 관계': string;
+    };
   };
   myMbtiChat: {
     title: string;
-    mesage: string[];
+    message: string[];
     feature: string[];
   };
   oppositeMbtiChat: {

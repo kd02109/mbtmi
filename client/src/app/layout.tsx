@@ -3,6 +3,12 @@ import type { Metadata } from 'next';
 import { Open_Sans } from 'next/font/google';
 import { CONFIG } from '@/config';
 
+declare global {
+  interface Window {
+    Kakao: any;
+  }
+}
+
 const openSans = Open_Sans({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: CONFIG.title,
@@ -20,13 +26,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="kn">
+    <html lang="kn" className="bg-bgGray">
       <head>
         <script
           defer
           src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
       </head>
-      <body className={`${openSans.className} bg-bgGray`}>{children}</body>
+      <body className={`${openSans.className}`}>{children}</body>
     </html>
   );
 }
