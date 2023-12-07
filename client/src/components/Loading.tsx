@@ -1,9 +1,13 @@
+'use client';
+
+import WavyText from '@/components/result/WavyText';
 import Logo from '@/components/svg/Logo';
 
 export default function Loading() {
   return (
-    <main className="flex w-full min-h-screen max-w-xl m-auto flex-col items-center justify-center">
-      <Logo width="50%" height="50%" style="mb-8" />
+    <main className="flex w-full min-h-screen max-w-xl mx-auto flex-col items-center justify-center bg-bgYellow">
+      <Logo width="30%" height="30%" style="mb-8" />
+      <WavyText text="LOADING..." />
     </main>
   );
 }
