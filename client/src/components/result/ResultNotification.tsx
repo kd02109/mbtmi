@@ -6,8 +6,8 @@ export default function ResultNotification() {
       <Image
         src={'/images/notification.png'}
         alt="notification"
-        width={36}
-        height={36}
+        width={24}
+        height={24}
         className="mr-2 absolute left-3"
       />
       <h3 className="text-lg font-semibold">AI가 분석한 당신의 결과는 ?!</h3>

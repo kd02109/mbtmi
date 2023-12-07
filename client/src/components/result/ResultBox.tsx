@@ -1,11 +1,12 @@
 'use client';
 
 import { AnimatePresence, motion } from 'framer-motion';
+import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import KakaoBtn from '@/components/KakaoBtn';
-import ResultChatContainer from '@/components/ResultChatContainer';
-import ResultList from '@/components/ResultList';
-import ResultSection from '@/components/ResultSection';
+import ResultChatContainer from '@/components/result/ResultChatContainer';
+import ResultList from '@/components/result/ResultList';
+import ResultSection from '@/components/result/ResultSection';
+import ShariApi from '@/components/share/ShariApi';
 import SpeechBuble from '@/components/svg/SpeechBuble';
 import useLocalStorage from '@/hooks/useLocalStorage';
 import { ResultInfo } from '@/types/types';
@@ -18,18 +19,32 @@ const variants = {
 
 export default function ResultBox(prop: ResultInfo) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isShare, saveShare] = useLocalStorage('isShare', false);
+  const [, saveVisited] = useLocalStorage('isVisited', null);
+  const [, saveToken] = useLocalStorage('token', null);
+
+  // data 정제
   const friendKey = getKeys(prop.friendName.example);
   const friendExample = friendKey.map(
     key => `${key}: ${prop.friendName.example[key]}`,
   );
   const friendList = [...prop.friendName.features, ...friendExample];
-  const [isShare, saveShare] = useLocalStorage('isShare', false);
+
+  const router = useRouter();
+
+  const handleRestart = () => {
+    saveVisited(null);
+    saveToken(null);
+    saveShare(false);
+    router.push('/');
+  };
 
   useEffect(() => {
     if (isShare) {
       setIsExpanded(true);
     }
   }, [isShare]);
+
   return (
     <article
       className={`w-full bg-gradient-to-b from-white from-90% to-bgChating mt-4 rounded-t-xl flex flex-col p-3 justify-center items-center`}>
@@ -69,13 +84,16 @@ export default function ResultBox(prop: ResultInfo) {
           </motion.div>
         </AnimatePresence>
       )}
-
-      <KakaoBtn {...prop} setIsExpanded={saveShare} isExpended={isExpanded} />
-      {isExpanded && (
-        <button className="text-white text-center font-bold text-xl w-96 py-2 mt-4 bg-bgBrown rounded-3xl max-md:w-[90%]">
-          다시 테스트 하기
-        </button>
-      )}
+      <ShariApi
+        setIsExpanded={setIsExpanded}
+        isExpended={isExpanded}
+        {...prop}
+      />
+      <button
+        onClick={handleRestart}
+        className="text-white text-center font-bold text-xl w-96 py-2 mt-4 bg-bgBrown rounded-3xl max-md:w-[90%]">
+        다시 테스트 하기
+      </button>
     </article>
   );
 }
