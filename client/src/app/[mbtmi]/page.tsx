@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
-import KakaoBtn from '@/components/KakaoBtn';
 import ChatingDetailHeader from '@/components/layout/ChatingDetailHeader';
 import Footer from '@/components/layout/Footer';
-import ResultBox from '@/components/ResultBox';
-import ResultNotification from '@/components/ResultNotification';
+import ResultBox from '@/components/result/ResultBox';
+import ResultNotification from '@/components/result/ResultNotification';
+import KakaoBtn from '@/components/share/KakaoBtn';
 import { CONFIG } from '@/config';
 import { MBTI_RESULT } from '@/result';
 import getKeys from '@/util/getKeys';
@@ -40,16 +40,18 @@ export default function MBTMIPage({ params }: { params: { mbtmi: string } }) {
   });
 
   return (
-    <section className="w-full flex flex-col">
-      <ChatingDetailHeader
-        name={CONFIG.title}
-        profile="#"
-        number={1}
-        back={false}
-      />
-      <ResultNotification />
-      <ResultBox {...MBTI_RESULT[mbti!]} />
-      <Footer />
-    </section>
+    <main className="flex w-full min-h-screen max-w-xl m-auto flex-col items-center  bg-bgChating">
+      <section className="w-full flex flex-col">
+        <ChatingDetailHeader
+          name={CONFIG.title}
+          profile="#"
+          number={1}
+          back={false}
+        />
+        <ResultNotification />
+        <ResultBox {...MBTI_RESULT[mbti!]} />
+        <Footer />
+      </section>
+    </main>
   );
 }

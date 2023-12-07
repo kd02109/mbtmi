@@ -1,6 +1,7 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Open_Sans } from 'next/font/google';
+import KaKaoLayout from '@/components/share/KaKaoLayout';
 import { CONFIG } from '@/config';
 
 declare global {
@@ -32,7 +33,9 @@ export default function RootLayout({
           defer
           src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
       </head>
-      <body className={`${openSans.className}`}>{children}</body>
+      <body className={`${openSans.className}`}>
+        <KaKaoLayout>{children}</KaKaoLayout>
+      </body>
     </html>
   );
 }
