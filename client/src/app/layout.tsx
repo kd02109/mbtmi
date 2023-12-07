@@ -29,6 +29,7 @@ export default function RootLayout({
   return (
     <html lang="kn" className="bg-bgGray">
       <head>
+        <link rel="icon" sizes="any" href="/favicon.ico" />
         <script
           defer
           src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
