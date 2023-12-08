@@ -1,2 +1,0 @@
-export const INTEGRITY_VALUE =
-  'sha384-kYPsUbBPlktXsY6/oNHSUDZoTX6+YI51f63jCPEIPFP09ttByAdxd2mEjKuhdqn4';
