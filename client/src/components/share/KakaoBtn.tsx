@@ -27,7 +27,7 @@ export default function KakaoBtn(
       content: {
         title: `${CONFIG.title} | ${prop.name}`,
         description: `${prop.basicFeatures.join(' ')}`,
-        imageUrl: 'https://source.unsplash.com/random/300×300',
+        imageUrl: prop.imgUrl,
         link: {
           mobileWebUrl: `${CONFIG.site}${pathName}`,
           webUrl: `${CONFIG.site}${pathName}`,
