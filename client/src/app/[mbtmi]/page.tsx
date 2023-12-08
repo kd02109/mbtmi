@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import ChatingDetailHeader from '@/components/layout/ChatingDetailHeader';
 import Footer from '@/components/layout/Footer';
 import ResultBox from '@/components/result/ResultBox';
 import ResultNotification from '@/components/result/ResultNotification';
-import KakaoBtn from '@/components/share/KakaoBtn';
 import { CONFIG } from '@/config';
 import { MBTI_RESULT } from '@/result';
 import getKeys from '@/util/getKeys';
@@ -25,7 +25,7 @@ export const generateMetadata = ({
     description: MBTI_RESULT[mbti!].basicFeatures.join(' '),
     openGraph: {
       title: `${MBTI_RESULT[mbti!].name} | ${CONFIG.title}`,
-      images: 'https://source.unsplash.com/random/300×300',
+      images: `${MBTI_RESULT[mbti!].imgUrl}`,
       description: MBTI_RESULT[mbti!].basicFeatures.join(' '),
     },
   };
@@ -40,7 +40,7 @@ export default function MBTMIPage({ params }: { params: { mbtmi: string } }) {
   });
 
   return (
-    <main className="flex w-full min-h-screen max-w-xl m-auto flex-col items-center  bg-bgChating">
+    <main className="flex w-full min-h-screen max-w-xl m-auto flex-col items-center   bg-bgChating">
       <section className="w-full flex flex-col">
         <ChatingDetailHeader
           name={CONFIG.title}
@@ -49,6 +49,14 @@ export default function MBTMIPage({ params }: { params: { mbtmi: string } }) {
           back={false}
         />
         <ResultNotification />
+        <Image
+          src={MBTI_RESULT[mbti!].imgSrc}
+          alt={MBTI_RESULT[mbti!].name}
+          width={330}
+          height={300}
+          className="rounded-xl my-4 m-auto"
+          priority
+        />
         <ResultBox {...MBTI_RESULT[mbti!]} />
         <Footer />
       </section>

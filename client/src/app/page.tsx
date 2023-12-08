@@ -9,11 +9,11 @@ import { PATH } from '@/config';
 import useGetNumber from '@/hooks/useGetNumber';
 import useRedirectIfKeyExists from '@/hooks/usePageSwitch';
 
-const NUMBER = 1000;
+//const NUMBER = 1000;
 export default function Home() {
   const isLoading = useRedirectIfKeyExists(PATH.chatingList);
-  const [isNumberLoading, userNumber] = useGetNumber();
-  if (isLoading || isNumberLoading) return <Loading />;
+  //const [isNumberLoading, userNumber] = useGetNumber();
+  if (isLoading) return <Loading />;
 
   return (
     <main className="flex w-full min-h-screen max-w-xl m-auto flex-col items-center py-8 px-4 bg-bgYellow">
@@ -25,7 +25,7 @@ export default function Home() {
       <h1 className="text-center font-black text-3xl leading-normal text-bgBrown mb-8">
         채팅에 직접 답변하는 <br /> 대화형 성격테스트에 참여해보세요!
       </h1>
-      <Logo width="400" height="256" />
+      <Logo width="80%" height="80%" />
 
       <ChoiceSex />
       <Footer />

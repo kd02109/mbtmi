@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: `${CONFIG.title}/chating-list`,
     description: CONFIG.description,
-    images: 'https://source.unsplash.com/random/300×300',
+    images: CONFIG.logoImage,
   },
 };
 

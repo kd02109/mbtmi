@@ -32,7 +32,7 @@ export default function useGetOneAnswer(id: Id): [boolean, Data, UserInfo] {
       return data;
     }
 
-    if (token && visited) {
+    if (token) {
       getData().then(data => {
         const question = QUESTIONS.find(question => question.id === id);
         if (question && data) {

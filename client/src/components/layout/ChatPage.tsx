@@ -80,7 +80,7 @@ export default function ChatPage({ pageId, isVisited }: Prop) {
             ? answers.map((item, index) => <Chat key={index} message={item} />)
             : null}
         </section>
-        <section className="relative w-full bg-white">
+        <section className="relative w-full bg-white mt-2">
           <textarea
             value={message}
             onChange={e => {
