@@ -9,23 +9,24 @@ import { PATH } from '@/config';
 import useGetNumber from '@/hooks/useGetNumber';
 import useRedirectIfKeyExists from '@/hooks/usePageSwitch';
 
-const NUMBER = 1000;
+//const NUMBER = 1000;
 export default function Home() {
   const isLoading = useRedirectIfKeyExists(PATH.chatingList);
-  const [isNumberLoading, userNumber] = useGetNumber();
-  if (isLoading || isNumberLoading) return <Loading />;
+  //const [isNumberLoading, userNumber] = useGetNumber();
+  if (isLoading) return <Loading />;
 
   return (
-    <main className="flex w-full min-h-screen max-w-xl m-auto flex-col items-center py-8 px-4 bg-white">
-      <Logo width="30%" height="30%" style="mb-8" />
+    <main className="flex w-full min-h-screen max-w-xl m-auto flex-col items-center py-8 px-4 bg-bgYellow">
       <section className="w-100 flex flex-col mb-8">
-        <p className="text-center font-bold text-base leading-8">
-          대화에 참여하고 자유롭게 답해주세요! <br></br>
-          당신의 MBTI를 확인해보세요! <br></br>
-          현재 <NumberCount number={NUMBER + userNumber} />
-          명이 참여했어요!
-        </p>
+        <span className="px-2 border-x-2 border-solid font-medium border-[#7F730C] text-[#7F730C]">
+          AI 가 분석하는 나의 카톡 말투는?
+        </span>
       </section>
+      <h1 className="text-center font-black text-3xl leading-normal text-bgBrown mb-8">
+        채팅에 직접 답변하는 <br /> 대화형 성격테스트에 참여해보세요!
+      </h1>
+      <Logo width="80%" height="80%" />
+
       <ChoiceSex />
       <Footer />
     </main>

@@ -8,9 +8,10 @@ export default function useRedirect(
 ) {
   // page 전환하기
   const router = useRouter();
+
   useEffect(() => {
     const id = setTimeout(() => {
-      if (!token || !visited) {
+      if (!token) {
         alert('기록된 정보가 제거되었습니다. 처음부터 다시 시작해주세요 😵‍💫');
         router.push('/');
       }

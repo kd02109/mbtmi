@@ -7,7 +7,7 @@ import { Id } from '@/types/types';
 export default function useSetVisited(isVisited: boolean, pageId: Id) {
   const [, saveVisiting] = useLocalStorage<null | { [key: string]: boolean }>(
     'isVisited',
-    null,
+    { 1: false, 2: false, 3: false, 4: false, 5: false, 6: false },
   );
   const [isVisiting, setIsVisitng] = useState(false);
 

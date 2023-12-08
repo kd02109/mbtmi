@@ -1,9 +1,12 @@
+import { CONFIG } from '@/config';
 import { Mbti, ResultInfo } from '@/types/types';
 
 const MBTI_RESULT: { [key in Mbti]: ResultInfo } = {
   istj: {
     path: '12',
     name: '소금맛 붕어빵',
+    imgSrc: `${CONFIG.resultSource}salt.png`,
+    imgUrl: 'https://i.imgur.com/MdfLfGf.png',
     mbti: 'ISTJ',
     reading: { title: '나의 카톡 읽씹 지수', ratio: 0.5 },
     basicFeatures: [
@@ -36,6 +39,8 @@ const MBTI_RESULT: { [key in Mbti]: ResultInfo } = {
   isfj: {
     path: '13',
     name: '단팥 붕어빵',
+    imgSrc: `${CONFIG.resultSource}red-bean.png`,
+    imgUrl: 'https://i.imgur.com/Z0Y33hn.png',
     mbti: 'ISFJ',
     reading: { title: '나의 카톡 읽씹 지수', ratio: 0 },
     basicFeatures: [
@@ -69,6 +74,8 @@ const MBTI_RESULT: { [key in Mbti]: ResultInfo } = {
     path: '14',
     name: '겉바속촉 붕어빵',
     mbti: 'INFJ',
+    imgSrc: `${CONFIG.resultSource}soft.png`,
+    imgUrl: 'https://i.imgur.com/RjZa9Bw.png',
     reading: { title: '나의 카톡 읽씹 지수', ratio: 0.38 },
     basicFeatures: [
       '당신은 깊은 사고력과 강한 직관력을 갖고 있으며, 동시에 공감능력이 뛰어나 타인을 편안하게 해주는 겉바속촉 붕어빵!',
@@ -101,6 +108,8 @@ const MBTI_RESULT: { [key in Mbti]: ResultInfo } = {
   intj: {
     path: '15',
     name: '붕어빵 연구원',
+    imgSrc: `${CONFIG.resultSource}researcher.png`,
+    imgUrl: 'https://i.imgur.com/GXcpM51.png',
     mbti: 'INTJ',
     reading: { title: '나의 카톡 읽씹 지수', ratio: 0.75 },
     basicFeatures: [
@@ -133,6 +142,8 @@ const MBTI_RESULT: { [key in Mbti]: ResultInfo } = {
   istp: {
     path: '16',
     name: '붕어맛 붕어빵',
+    imgSrc: `${CONFIG.resultSource}fish.png`,
+    imgUrl: 'https://i.imgur.com/ckbShi8.png',
     mbti: 'ISTP',
     reading: { title: '나의 카톡 읽씹 지수', ratio: 0.88 },
     basicFeatures: [
@@ -165,6 +176,8 @@ const MBTI_RESULT: { [key in Mbti]: ResultInfo } = {
   isfp: {
     path: '17',
     name: '슈크림 붕어빵',
+    imgUrl: 'https://i.imgur.com/fAMLCqa.png',
+    imgSrc: `${CONFIG.resultSource}cream.png`,
     mbti: 'ISFP',
     reading: { title: '나의 카톡 읽씹 지수', ratio: 0.5 },
     basicFeatures: [
@@ -197,6 +210,8 @@ const MBTI_RESULT: { [key in Mbti]: ResultInfo } = {
     path: '18',
     name: '초전도체 붕어빵',
     mbti: 'INTP',
+    imgSrc: `${CONFIG.resultSource}superconductivity.png`,
+    imgUrl: 'https://i.imgur.com/R82B4YZ.jpg',
     reading: { title: '나의 카톡 읽씹 지수', ratio: 1 },
     basicFeatures: [
       '독창적인 아이디어가 넘쳐나며 뛰어난 분석력을 가진 당신은 초전도체 붕어빵!',
@@ -228,6 +243,8 @@ const MBTI_RESULT: { [key in Mbti]: ResultInfo } = {
     path: '19',
     name: '무지개맛 붕어빵',
     mbti: 'INFP',
+    imgSrc: `${CONFIG.resultSource}rainbow.png`,
+    imgUrl: 'https://i.imgur.com/AJIMQSQ.png',
     reading: { title: '나의 카톡 읽씹 지수', ratio: 0.63 },
     basicFeatures: [
       '창의적이면서 이상주의적이고, 다양한 가치에 공감하며 풍부한 감정을 표현하는 당신은 무지개맛 붕어빵!',
@@ -261,6 +278,8 @@ const MBTI_RESULT: { [key in Mbti]: ResultInfo } = {
     path: '20',
     name: '바다로 간 붕어빵',
     mbti: 'ESTP',
+    imgSrc: `${CONFIG.resultSource}see.png`,
+    imgUrl: `https://i.imgur.com/KUEorya.png`,
     reading: { title: '나의 카톡 읽씹 지수', ratio: 0.25 },
     basicFeatures: [
       '활동적이고 에너지가 넘쳐 모험을 즐기는 당신은 바다로 간 붕어빵! 현실적이며 실용적인 것을 좋아하는 면도 있군요.',
@@ -294,6 +313,8 @@ const MBTI_RESULT: { [key in Mbti]: ResultInfo } = {
     path: '21',
     name: '탕후루 붕어빵',
     mbti: 'ESFP',
+    imgSrc: `${CONFIG.resultSource}tanghulu.png`,
+    imgUrl: 'https://i.imgur.com/uYzZn6V.png',
     reading: { title: '나의 카톡 읽씹 지수', ratio: 0.13 },
     basicFeatures: [
       '사교적이며 활동적인 당신은 유행을 잘 파악하고, 스윗한 성격으로 상대방의 마음도 잘 움직이는 탕후루 붕어빵!',
@@ -327,6 +348,8 @@ const MBTI_RESULT: { [key in Mbti]: ResultInfo } = {
     path: '22',
     name: '자체발광 붕어빵',
     mbti: 'ENFP',
+    imgSrc: `${CONFIG.resultSource}light.png`,
+    imgUrl: 'https://i.imgur.com/7eUC3az.png',
     reading: { title: '나의 카톡 읽씹 지수', ratio: 0.38 },
     basicFeatures: [
       '좋아하는 일에 매우 열정적이고, 언제나 아이디어가 넘쳐나는 당신은 자체발광 붕어빵!',
@@ -360,6 +383,8 @@ const MBTI_RESULT: { [key in Mbti]: ResultInfo } = {
   estj: {
     path: '23',
     name: '캐비어맛 붕어빵',
+    imgSrc: `${CONFIG.resultSource}caviar.png`,
+    imgUrl: 'https://i.imgur.com/fJ784OP.png',
     mbti: 'ESTJ',
     reading: { title: '나의 카톡 읽씹 지수', ratio: 0.5 },
     basicFeatures: [
@@ -393,6 +418,8 @@ const MBTI_RESULT: { [key in Mbti]: ResultInfo } = {
   esfj: {
     path: '24',
     name: '어장속의 붕어빵',
+    imgSrc: `${CONFIG.resultSource}fishery.png`,
+    imgUrl: 'https://i.imgur.com/6F7xT2z.png',
     mbti: 'ESFJ',
     reading: { title: '나의 카톡 읽씹 지수', ratio: 0.25 },
     basicFeatures: [
@@ -427,6 +454,8 @@ const MBTI_RESULT: { [key in Mbti]: ResultInfo } = {
     path: '25',
     name: '엑스라지 붕어빵',
     mbti: 'ENTJ',
+    imgSrc: `${CONFIG.resultSource}x-large.png`,
+    imgUrl: 'https://i.imgur.com/Vfk3tQB.png',
     reading: { title: '나의 카톡 읽씹 지수', ratio: 0.25 },
     basicFeatures: [
       '목표 지향적이며 효율적으로 일하고, 뭐든 잘하고자 하는 당신은 엑스라지 붕어빵!',
@@ -460,6 +489,8 @@ const MBTI_RESULT: { [key in Mbti]: ResultInfo } = {
     path: '26',
     name: '마라맛 붕어빵',
     mbti: 'ENTP',
+    imgSrc: `${CONFIG.resultSource}mara.png`,
+    imgUrl: 'https://i.imgur.com/o3O6DAW.png',
     reading: { title: '나의 카톡 읽씹 지수', ratio: 0.75 },
     basicFeatures: [
       '독특하지만 재치있는 성격으로 모임에서 자꾸만 찾게되는 당신은 마라맛 붕어빵!',
@@ -493,6 +524,8 @@ const MBTI_RESULT: { [key in Mbti]: ResultInfo } = {
     path: '27',
     name: '호호 불어먹는 붕어빵',
     mbti: 'ENFJ',
+    imgSrc: `${CONFIG.resultSource}hoho.png`,
+    imgUrl: 'https://i.imgur.com/XRqNDwG.png',
     reading: { title: '나의 카톡 읽씹 지수', ratio: 0.38 },
     basicFeatures: [
       '따뜻하고 친절한 성격을 지녀 추운 겨울날 자꾸 찾게 되는 당신은 호호 불어먹는 붕어빵!',

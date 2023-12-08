@@ -27,11 +27,11 @@ export default function useGetTokenAndVisited(): [
 
   useRedirect(token, visited);
   useEffect(() => {
-    if (token && visited) {
+    if (token) {
       getApiWhitToken<AnswerData>(END_POINT.getAnswerVisiting, token!).then(
         data => {
           const questions = QUESTIONS.map(question => {
-            question.visited = visited[question.id];
+            question.visited = visited ? visited[question.id] : false;
             const answers = data?.answer[question.id];
             question.answer = [...answers!];
             if (data?.user.gender) {

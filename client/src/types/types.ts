@@ -90,6 +90,8 @@ export type ResultInfo = {
   path: string;
   name: string;
   mbti: string;
+  imgSrc: string;
+  imgUrl: string;
   reading: { title: string; ratio: number };
   basicFeatures: string[];
   friendName: {

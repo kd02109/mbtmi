@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import ResultChatContainer from '@/components/result/ResultChatContainer';
 import ResultList from '@/components/result/ResultList';
 import ResultSection from '@/components/result/ResultSection';
@@ -19,7 +19,6 @@ const variants = {
 
 export default function ResultBox(prop: ResultInfo) {
   const [isExpanded, setIsExpanded] = useState(false);
-  const [isShare, saveShare] = useLocalStorage('isShare', false);
   const [, saveVisited] = useLocalStorage('isVisited', null);
   const [, saveToken] = useLocalStorage('token', null);
 
@@ -35,15 +34,8 @@ export default function ResultBox(prop: ResultInfo) {
   const handleRestart = () => {
     saveVisited(null);
     saveToken(null);
-    saveShare(false);
     router.push('/');
   };
-
-  useEffect(() => {
-    if (isShare) {
-      setIsExpanded(true);
-    }
-  }, [isShare]);
 
   return (
     <article

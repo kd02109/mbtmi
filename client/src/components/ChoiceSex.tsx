@@ -1,9 +1,10 @@
 'use client';
 import { useLocalStorage } from '@uidotdev/usehooks';
+import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
-import { ChangeEvent, useState } from 'react';
+import { useState, MouseEvent, FormEvent } from 'react';
 import { postUser } from '@/api/clientApi';
-import Radio from '@/components/Radio';
+import Check from '@/components/svg/Check';
 import { PATH, VISITED, GENDER } from '@/config';
 import { Gender } from '@/types/types';
 
@@ -17,54 +18,90 @@ export default function ChoiceSex() {
   );
   const router = useRouter();
 
-  const handleSubmit = async (e: ChangeEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement> | MouseEvent) => {
     e.preventDefault();
     if (nickname.trim() === '') alert('Nickname을 작성해주세요!');
+    else {
+      const jwt = await postUser(nickname, sex);
 
-    const jwt = await postUser(nickname, sex);
-
-    if (jwt) {
-      saveToken(jwt.token);
-      saveIsVisited(VISITED);
-      router.push(PATH.chatingList);
-    } else alert('token 생성에 실패했습니다.');
+      if (jwt) {
+        saveToken(jwt.token);
+        saveIsVisited(VISITED);
+        router.push(PATH.chatingList);
+      } else alert('token 생성에 실패했습니다.');
+    }
   };
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const target = e.target;
-    if (target.value === GENDER.man || target.value === GENDER.woman) {
-      setSex(target.value);
+  const handleChange = (e: MouseEvent) => {
+    e.stopPropagation();
+    e.preventDefault();
+    const target = e.target as HTMLButtonElement;
+    if (target.innerText === '남') {
+      setSex('man');
+    } else {
+      setSex('woman');
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="mb-10">
-      <fieldset className="w-80 max-w-sm py-4 px-10 border-solid border-red-300 border-2 rounded-lg flex flex-col items-center">
-        <legend className="px-4 mx-[-10%] font-bold">Profile</legend>
-        <section className="flex gap-10 ">
-          <Radio handleChange={handleChange} sex={sex} value={GENDER.man} />
-          <Radio handleChange={handleChange} sex={sex} value={GENDER.woman} />
+    <form onSubmit={handleSubmit} className="my-8 w-[90%]">
+      <section className="w-100 grid grid-cols-2 grid-rows-2 bg-white">
+        <section className="flex justify-between col-span-2 font-bold text-xl">
+          <button
+            className="border-l-2 border-t-2 border-r-2 border-solid border-[#E1E1E1] flex-1 flex justify-center items-center relative"
+            onClick={handleChange}>
+            {sex === 'man' ? (
+              <>
+                <span className="text-[#FF5C48]">남</span>
+                <Check
+                  width="20"
+                  height="20"
+                  style="absolute left-[56%] top-2"
+                />
+              </>
+            ) : (
+              <span>남</span>
+            )}
+          </button>
+          <button
+            className="border-t-2 border-r-2 border-solid border-[#E1E1E1] flex-1 flex justify-center items-center relative"
+            onClick={handleChange}>
+            {sex === 'woman' ? (
+              <>
+                <span className="text-[#FF5C48]">여</span>
+                <Check
+                  width="20"
+                  height="20"
+                  style="absolute left-[56%] top-2"
+                />
+              </>
+            ) : (
+              <span>여</span>
+            )}
+          </button>
         </section>
-        <section className="flex flex-col gap-4 w-full mt-2">
-          <label htmlFor="nickname" className="font-bold text-xl">
-            Nickname
-          </label>
-          <input
-            type="text"
-            id="nickname"
-            value={nickname}
-            onChange={e => {
-              setNickName(e.target.value);
-            }}
-            required
-            autoFocus
-            className="focus:outline-red-300 focus:outline-none focus:border-none px-4 py-2 border-2 border-solid rounded-xl bg-white"
-          />
-        </section>
-        <button className="px-4 py-2 rounded-lg font-bold mt-4 bg-red-400 text-white hover:bg-transparent hover:text-red-400 transition hover:shadow-lg">
-          TEST 시작하기
-        </button>
-      </fieldset>
+        <input
+          type="text"
+          id="nickname"
+          value={nickname}
+          onChange={e => {
+            setNickName(e.target.value);
+          }}
+          required
+          autoFocus
+          placeholder="닉네임을 입력해주세요"
+          className="focus:outline-none px-4 py-4 border-2 border-solid border-[#E1E1E1] bg-white col-span-2 font-semibold"
+        />
+      </section>
+      <button
+        className="p-4 w-full font-bold mt-4 text-xl bg-white border-2 border-solid border-[#E1E1E1] text-center"
+        onClick={handleSubmit}>
+        {nickname.trim() !== '' ? (
+          <motion.span className="text-[#FF5C48]">TEST 시작하기</motion.span>
+        ) : (
+          <motion.span>TEST 시작하기</motion.span>
+        )}
+      </button>
     </form>
   );
 }

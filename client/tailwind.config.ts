@@ -12,6 +12,7 @@ const config: Config = {
         bgGray: '#f5f5f5',
         bgChating: '#D5EBFF',
         bgBrown: '#401D1D',
+        bgYellow: '#FEE502',
       },
     },
   },
