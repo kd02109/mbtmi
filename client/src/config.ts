@@ -11,6 +11,11 @@ const CONFIG = Object.freeze({
     '기존의 O,X 선택지에서 벗어나 정확도가 높은 대화형 mbti app 구현을 목표로 합니다',
   resultSource: '/images/result/',
   logoImage: 'https://i.imgur.com/TwokxKP.png',
+  profileSource: '/images/profile/',
+  param: {
+    key: 'share',
+    query: `share=share`,
+  },
 });
 
 const VISITED = {
@@ -18,7 +23,7 @@ const VISITED = {
   '2': false,
   '3': false,
   '4': false,
-  '5': false,
+  '5': true,
   '6': false,
 };
 

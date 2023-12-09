@@ -1,4 +1,5 @@
 'use client';
+import { usePathname } from 'next/navigation';
 import { Dispatch, SetStateAction, useState } from 'react';
 import { createPortal } from 'react-dom';
 import FaceBookBtn from '@/components/share/FaceBookBtn';
@@ -15,13 +16,13 @@ export default function ShariApi(
   },
 ) {
   const [isNotShareApi, setIsNotShareApi] = useState(false);
-
+  const path = usePathname();
   const handleShareApi = () => {
     if (navigator.share) {
       navigator
         .share({
           title: `${prop.name}|${CONFIG.title}`,
-          url: '',
+          url: `${CONFIG.site}${path}?${CONFIG.param.query}`,
         })
         .then(() => {
           prop.setIsExpanded(true);
@@ -63,10 +64,15 @@ export default function ShariApi(
                   <KakaoBtn {...prop} />
                 </li>
                 <li>
-                  <FaceBookBtn url={CONFIG.site} />
+                  <FaceBookBtn
+                    url={`${CONFIG.site}${path}?${CONFIG.param.query}`}
+                  />
                 </li>
                 <li>
-                  <TwitterBtn url={CONFIG.site} title={prop.name} />
+                  <TwitterBtn
+                    url={`${CONFIG.site}${path}?${CONFIG.param.query}`}
+                    title={prop.name}
+                  />
                 </li>
               </ul>
             </section>

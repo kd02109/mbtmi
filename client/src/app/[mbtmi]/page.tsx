@@ -44,7 +44,7 @@ export default function MBTMIPage({ params }: { params: { mbtmi: string } }) {
       <section className="w-full flex flex-col">
         <ChatingDetailHeader
           name={CONFIG.title}
-          profile="#"
+          profile={`/images/profile.png`}
           number={1}
           back={false}
         />
@@ -52,8 +52,12 @@ export default function MBTMIPage({ params }: { params: { mbtmi: string } }) {
         <Image
           src={MBTI_RESULT[mbti!].imgSrc}
           alt={MBTI_RESULT[mbti!].name}
-          width={330}
+          width={300}
           height={300}
+          style={{
+            width: 'auto',
+            height: 'auto',
+          }}
           className="rounded-xl my-4 m-auto"
           priority
         />

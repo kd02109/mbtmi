@@ -1,13 +1,14 @@
 'use client';
 
 import { AnimatePresence, motion } from 'framer-motion';
-import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useState, useEffect } from 'react';
 import ResultChatContainer from '@/components/result/ResultChatContainer';
 import ResultList from '@/components/result/ResultList';
 import ResultSection from '@/components/result/ResultSection';
 import ShariApi from '@/components/share/ShariApi';
 import SpeechBuble from '@/components/svg/SpeechBuble';
+import { CONFIG } from '@/config';
 import useLocalStorage from '@/hooks/useLocalStorage';
 import { ResultInfo } from '@/types/types';
 import getKeys from '@/util/getKeys';
@@ -30,12 +31,17 @@ export default function ResultBox(prop: ResultInfo) {
   const friendList = [...prop.friendName.features, ...friendExample];
 
   const router = useRouter();
+  const searchParams = useSearchParams();
 
   const handleRestart = () => {
     saveVisited(null);
     saveToken(null);
     router.push('/');
   };
+
+  useEffect(() => {
+    if (searchParams.get(CONFIG.param.key)) setIsExpanded(true);
+  }, [searchParams]);
 
   return (
     <article

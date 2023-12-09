@@ -1,10 +1,11 @@
 import Image from 'next/image';
+import ProfileContainer from '@/components/chat/ProfileContainer';
 import Person from '@/components/svg/Person';
 import { MessageOrDate } from '@/types/types';
 
 type Prop = {
   name: string;
-  profile: string;
+  profile: string | string[];
   answer?: string[];
   message?: MessageOrDate[];
   number?: number;
@@ -31,15 +32,21 @@ export default function Profile({
   } else lastMessage = '';
 
   return (
-    <div className="flex items-center">
-      <Image
-        src={`/images/profile.png`}
-        alt={name}
-        width={46}
-        height={46}
-        className="mr-2"
-      />
-      <div>
+    <div className="flex items-center w-100">
+      {typeof profile === 'string' ? (
+        <div className="w-[100%] mr-4">
+          <Image
+            src={profile}
+            alt={name}
+            width={profile.includes('uncle') ? 65 : 50}
+            height={profile.includes('uncle') ? 65 : 50}
+            className="rounded-lg"
+          />
+        </div>
+      ) : (
+        <ProfileContainer profiles={profile} />
+      )}
+      <div className="w-full">
         <h3 className="font-bold text-lg text-black">{name}</h3>
         {answer && answer.length > 0 && (
           <span className="text-sm text-gray-400 truncate">

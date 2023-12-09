@@ -14,7 +14,7 @@ export default forwardRef(function ChatingDetailHeader(
     back,
   }: {
     name: string;
-    profile: string;
+    profile: string | string[];
     number: number;
     back?: boolean;
   },
