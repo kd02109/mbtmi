@@ -13,7 +13,7 @@ export default function KakaoBtn(
     isExpended: boolean;
   },
 ) {
-  const pathName = usePathname();
+  const path = usePathname();
 
   const handleSendMessage = () => {
     const kakao = window.Kakao;
@@ -29,8 +29,8 @@ export default function KakaoBtn(
         description: `${prop.basicFeatures.join(' ')}`,
         imageUrl: prop.imgUrl,
         link: {
-          mobileWebUrl: `${CONFIG.site}${pathName}`,
-          webUrl: `${CONFIG.site}${pathName}`,
+          mobileWebUrl: `${CONFIG.site}${path}?${CONFIG.param.query}`,
+          webUrl: `${CONFIG.site}${path}?${CONFIG.param.query}`,
         },
       },
     });

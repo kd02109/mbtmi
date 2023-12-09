@@ -12,6 +12,10 @@ const CONFIG = Object.freeze({
   resultSource: '/images/result/',
   logoImage: 'https://i.imgur.com/TwokxKP.png',
   profileSource: '/images/profile/',
+  param: {
+    key: 'share',
+    query: `share=share`,
+  },
 });
 
 const VISITED = {
