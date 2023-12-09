@@ -1,6 +1,7 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Open_Sans } from 'next/font/google';
+import GoogleAnalytics from '@/components/layout/GoogleAnalytics';
 import KaKaoLayout from '@/components/share/KaKaoLayout';
 import { CONFIG } from '@/config';
 
@@ -35,6 +36,7 @@ export default function RootLayout({
           src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
       </head>
       <body className={`${openSans.className}`}>
+        <GoogleAnalytics />
         <KaKaoLayout>{children}</KaKaoLayout>
       </body>
     </html>

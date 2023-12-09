@@ -13,9 +13,9 @@ export default function Check({ width, height, style }: SvgSize) {
       <path
         d="M6 10L10 14L18 6"
         stroke="white"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

@@ -22,7 +22,7 @@ export default function ShariApi(
       navigator
         .share({
           title: `${prop.name}|${CONFIG.title}`,
-          url: `${CONFIG.site}${path}?${CONFIG.param.query}`,
+          url: `${CONFIG.gabia}${path}?${CONFIG.param.query}`,
         })
         .then(() => {
           prop.setIsExpanded(true);
@@ -65,12 +65,12 @@ export default function ShariApi(
                 </li>
                 <li>
                   <FaceBookBtn
-                    url={`${CONFIG.site}${path}?${CONFIG.param.query}`}
+                    url={`${CONFIG.gabia}${path}?${CONFIG.param.query}`}
                   />
                 </li>
                 <li>
                   <TwitterBtn
-                    url={`${CONFIG.site}${path}?${CONFIG.param.query}`}
+                    url={`${CONFIG.gabia}${path}?${CONFIG.param.query}`}
                     title={prop.name}
                   />
                 </li>
