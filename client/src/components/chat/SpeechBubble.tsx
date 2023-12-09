@@ -5,6 +5,7 @@ export default function SpeechBubble({
   time,
   message,
   image,
+  profile,
 }: {
   profile: string;
   name: string;
@@ -17,10 +18,11 @@ export default function SpeechBubble({
       <div className="chat-image avater">
         <div className="w-10 rounded-lg">
           <Image
-            src={`/images/profile.png`}
+            src={profile}
             alt={name}
-            width={46}
-            height={46}
+            width={50}
+            height={50}
+            className="rounded-lg"
           />
         </div>
       </div>
@@ -34,7 +36,7 @@ export default function SpeechBubble({
           <Image
             src={image}
             alt={'image'}
-            width={120}
+            width={200}
             height={100}
             className="rounded-lg"
           />

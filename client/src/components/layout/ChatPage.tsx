@@ -54,7 +54,7 @@ export default function ChatPage({ pageId, isVisited }: Prop) {
       chatDivRef.current.scrollTop = chatDivRef.current.scrollHeight;
     }
   }, [answers]);
-
+  console.log(question);
   if (isLoading) return <Loading />;
   else {
     return (
@@ -73,7 +73,7 @@ export default function ChatPage({ pageId, isVisited }: Prop) {
               key={index}
               item={item}
               nickname={userInfo.nickname}
-              profile={question.profile}
+              profile={item.profile}
             />
           ))}
           {answers.length > 0

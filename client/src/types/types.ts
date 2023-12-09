@@ -8,6 +8,7 @@ export type Message = {
   type: 'message';
   user: string;
   time: string;
+  profile: string;
   message?: string;
   messageFn?: (name: string) => string;
   picture?: string;
@@ -15,6 +16,7 @@ export type Message = {
 export type Date = {
   type: 'date';
   date: string;
+  profile: string;
 };
 export type MessageOrDate = Message | Date;
 
@@ -25,7 +27,7 @@ export type Data = {
   questions: MessageOrDate[];
   visited: boolean;
   answer: string[];
-  profile: string;
+  profile: string | string[];
   newMessage: number;
   memberCount: number;
 };

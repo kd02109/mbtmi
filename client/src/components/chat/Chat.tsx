@@ -17,7 +17,7 @@ export default function Chat({ message, image, time }: Prop) {
           <Image
             src={image}
             alt={'image'}
-            width={120}
+            width={230}
             height={100}
             className="rounded-lg"
           />
