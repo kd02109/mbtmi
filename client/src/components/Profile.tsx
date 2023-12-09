@@ -38,8 +38,8 @@ export default function Profile({
           <Image
             src={profile}
             alt={name}
-            width={profile.includes('uncle') ? 65 : 50}
-            height={profile.includes('uncle') ? 65 : 50}
+            width={50}
+            height={50}
             className="rounded-lg"
           />
         </div>
