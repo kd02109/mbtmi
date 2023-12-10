@@ -61,15 +61,15 @@ export default function MBTMIPage({ params }: { params: { mbtmi: string } }) {
         />
         <ResultNotification />
         <Image
-          src={'/images/result.png' /* MBTI_RESULT[mbti!].imgSrc */}
+          src={MBTI_RESULT[mbti!].imgSrc}
           alt={MBTI_RESULT[mbti!].name}
-          width={400}
-          height={400}
+          width={300}
+          height={300}
           style={{
             width: 'auto',
             height: 'auto',
           }}
-          className="rounded-xl my-4"
+          className="rounded-xl my-4 m-auto"
           priority
         />
         <ResultBox {...MBTI_RESULT[mbti!]} />

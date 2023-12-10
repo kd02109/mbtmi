@@ -45,14 +45,14 @@ export default function ResultBox(prop: ResultInfo) {
 
   return (
     <article
-      className={`w-full  mt-4 rounded-t-2xl flex flex-col p-3 justify-center items-center ${
+      className={`w-full  mt-4 rounded-t-3xl flex flex-col p-3 justify-center items-center ${
         isExpanded
           ? 'bg-gradient-to-b from-white from-90% to-bgChating'
-          : 'bg-bgChating'
+          : 'bg-gradient-to-b from-white from-90% to-bgChating'
       }`}>
-      {/*       <ResultSection title={`"${prop.name}"`}>
+      <ResultSection title={`"${prop.name}"`}>
         <ResultList sentences={prop.basicFeatures} />
-      </ResultSection> */}
+      </ResultSection>
       {isExpanded && (
         <AnimatePresence>
           <motion.div
