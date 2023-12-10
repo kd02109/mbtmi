@@ -5,3 +5,4 @@ myapi.db
 alembic.ini
 migrations/
 model/classifier/
+model/onnx/

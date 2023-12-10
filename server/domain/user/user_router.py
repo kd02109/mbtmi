@@ -4,7 +4,7 @@ from typing import Optional, Union
 from fastapi.encoders import jsonable_encoder
 from database import get_db
 from domain.user import user_schema, user_crud
-from model.MBTI_classifier_CPU import MBTISentimentPredictor, get_model
+from model.MBTI_classifier_CPU_TEMP import MBTISentimentPredictor, get_model
 
 router = APIRouter(
     prefix="/user",
