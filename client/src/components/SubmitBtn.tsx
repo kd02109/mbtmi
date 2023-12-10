@@ -23,9 +23,13 @@ export default function SubmitBtn({ data, token }: Prop) {
   return (
     <div className="flex justify-center items-center mb-4 sticky bottom-2">
       <button
-        className="p-3 w-[300px] rounded-lg font-bold  bg-red-400 text-white hover:bg-bgGray hover:text-red-400 transition hover:shadow-lg"
+        className={`p-3 w-[300px] rounded-lg font-bold ${
+          checkSubmit(data)
+            ? 'text-red-400 bg-gray-200'
+            : 'bg-red-400 text-white'
+        }`}
         onClick={handleBtn}>
-        TEST
+        {checkSubmit(data) ? '모든 답변에 답을 해주세요!' : 'TEST'}
       </button>
     </div>
   );

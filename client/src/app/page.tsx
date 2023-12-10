@@ -3,10 +3,8 @@
 import ChoiceSex from '@/components/ChoiceSex';
 import Footer from '@/components/layout/Footer';
 import Loading from '@/components/Loading';
-import NumberCount from '@/components/NumberCount';
 import Logo from '@/components/svg/Logo';
 import { PATH } from '@/config';
-import useGetNumber from '@/hooks/useGetNumber';
 import useRedirectIfKeyExists from '@/hooks/usePageSwitch';
 
 //const NUMBER = 1000;

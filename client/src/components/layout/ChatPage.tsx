@@ -23,9 +23,7 @@ export default function ChatPage({ pageId, isVisited }: Prop) {
   const [answers, setAnswers] = useState<string[]>([]);
   const textRef = useRef<HTMLTextAreaElement>(null);
   const chatDivRef = useRef<HTMLTableSectionElement>(null);
-  const headerRef = useRef<HTMLDivElement>(null);
-
-  useSetVisited(isVisited, pageId);
+  const sectionRef = useRef<HTMLTableSectionElement>(null);
 
   const handleSendMessage = async () => {
     setAnswers(prev => [...prev, message]);
@@ -33,12 +31,6 @@ export default function ChatPage({ pageId, isVisited }: Prop) {
     setMessage('');
     if (textRef.current) textRef.current.focus();
   };
-
-  useEffect(() => {
-    if (textRef.current) {
-      textRef.current.focus();
-    }
-  }, []);
 
   useEffect(
     function fillAnswers() {
@@ -55,15 +47,22 @@ export default function ChatPage({ pageId, isVisited }: Prop) {
     }
   }, [answers]);
 
+  useEffect(() => {
+    if (window) {
+      window.scrollTo(0, document.body.scrollHeight);
+    }
+  }, []);
+
   if (isLoading) return <Loading />;
   else {
     return (
-      <section className="bg-bgChating flex w-full min-h-screen max-h-screen max-w-xl min-w-xl flex-col justify-between">
+      <section
+        className="bg-bgChating flex w-full min-h-screen max-h-screen max-w-xl min-w-xl flex-col justify-between"
+        ref={sectionRef}>
         <ChatingDetailHeader
           name={question.name}
           number={question.memberCount}
           profile={question.profile}
-          ref={headerRef}
         />
         <section
           className="flex flex-col px-4 gap-2 max-h-[80vh] grow overflow-y-auto scroll-div"
@@ -88,7 +87,7 @@ export default function ChatPage({ pageId, isVisited }: Prop) {
             }}
             rows={3}
             className="w-full pr-24 pl-4 py-2 focus:outline-none resize-none scroll-div bg-white"
-            autoFocus
+            placeholder={`(${question.description})`}
             ref={textRef}
           />
           <button

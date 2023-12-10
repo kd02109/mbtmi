@@ -38,6 +38,7 @@ export const QUESTIONS_MAN: Data[] = [
     ],
     newMessage: 3,
     memberCount: 4,
+    description: '엄마가 가족 톡방에 꽃을 보냈다 당신의 답변은?',
   },
   {
     id: '2',
@@ -85,6 +86,7 @@ export const QUESTIONS_MAN: Data[] = [
     profile: `${CONFIG.profileSource}friend_minho.png`,
     newMessage: 3,
     memberCount: 2,
+    description: '늦은 밤 제일 친한 친구가 바다를 가자고 한다...',
   },
   {
     id: '3',
@@ -147,6 +149,7 @@ export const QUESTIONS_MAN: Data[] = [
     profile: `${CONFIG.profileSource}youri.png`,
     newMessage: 1,
     memberCount: 2,
+    description: '해어졌다 만났다를 반복하는 친구에게 당신의 답변은?',
   },
   {
     id: '4',
@@ -162,7 +165,7 @@ export const QUESTIONS_MAN: Data[] = [
       {
         type: 'message',
         user: '12기_영희',
-        messageFn: name => `${name}님! 어제 회식 빠른 정산 부탁할게요~!`,
+        messageFn: name => `${name}님! 3일 전 회식 빠른 정산 부탁할게요~!`,
         time: '18:20',
         profile: `${CONFIG.profileSource}club_hee.png`,
       },
@@ -177,6 +180,8 @@ export const QUESTIONS_MAN: Data[] = [
     ],
     newMessage: 2,
     memberCount: 25,
+    description:
+      '정산을 맡았지만, 바로 방을 파지 않아서 다른 동아리원이 방을 판 상황입니다.',
   },
   {
     id: '5',
@@ -218,6 +223,7 @@ export const QUESTIONS_MAN: Data[] = [
     profile: `${CONFIG.profileSource}uncle.png`,
     newMessage: 0,
     memberCount: 2,
+    description: '삼촌이 주신 용돈을 받고 답장을 하지 않은 상황입니다.',
   },
   {
     id: '6',
@@ -305,6 +311,8 @@ export const QUESTIONS_MAN: Data[] = [
     ],
     newMessage: 4,
     memberCount: 4,
+    description:
+      '먼저 나서서 아침에 보자고 했지만, 늦잠을 자서 팀플에 참석을 못했어요!',
   },
 ];
 
@@ -345,6 +353,7 @@ export const QUESTIONS_WOMAN: Data[] = [
     ],
     newMessage: 3,
     memberCount: 4,
+    description: '엄마가 가족 톡방에 꽃을 보냈다 당신의 답변은?',
   },
   {
     id: '2',
@@ -392,6 +401,7 @@ export const QUESTIONS_WOMAN: Data[] = [
     profile: `${CONFIG.profileSource}youri.png`,
     newMessage: 3,
     memberCount: 2,
+    description: '늦은 밤 제일 친한 친구가 바다를 가자고 한다...',
   },
   {
     id: '3',
@@ -454,6 +464,7 @@ export const QUESTIONS_WOMAN: Data[] = [
     profile: `${CONFIG.profileSource}friend_minho.png`,
     newMessage: 1,
     memberCount: 2,
+    description: '해어졌다 만났다를 반복하는 친구에게 당신의 답변은?',
   },
   {
     id: '4',
@@ -484,6 +495,8 @@ export const QUESTIONS_WOMAN: Data[] = [
     ],
     newMessage: 2,
     memberCount: 25,
+    description:
+      '정산을 맡았지만, 바로 방을 파지 않아서 다른 동아리원이 방을 판 상황입니다.',
   },
   {
     id: '5',
@@ -525,6 +538,7 @@ export const QUESTIONS_WOMAN: Data[] = [
     profile: `${CONFIG.profileSource}uncle.png`,
     newMessage: 0,
     memberCount: 2,
+    description: '삼촌이 주신 용돈을 받고 답장을 하지 않은 상황입니다.',
   },
   {
     id: '6',
@@ -612,6 +626,8 @@ export const QUESTIONS_WOMAN: Data[] = [
     ],
     newMessage: 4,
     memberCount: 4,
+    description:
+      '먼저 나서서 아침에 보자고 했지만, 늦잠을 자서 팀플에 참석을 못했어요!',
   },
 ];
 

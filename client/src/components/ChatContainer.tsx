@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import NewCircle from '@/components/NewCircle';
+import NewCircle from '@/components/chat/NewCircle';
 import Profile from '@/components/Profile';
 import { DataManOrWoman } from '@/types/types';
 

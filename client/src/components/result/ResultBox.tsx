@@ -45,7 +45,11 @@ export default function ResultBox(prop: ResultInfo) {
 
   return (
     <article
-      className={`w-full bg-gradient-to-b from-white from-90% to-bgChating mt-4 rounded-t-xl flex flex-col p-3 justify-center items-center`}>
+      className={`w-full  mt-4 rounded-t-2xl flex flex-col p-3 justify-center items-center ${
+        isExpanded
+          ? 'bg-gradient-to-b from-bgChating from-90% to-bgChating'
+          : 'bg-bgChating'
+      }`}>
       <ResultSection title={`"${prop.name}"`}>
         <ResultList sentences={prop.basicFeatures} />
       </ResultSection>
