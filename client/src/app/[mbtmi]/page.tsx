@@ -58,7 +58,6 @@ export default function MBTMIPage({ params }: { params: { mbtmi: string } }) {
           number={1}
           back={false}
         />
-        <ResultNotification />
         <Image
           src={MBTI_RESULT[mbti!].imgSrc}
           alt={MBTI_RESULT[mbti!].name}

@@ -47,7 +47,7 @@ export default function ResultBox(prop: ResultInfo) {
     <article
       className={`w-full  mt-4 rounded-t-2xl flex flex-col p-3 justify-center items-center ${
         isExpanded
-          ? 'bg-gradient-to-b from-bgChating from-90% to-bgChating'
+          ? 'bg-gradient-to-b from-white from-90% to-bgChating'
           : 'bg-bgChating'
       }`}>
       <ResultSection title={`"${prop.name}"`}>

@@ -29,8 +29,8 @@ export default function ChatingDetailHeader({
         <Profile name={name} profile={profile} number={number} />
       </div>
       <div className="h-full flex gap-2 items-center px-2">
-        <Habmeger width={'30'} height={'30'} style="mr-2" />
-        <Magnifier width={'30'} height={'30'} />
+        <Habmeger width={'20'} height={'20'} style="mr-2" />
+        <Magnifier width={'20'} height={'20'} />
       </div>
     </header>
   );
