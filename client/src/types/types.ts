@@ -30,6 +30,7 @@ export type Data = {
   profile: string | string[];
   newMessage: number;
   memberCount: number;
+  description: string;
 };
 export type Gender = 'man' | 'woman';
 export type DataManOrWoman = Data & UserInfo;

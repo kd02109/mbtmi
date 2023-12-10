@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import AD from '@/components/ad/AD';
 import ChatingDetailHeader from '@/components/layout/ChatingDetailHeader';
 import Footer from '@/components/layout/Footer';
 import ResultBox from '@/components/result/ResultBox';
@@ -60,18 +61,19 @@ export default function MBTMIPage({ params }: { params: { mbtmi: string } }) {
         />
         <ResultNotification />
         <Image
-          src={MBTI_RESULT[mbti!].imgSrc}
+          src={'/images/result.png' /* MBTI_RESULT[mbti!].imgSrc */}
           alt={MBTI_RESULT[mbti!].name}
-          width={300}
-          height={300}
+          width={400}
+          height={400}
           style={{
             width: 'auto',
             height: 'auto',
           }}
-          className="rounded-xl my-4 m-auto"
+          className="rounded-xl my-4"
           priority
         />
         <ResultBox {...MBTI_RESULT[mbti!]} />
+        <AD />
         <Footer />
       </section>
     </main>

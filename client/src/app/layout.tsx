@@ -34,6 +34,10 @@ export default function RootLayout({
           name="google-site-verification"
           content="E7trMkCVgst0p5vigHXJLOlSK8f83P4s1cqgZS8-ctE"
         />
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1871872713282095"
+          crossOrigin="anonymous"></script>
         <link rel="icon" sizes="any" href="/favicon.ico" />
         <script
           defer

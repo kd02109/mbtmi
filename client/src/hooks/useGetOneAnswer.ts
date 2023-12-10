@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { getApiWhitToken } from '@/api/clientApi';
 import { END_POINT } from '@/api/url';
-import { QUESTIONS } from '@/data/question';
+import { QUESTIONS_MAN, QUESTIONS_WOMAN } from '@/data/question';
 import useLocalStorage from '@/hooks/useLocalStorage';
 import useRedirect from '@/hooks/useRedirect';
 import { AnswerData, Data, Id, UserInfo } from '@/types/types';
@@ -34,6 +34,8 @@ export default function useGetOneAnswer(id: Id): [boolean, Data, UserInfo] {
 
     if (token) {
       getData().then(data => {
+        const QUESTIONS =
+          data?.user.gender === 'man' ? QUESTIONS_MAN : QUESTIONS_WOMAN;
         const question = QUESTIONS.find(question => question.id === id);
         if (question && data) {
           question.answer = [...data.answer[id]];
