@@ -19,14 +19,24 @@ export const generateMetadata = ({
     if (MBTI_RESULT[key].path === id) return true;
     return false;
   });
-
-  return {
-    title: `${MBTI_RESULT[mbti!].name} | ${CONFIG.title}`,
-    description: MBTI_RESULT[mbti!].basicFeatures.join(' '),
-    openGraph: {
+  if (MBTI_RESULT[mbti!]) {
+    return {
       title: `${MBTI_RESULT[mbti!].name} | ${CONFIG.title}`,
-      images: `${MBTI_RESULT[mbti!].imgUrl}`,
       description: MBTI_RESULT[mbti!].basicFeatures.join(' '),
+      openGraph: {
+        title: `${MBTI_RESULT[mbti!].name} | ${CONFIG.title}`,
+        images: `${MBTI_RESULT[mbti!].imgUrl}`,
+        description: MBTI_RESULT[mbti!].basicFeatures.join(' '),
+      },
+    };
+  }
+  return {
+    title: CONFIG.title,
+    description: CONFIG.description,
+    openGraph: {
+      title: `${CONFIG.title}/chating-list`,
+      description: CONFIG.description,
+      images: CONFIG.logoImage,
     },
   };
 };
@@ -38,7 +48,7 @@ export default function MBTMIPage({ params }: { params: { mbtmi: string } }) {
     if (MBTI_RESULT[key].path === mbtmi) return true;
     return false;
   });
-
+  if (!MBTI_RESULT[mbti!]) return <div>잘못된 접근</div>;
   return (
     <main className="flex w-full min-h-screen max-w-xl m-auto flex-col items-center   bg-bgChating">
       <section className="w-full flex flex-col">
