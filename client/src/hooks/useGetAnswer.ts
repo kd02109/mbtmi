@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { getApiWhitToken } from '@/api/clientApi';
 import { END_POINT } from '@/api/url';
-import { QUESTIONS } from '@/data/question';
+import { QUESTIONS_MAN, QUESTIONS_WOMAN } from '@/data/question';
 import useLocalStorage from '@/hooks/useLocalStorage';
 import useRedirect from '@/hooks/useRedirect';
 import { AnswerData, Data, UserInfo } from '@/types/types';
@@ -30,6 +30,8 @@ export default function useGetTokenAndVisited(): [
     if (token) {
       getApiWhitToken<AnswerData>(END_POINT.getAnswerVisiting, token!).then(
         data => {
+          const QUESTIONS =
+            data?.user.gender === 'man' ? QUESTIONS_MAN : QUESTIONS_WOMAN;
           const questions = QUESTIONS.map(question => {
             question.visited = visited ? visited[question.id] : false;
             const answers = data?.answer[question.id];
