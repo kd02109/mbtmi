@@ -50,9 +50,9 @@ export default function ResultBox(prop: ResultInfo) {
           ? 'bg-gradient-to-b from-white from-90% to-bgChating'
           : 'bg-bgChating'
       }`}>
-      <ResultSection title={`"${prop.name}"`}>
+      {/*       <ResultSection title={`"${prop.name}"`}>
         <ResultList sentences={prop.basicFeatures} />
-      </ResultSection>
+      </ResultSection> */}
       {isExpanded && (
         <AnimatePresence>
           <motion.div
