@@ -10,7 +10,8 @@ app = FastAPI()
 
 origins = [
     "http://localhost:3000",
-    "https://mbtmi.vercel.app"
+    "https://mbtmi.vercel.app",
+    "https://www.mbtmi.xyz"
 ]
 
 app.add_middleware(
