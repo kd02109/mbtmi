@@ -30,6 +30,10 @@ export default function RootLayout({
   return (
     <html lang="kn" className="bg-bgGray">
       <head>
+        <meta
+          name="google-site-verification"
+          content="E7trMkCVgst0p5vigHXJLOlSK8f83P4s1cqgZS8-ctE"
+        />
         <link rel="icon" sizes="any" href="/favicon.ico" />
         <script
           defer
