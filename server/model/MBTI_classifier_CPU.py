@@ -59,27 +59,28 @@ class MBTISentimentPredictor:
         probabilities = F.softmax(torch.tensor(outputs[0]), dim=-1)
         return probabilities.numpy()
 
-    def predict_all(self, json_name):
-        with open(json_name, 'r') as json_file:
-            data = json.load(json_file)
+    def predict_all(self, input_data):
+        answers = input_data
 
-        answers = data['answer']
-
-        IT_number = ['2','4']
-        NS_number = ['1','2','3']
-        JP_number = ['2','4','6']
+        IT_number = [2,4]
+        NS_number = [1,2,3]
+        JP_number = [2,4,6]
 
         IT_value = []
         NS_value = []
         JP_value = []
-
-        for number in NS_number:
-          NS_value.append(self.predict(' '.join(answers[number]))['NS'])
+        print('*'*50)
+        print(' '.join(answers[1]))
 
         for number in JP_number:
           JP_value.append(self.predict(' '.join(answers[number]))['JP'])
+        print('okay JP')
         for number in IT_number:
           IT_value.append(self.predict(' '.join(answers[number]))['IT'])
+        print('okay IT')
+        for number in NS_number:
+          NS_value.append(self.predict(' '.join(answers[number]))['NS'])
+
 
         IT_avg = np.mean(IT_value[:1],axis = 0)
         NS_avg = np.mean(NS_value,axis = 0)
@@ -98,13 +99,15 @@ class MBTISentimentPredictor:
 
 root_path = sys.path[0]+'/model/classifier'
 onnx_path = sys.path[0]+'/model/onnx'
-sentiment_model_path = root_path + '/sentimental'
-IT_model_path = root_path + '/ei'
-NS_model_path = root_path + '/ns'
-JP_model_path = root_path + '/jp'
-onnx_IT_path = onnx_path + '/IT_quad_model_quantized.onnx'
-onnx_NS_path = onnx_path + '/NS_quad_model_quantized.onnx'
-onnx_JP_path = onnx_path + '/JP_quad_model_quantized.onnx'
+
+IE_model_path = root_path + '/IT2'
+NS_model_path = root_path + '/NS2'
+TF_model_path = root_path + '/TF2'
+JP_model_path = root_path + '/JP2'
+onnx_IE_path = onnx_path + '/IE_model_quantized.onnx'
+onnx_NS_path = onnx_path + '/NS_model_quantized.onnx'
+onnx_TF_path = onnx_path + '/TF_model_quantized.onnx'
+onnx_JP_path = onnx_path + '/JP_model_quantized.onnx'
 
 model = MBTISentimentPredictor(IT_model_path, NS_model_path, JP_model_path, onnx_IT_path, onnx_NS_path, onnx_JP_path)
 
