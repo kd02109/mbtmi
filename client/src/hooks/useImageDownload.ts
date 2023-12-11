@@ -10,7 +10,9 @@ export default function useImageDownload(src: string, name: string) {
       const a = document.createElement('a');
       a.href = src;
       a.download = name;
-      document.removeChild(a);
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
       setIsDownload(false);
     }
   }, [isDownload, src, name]);
