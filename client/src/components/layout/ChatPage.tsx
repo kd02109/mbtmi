@@ -31,6 +31,7 @@ export default function ChatPage({ pageId, isVisited }: Prop) {
     setMessage('');
     if (textRef.current) textRef.current.focus();
   };
+  useSetVisited(isVisited, pageId);
 
   useEffect(
     function fillAnswers() {
