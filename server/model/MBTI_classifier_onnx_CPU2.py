@@ -79,9 +79,9 @@ class MBTISentimentPredictor:
 
         answers = json_name
 
-        IT_number = ['2','4']
-        NS_number = ['1','2','3']
-        JP_number = ['2','4','6']
+        IT_number = [2,4]
+        NS_number = [1,2,3]
+        JP_number = [2,4,6]
 
         IE_value = []
         NS_value = []
