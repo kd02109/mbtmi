@@ -3,6 +3,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useSearchParams } from 'next/navigation';
 import { useState, useEffect } from 'react';
+import DownloadImg from '@/components/result/DownloadImg';
 import ReStartBtn from '@/components/result/ReStartBtn';
 import ResultChatContainer from '@/components/result/ResultChatContainer';
 import ResultList from '@/components/result/ResultList';
@@ -92,6 +93,7 @@ export default function ResultBox(prop: ResultInfo) {
         className="text-white text-center font-bold text-xl w-96 py-2 mt-4 bg-bgBrown rounded-3xl max-md:w-[90%]">
         다시 테스트 하기
       </button>
+      <DownloadImg src={prop.imgSrc} name={prop.name} />
     </article>
   );
 }
