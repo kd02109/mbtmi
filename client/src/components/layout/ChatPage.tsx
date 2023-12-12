@@ -43,17 +43,17 @@ export default function ChatPage({ pageId, isVisited }: Prop) {
   );
 
   useEffect(() => {
+    if (window) {
+      window.scrollTo(0, document.body.scrollHeight);
+    }
+  }, []);
+
+  useEffect(() => {
     if (chatDivRef.current) {
       //chatDivRef.current.scrollTop = chatDivRef.current.scrollHeight;
       chatDivRef.current.scrollTo(0, chatDivRef.current.scrollHeight);
     }
   }, [answers]);
-
-  useEffect(() => {
-    if (window) {
-      window.scrollTo(0, document.body.scrollHeight);
-    }
-  }, []);
 
   if (isLoading) return <Loading />;
   else {
