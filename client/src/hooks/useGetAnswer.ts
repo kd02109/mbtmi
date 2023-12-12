@@ -57,7 +57,8 @@ export default function useGetTokenAndVisited(): [
           router.push('/');
         });
     }
-  }, [token, visited, saveToken, saveVisited, router]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [token, visited]);
 
   return [isLoading, questions, userInfo, token!];
 }

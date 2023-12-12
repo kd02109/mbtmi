@@ -286,7 +286,7 @@ const MBTI_RESULT: { [key in Mbti]: ResultInfo } = {
     path: '20',
     name: '바다로 간 붕어빵',
     mbti: 'ESTP',
-    imgSrc: `${CONFIG.resultSource}see.png`,
+    imgSrc: `${CONFIG.resultSource}sea.png`,
     imgUrl: `https://i.imgur.com/Okuc8ob.png`,
     shareUrl: 'https://i.imgur.com/kYsRy5C.png',
     reading: { title: '나의 카톡 읽씹 지수', ratio: 0.25 },

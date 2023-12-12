@@ -53,7 +53,8 @@ export default function useGetOneAnswer(id: Id): [boolean, Data, UserInfo] {
           router.push('/');
         });
     }
-  }, [token, visited, id, saveToken, saveVisited, router]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [token, visited, id]);
 
   return [isLoading, question!, userInfo];
 }
