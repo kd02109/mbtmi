@@ -26,7 +26,12 @@ export default function ChatingDetailHeader({
             <Back />
           </button>
         )}
-        <Profile name={name} profile={profile} number={number} />
+        <Profile
+          name={name}
+          profile={profile}
+          number={number}
+          nickname={name}
+        />
       </div>
       <div className="h-full flex gap-2 items-center px-2">
         <Habmeger width={'20'} height={'20'} style="mr-2" />
