@@ -150,7 +150,7 @@ export const QUESTIONS_MAN: Data[] = [
     profile: `${CONFIG.profileSource}youri.png`,
     newMessage: 1,
     memberCount: 2,
-    description: '해어졌다 만났다를 반복하는 친구에게 당신의 답변은?',
+    description: '헤어졌다 만났다를 반복하는 친구에게 당신의 답변은?',
   },
   {
     id: '4',
