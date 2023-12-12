@@ -538,7 +538,7 @@ export const QUESTIONS_WOMAN: Data[] = [
       {
         type: 'message',
         user: '팀원1',
-        message: '그럼 저희 내일 볓시에 뵐까요?',
+        message: '그럼 저희 내일 몇시에 뵐까요?',
         time: '21:06',
         profile: `${CONFIG.profileSource}team_1.png`,
       },
