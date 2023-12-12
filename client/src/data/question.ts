@@ -150,7 +150,7 @@ export const QUESTIONS_MAN: Data[] = [
     profile: `${CONFIG.profileSource}youri.png`,
     newMessage: 1,
     memberCount: 2,
-    description: '해어졌다 만났다를 반복하는 친구에게 당신의 답변은?',
+    description: '헤어졌다 만났다를 반복하는 친구에게 당신의 답변은?',
   },
   {
     id: '4',
@@ -538,7 +538,7 @@ export const QUESTIONS_WOMAN: Data[] = [
       {
         type: 'message',
         user: '팀원1',
-        message: '그럼 저희 내일 볓시에 뵐까요?',
+        message: '그럼 저희 내일 몇시에 뵐까요?',
         time: '21:06',
         profile: `${CONFIG.profileSource}team_1.png`,
       },
