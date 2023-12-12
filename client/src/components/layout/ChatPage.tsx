@@ -8,6 +8,7 @@ import ChatingDetailHeader from '@/components/layout/ChatingDetailHeader';
 import Loading from '@/components/Loading';
 import useGetOneAnswer from '@/hooks/useGetOneAnswer';
 import useLocalStorage from '@/hooks/useLocalStorage';
+import useResize from '@/hooks/useResize';
 import useSetVisited from '@/hooks/useSetVisited';
 import { Id } from '@/types/types';
 
@@ -22,7 +23,7 @@ export default function ChatPage({ pageId, isVisited }: Prop) {
   const [message, setMessage] = useState('');
   const [answers, setAnswers] = useState<string[]>([]);
   const textRef = useRef<HTMLTextAreaElement>(null);
-  const chatDivRef = useRef<HTMLTableSectionElement>(null);
+  const chatDivRef = useResize();
   const sectionRef = useRef<HTMLTableSectionElement>(null);
 
   const handleSendMessage = async () => {
@@ -53,7 +54,7 @@ export default function ChatPage({ pageId, isVisited }: Prop) {
       //chatDivRef.current.scrollTop = chatDivRef.current.scrollHeight;
       chatDivRef.current.scrollTo(0, chatDivRef.current.scrollHeight);
     }
-  }, [answers]);
+  }, [answers, chatDivRef]);
 
   if (isLoading) return <Loading />;
   else {
