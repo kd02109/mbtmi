@@ -43,12 +43,12 @@ export default function ResultBox(prop: ResultInfo) {
       className={`w-full  mt-4 rounded-t-3xl flex flex-col p-3 justify-center items-center relative ${
         isExpanded
           ? 'bg-gradient-to-b from-white from-90% to-bgChating'
-          : 'bg-gradient-to-b from-white from-90% to-bgChating'
+          : 'bg-bgChating'
       }`}>
       <ReStartBtn />
-      <ResultSection title={`"${prop.name}"`}>
+      {/*       <ResultSection title={`"${prop.name}"`}>
         <ResultList sentences={prop.basicFeatures} />
-      </ResultSection>
+      </ResultSection> */}
       {isExpanded && (
         <AnimatePresence>
           <motion.div
