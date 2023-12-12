@@ -2,6 +2,7 @@
 import { usePathname } from 'next/navigation';
 import { Dispatch, SetStateAction, useState } from 'react';
 import { createPortal } from 'react-dom';
+import Clipboard from '@/components/share/Clipboard';
 import FaceBookBtn from '@/components/share/FaceBookBtn';
 import KakaoBtn from '@/components/share/KakaoBtn';
 import ShareInsta from '@/components/share/ShareInsta';
@@ -52,7 +53,7 @@ export default function ShariApi(
       {isNotShareApi &&
         createPortal(
           <div className="fixed top-0 right-0 w-full h-full flex justify-center items-center z-[9999] backdrop-blur ">
-            <section className="w-80 h-[40%] bg-white p-2 flex flex-col items-center rounded-xl">
+            <section className="w-80 h-[40%] bg-white p-2 flex flex-col items-center justify-center rounded-xl">
               <header className="flex items-center justify-between w-full p-2 mb-4">
                 <h1 className="font-bold text-2xl">Custom SNS Share</h1>
                 <button className="text-xl" onClick={handleModal}>
@@ -75,6 +76,11 @@ export default function ShariApi(
                   />
                 </li>
               </ul>
+              <div className="my-4 flex">
+                <Clipboard
+                  link={`${CONFIG.gabia}${path}?${CONFIG.param.query}`}
+                />
+              </div>
             </section>
           </div>,
           document.body,
