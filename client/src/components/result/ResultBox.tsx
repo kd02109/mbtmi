@@ -11,6 +11,7 @@ import ResultSection from '@/components/result/ResultSection';
 import ShariApi from '@/components/share/ShariApi';
 import SpeechBuble from '@/components/svg/SpeechBuble';
 import { CONFIG } from '@/config';
+import useDeletToken from '@/hooks/useDeletToken';
 import useRestart from '@/hooks/useRestart';
 import { ResultInfo } from '@/types/types';
 import getKeys from '@/util/getKeys';
@@ -37,6 +38,8 @@ export default function ResultBox(prop: ResultInfo) {
   useEffect(() => {
     if (searchParams.get(CONFIG.param.key)) setIsExpanded(true);
   }, [searchParams]);
+
+  useDeletToken();
 
   return (
     <article

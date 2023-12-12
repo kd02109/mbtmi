@@ -1,5 +1,6 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { getApiWhitToken } from '@/api/clientApi';
 import { END_POINT } from '@/api/url';
@@ -14,22 +15,22 @@ export default function useGetTokenAndVisited(): [
   string,
 ] {
   const [isLoading, setIsLoading] = useState(true);
-  const [token] = useLocalStorage<null | string>('token', null);
-  const [visited] = useLocalStorage<null | { [key: string]: boolean }>(
-    'isVisited',
-    null,
-  );
+  const [token, saveToken] = useLocalStorage<null | string>('token', null);
+  const [visited, saveVisited] = useLocalStorage<null | {
+    [key: string]: boolean;
+  }>('isVisited', null);
   const [questions, setQuestion] = useState<Data[]>([]);
   const [userInfo, setUserInfo] = useState<UserInfo>({
     gender: 'man',
     nickname: 'person',
   });
+  const router = useRouter();
 
   useRedirect(token, visited);
   useEffect(() => {
     if (token) {
-      getApiWhitToken<AnswerData>(END_POINT.getAnswerVisiting, token!).then(
-        data => {
+      getApiWhitToken<AnswerData>(END_POINT.getAnswerVisiting, token!)
+        .then(data => {
           const QUESTIONS =
             data?.user.gender === 'man' ? QUESTIONS_MAN : QUESTIONS_WOMAN;
           const questions = QUESTIONS.map(question => {
@@ -48,9 +49,15 @@ export default function useGetTokenAndVisited(): [
 
           setQuestion(questions);
           setIsLoading(false);
-        },
-      );
+        })
+        .catch(() => {
+          saveToken(null);
+          saveVisited(null);
+          alert('예상치 못한 오류가 발생했습니다 메인화면으로 이동합니다.');
+          router.push('/');
+        });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token, visited]);
 
   return [isLoading, questions, userInfo, token!];

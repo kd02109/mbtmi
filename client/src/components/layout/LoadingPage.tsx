@@ -9,7 +9,7 @@ import { Mbti } from '@/types/types';
 export default function LoadingPage() {
   const router = useRouter();
   const data = useGetMbtmi();
-  console.log(data?.user);
+
   useEffect(() => {
     const id = setTimeout(() => {
       if (data?.user.mbtmi) {

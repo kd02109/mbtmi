@@ -1,5 +1,6 @@
 import { CONFIG } from '@/config';
 import { Data } from '@/types/types';
+import checkNickname from '@/util/checkNickname';
 
 export const QUESTIONS_MAN: Data[] = [
   {
@@ -225,7 +226,7 @@ export const QUESTIONS_MAN: Data[] = [
       {
         type: 'message',
         user: '팀원1',
-        message: '그럼 저희 내일 볓시에 뵐까요?',
+        message: '그럼 저희 내일 몇시에 뵐까요?',
         time: '21:06',
         profile: `${CONFIG.profileSource}team_1.png`,
       },
@@ -457,7 +458,7 @@ export const QUESTIONS_WOMAN: Data[] = [
     profile: `${CONFIG.profileSource}friend_minho.png`,
     newMessage: 1,
     memberCount: 2,
-    description: '해어졌다 만났다를 반복하는 친구에게 당신의 답변은?',
+    description: '헤어졌다 만났다를 반복하는 친구에게 당신의 답변은?',
   },
   {
     id: '4',
@@ -498,16 +499,20 @@ export const QUESTIONS_WOMAN: Data[] = [
       {
         type: 'message',
         user: '삼촌',
-        messageFn: name =>
-          `${name}아 잘 지내고 있니? 덕화 삼촌이야! 요새 날씨가 많이 추운데 ${name}생각이 많이 난다!`,
+        messageFn: name => {
+          const nickName = checkNickname(name, ['아', '야']);
+          return `${nickName} 잘 지내고 있니? 덕화 삼촌이야! 요새 날씨가 많이 추운데 ${name} 생각이 많이 난다!`;
+        },
         time: '20:06',
         profile: `${CONFIG.profileSource}uncle.png`,
       },
       {
         type: 'message',
         user: '삼촌',
-        messageFn: name =>
-          `엄마가 요새 용돈 잘 안주지? 내가 ${name}이 따뜻한 패딩 사입으라고 용돈 보냈으니까 엄마한테 비밀로 하고 예쁜 옷 한벌 골라보렴~!`,
+        messageFn: name => {
+          const nickName = checkNickname(name, ['이', '']);
+          return `엄마가 요새 용돈 잘 안주지? 내가 ${nickName} 따뜻한 패딩 사입으라고 용돈 보냈으니까 엄마한테 비밀로 하고 예쁜 옷 한벌 골라보렴~!`;
+        },
         time: '20:12',
         profile: `${CONFIG.profileSource}uncle.png`,
       },

@@ -55,7 +55,7 @@ const WavyText: FC<Props> = ({
     if (animationState === 'hidden') {
       timeout = setTimeout(() => {
         setAnimationState('visible');
-      }, 2000); // 1 second delay
+      }, 3000);
     }
     return () => clearTimeout(timeout);
   }, [animationState]);

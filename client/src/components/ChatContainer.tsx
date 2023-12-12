@@ -23,6 +23,7 @@ export default function ChatContainer(prop: DataManOrWoman) {
           name={name}
           message={questions}
           answer={answer}
+          nickname={nickname}
         />
         {!visited && <NewCircle number={newMessage} />}
       </article>

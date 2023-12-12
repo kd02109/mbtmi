@@ -44,7 +44,8 @@ export default function ChatPage({ pageId, isVisited }: Prop) {
 
   useEffect(() => {
     if (chatDivRef.current) {
-      chatDivRef.current.scrollTop = chatDivRef.current.scrollHeight;
+      //chatDivRef.current.scrollTop = chatDivRef.current.scrollHeight;
+      chatDivRef.current.scrollTo(0, chatDivRef.current.scrollHeight);
     }
   }, [answers]);
 
