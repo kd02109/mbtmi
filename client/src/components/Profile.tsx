@@ -6,6 +6,7 @@ import { MessageOrDate } from '@/types/types';
 type Prop = {
   name: string;
   profile: string | string[];
+  nickname: string;
   answer?: string[];
   message?: MessageOrDate[];
   number?: number;
@@ -17,6 +18,7 @@ export default function Profile({
   answer,
   message,
   number,
+  nickname,
 }: Prop) {
   let lastValue: MessageOrDate | undefined = message
     ? message[message.length - 1]
@@ -27,7 +29,7 @@ export default function Profile({
     if (lastValue.message) {
       lastMessage = lastValue.message;
     } else if (typeof lastValue.messageFn === 'function') {
-      lastMessage = lastValue.messageFn(name);
+      lastMessage = lastValue.messageFn(nickname);
     } else lastMessage = '(사진)';
   } else lastMessage = '';
 
