@@ -26,7 +26,7 @@ export const generateMetadata = ({
       description: MBTI_RESULT[mbti!].basicFeatures.join(' '),
       openGraph: {
         title: `${MBTI_RESULT[mbti!].name} | ${CONFIG.title}`,
-        images: `${MBTI_RESULT[mbti!].imgUrl}`,
+        images: `${MBTI_RESULT[mbti!].shareUrl}`,
         description: MBTI_RESULT[mbti!].basicFeatures.join(' '),
       },
     };
@@ -63,13 +63,13 @@ export default function MBTMIPage({ params }: { params: { mbtmi: string } }) {
         <Image
           src={MBTI_RESULT[mbti!].imgSrc}
           alt={MBTI_RESULT[mbti!].name}
-          width={300}
-          height={300}
+          width={400}
+          height={400}
           style={{
             width: 'auto',
             height: 'auto',
           }}
-          className="rounded-xl my-4 m-auto"
+          className="rounded-xl my-4"
           priority
         />
         <ResultBox {...MBTI_RESULT[mbti!]} />

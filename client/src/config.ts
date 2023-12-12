@@ -10,7 +10,7 @@ const CONFIG = Object.freeze({
   since: 2023,
   description:
     '기존의 O,X 선택지에서 벗어나 정확도가 높은 대화형 mbti app 구현을 목표로 합니다',
-  resultSource: '/images/result/',
+  resultSource: '/images/mbtmi_research/',
   logoImage: 'https://i.imgur.com/TwokxKP.png',
   profileSource: '/images/profile/',
   param: {

@@ -27,7 +27,7 @@ export default function KakaoBtn(
       content: {
         title: `${CONFIG.title} | ${prop.name}`,
         description: `${prop.basicFeatures.join(' ')}`,
-        imageUrl: prop.imgUrl,
+        imageUrl: prop.shareUrl,
         link: {
           mobileWebUrl: `${CONFIG.gabia}${path}?${CONFIG.param.query}`,
           webUrl: `${CONFIG.gabia}${path}?${CONFIG.param.query}`,

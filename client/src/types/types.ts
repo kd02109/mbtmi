@@ -95,6 +95,7 @@ export type ResultInfo = {
   mbti: string;
   imgSrc: string;
   imgUrl: string;
+  shareUrl: string;
   reading: { title: string; ratio: number };
   basicFeatures: string[];
   friendName: {
