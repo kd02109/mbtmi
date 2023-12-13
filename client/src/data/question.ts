@@ -179,7 +179,7 @@ export const QUESTIONS_MAN: Data[] = [
       },
       {
         type: 'message',
-        user: '12기_영훈',
+        user: '12기_영수',
         message: '안녕하세용',
         time: '18:23',
         profile: `${CONFIG.profileSource}person.png`,
@@ -523,7 +523,7 @@ export const QUESTIONS_WOMAN: Data[] = [
       },
       {
         type: 'message',
-        user: '12기_영훈',
+        user: '12기_영수',
         message: '안녕하세용',
         time: '18:23',
         profile: `${CONFIG.profileSource}person.png`,
