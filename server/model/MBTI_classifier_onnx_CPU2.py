@@ -79,22 +79,24 @@ class MBTISentimentPredictor:
 
         answers = json_name
 
-        IT_number = [2,4]
-        NS_number = [1,2,3]
-        JP_number = [2,4,6]
+        IE_number = [2,4]
+        NS_number = [1,5]
+        TF_number = [1,3]
+        JP_number = [2,6]
 
         IE_value = []
         NS_value = []
         TF_value = []
         JP_value = []
 
+        for number in IE_number:
+            IE_value.append(self.predict_IE(' '.join(answers[number]))['IE'])
         for number in NS_number:
-          NS_value.append(self.predict_NS(' '.join(answers[number]))['NS'])
+            NS_value.append(self.predict_NS(' '.join(answers[number]))['NS'])
+        for number in TF_number:
+            TF_value.append(self.predict_TF(' '.join(answers[number]))['TF'])
         for number in JP_number:
-          JP_value.append(self.predict_JP(' '.join(answers[number]))['JP'])
-        for number in IT_number:
-          IE_value.append(self.predict_IE(' '.join(answers[number]))['IE'])
-          TF_value.append(self.predict_TF(" ".join(answers[number]))['TF'])
+            JP_value.append(self.predict_JP(' '.join(answers[number]))['JP'])
 
         IE_avg = np.mean(IE_value, axis = 0)
         NS_avg = np.mean(NS_value, axis = 0)
