@@ -13,6 +13,7 @@ export default function ShariApi(
   prop: ResultInfo & {
     setIsExpanded: Dispatch<SetStateAction<boolean>>;
     isExpended: boolean;
+    token: string;
   },
 ) {
   const [isNotShareApi, setIsNotShareApi] = useState(false);
@@ -22,7 +23,7 @@ export default function ShariApi(
       navigator
         .share({
           title: `${prop.name}|${CONFIG.title}`,
-          url: `${CONFIG.gabia}${path}?${CONFIG.param.query}`,
+          url: `${CONFIG.gabia}${path}?${CONFIG.param.query}&token=${prop.token}`,
         })
         .then(() => {
           prop.setIsExpanded(true);
@@ -65,19 +66,19 @@ export default function ShariApi(
                 </li>
                 <li>
                   <FaceBookBtn
-                    url={`${CONFIG.gabia}${path}?${CONFIG.param.query}`}
+                    url={`${CONFIG.gabia}${path}?${CONFIG.param.query}&token=${prop.token}`}
                   />
                 </li>
                 <li>
                   <TwitterBtn
-                    url={`${CONFIG.gabia}${path}?${CONFIG.param.query}`}
+                    url={`${CONFIG.gabia}${path}?${CONFIG.param.query}&token=${prop.token}`}
                     title={prop.name}
                   />
                 </li>
               </ul>
               <div className="my-4 flex">
                 <Clipboard
-                  link={`${CONFIG.gabia}${path}?${CONFIG.param.query}`}
+                  link={`${CONFIG.gabia}${path}?${CONFIG.param.query}&token=${prop.token}`}
                 />
               </div>
             </section>
