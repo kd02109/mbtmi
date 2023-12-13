@@ -5,7 +5,7 @@ import useLocalStorage from '@/hooks/useLocalStorage';
 import useRedirect from '@/hooks/useRedirect';
 import { MbtmiResult } from '@/types/types';
 
-export default function useGetMbtmi() {
+export default function useGetMbtmi(): [MbtmiResult | null, string | null] {
   const [mbtmi, setMbtmi] = useState<MbtmiResult | null>(null);
   const [token] = useLocalStorage<string | null>('token', null);
 
@@ -21,5 +21,5 @@ export default function useGetMbtmi() {
     }
   }, [token]);
 
-  return mbtmi;
+  return [mbtmi, token];
 }
