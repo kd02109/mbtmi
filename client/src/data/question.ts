@@ -45,6 +45,7 @@ export const QUESTIONS_MAN: Data[] = [
     id: '2',
     name: '준석',
     questions: [
+      { type: 'date', date: '하루 전', profile: '#' },
       {
         type: 'message',
         user: '준석',
@@ -59,25 +60,18 @@ export const QUESTIONS_MAN: Data[] = [
         time: '21:46',
         profile: `/images/profile.png`,
       },
-      { type: 'date', date: '하루 전', profile: '#' },
+      { type: 'date', date: '오늘', profile: '#' },
       {
         type: 'message',
         user: '준석',
-        message: '지금 바쁨??',
+        message: '지금 뭐함?',
         time: '22:05',
         profile: `${CONFIG.profileSource}person.png`,
       },
       {
         type: 'message',
         user: '준석',
-        message: '갑자기 바다 가고싶은데',
-        time: '22:06',
-        profile: `${CONFIG.profileSource}person.png`,
-      },
-      {
-        type: 'message',
-        user: '준석',
-        message: '같이 갈까?',
+        message: '갑자기 바다 가고싶은디',
         time: '22:06',
         profile: `${CONFIG.profileSource}person.png`,
       },
@@ -93,6 +87,7 @@ export const QUESTIONS_MAN: Data[] = [
     id: '3',
     name: '경훈',
     questions: [
+      { type: 'date', date: '이틀 전', profile: '#' },
       {
         type: 'message',
         user: '경훈',
@@ -121,7 +116,7 @@ export const QUESTIONS_MAN: Data[] = [
         time: '11:52',
         profile: `${CONFIG.profileSource}friend_minho.png`,
       },
-      { type: 'date', date: '이틀 전', profile: '#' },
+      { type: 'date', date: '하루 전', profile: '#' },
       {
         type: 'message',
         user: '경훈',
@@ -136,7 +131,7 @@ export const QUESTIONS_MAN: Data[] = [
         time: '19:02',
         profile: `/images/profile.png`,
       },
-      { type: 'date', date: '하루 전', profile: '#' },
+      { type: 'date', date: '오늘', profile: '#' },
       {
         type: 'message',
         user: '경훈',
@@ -232,7 +227,7 @@ export const QUESTIONS_MAN: Data[] = [
       {
         type: 'message',
         user: 'me',
-        message: 'ㅇㅇ 뭔데?',
+        message: '응응 뭔데?...',
         time: '23:08',
         profile: `/images/profile.png`,
       },
@@ -259,6 +254,7 @@ export const QUESTIONS_MAN: Data[] = [
     id: '6',
     name: '팀플',
     questions: [
+      { type: 'date', date: '하루 전', profile: '#' },
       {
         type: 'message',
         user: '팀원1',
@@ -301,34 +297,27 @@ export const QUESTIONS_MAN: Data[] = [
         time: '22:00',
         profile: `${CONFIG.profileSource}team_3.png`,
       },
-      { type: 'date', date: '하루 전', profile: '#' },
+      { type: 'date', date: '오늘', profile: '#' },
       {
         type: 'message',
         user: '팀원1',
-        messageFn: name => `${name}님 오고 계신가요?`,
-        time: '09:06',
+        message: '다들 잘 오고 계신가요?? 저 스터디룸 안에 들어와있습니다!',
+        time: '08:55',
         profile: `${CONFIG.profileSource}team_1.png`,
       },
       {
         type: 'message',
         user: '팀원3',
-        messageFn: name => `${name}님 언제 도착하세요!?`,
-        time: '09:10',
+        message: `네! 저도 곧 들어갑니다`,
+        time: '08:56',
         profile: `${CONFIG.profileSource}team_3.png`,
       },
       {
         type: 'message',
         user: '팀원2',
-        message: '오늘 수고하셨습니다.!',
-        time: '10:30',
+        message: '지금 입구입니다',
+        time: '08:59',
         profile: `${CONFIG.profileSource}team_2.png`,
-      },
-      {
-        type: 'message',
-        user: '팀원1',
-        message: '고생하셨어요~~!',
-        time: '10:30',
-        profile: `${CONFIG.profileSource}team_1.png`,
       },
     ],
     visited: false,
@@ -341,8 +330,7 @@ export const QUESTIONS_MAN: Data[] = [
     ],
     newMessage: 4,
     memberCount: 4,
-    description:
-      '먼저 나서서 아침에 보자고 했지만, 늦잠을 자서 팀플에 참석을 못했어요!',
+    description: '9시에 팀플을 하기로 했지만, 버스가 막혀 10분 늦는 상황이다.',
   },
 ];
 
@@ -407,21 +395,21 @@ export const QUESTIONS_WOMAN: Data[] = [
       {
         type: 'message',
         user: '미정',
-        message: '지금 바쁨??',
+        message: '지금 뭐해??',
         time: '22:05',
         profile: `${CONFIG.profileSource}person.png`,
       },
       {
         type: 'message',
         user: '미정',
-        message: '갑자기 바다 가고싶은데',
-        time: '22:06',
+        message: '요즘 일도 잘 안풀리고 답답해서',
+        time: '22:05',
         profile: `${CONFIG.profileSource}person.png`,
       },
       {
         type: 'message',
         user: '미정',
-        message: '같이 갈까?',
+        message: '갑자기 바다 너무 가고 싶다.. ㅜ',
         time: '22:06',
         profile: `${CONFIG.profileSource}person.png`,
       },
@@ -437,6 +425,7 @@ export const QUESTIONS_WOMAN: Data[] = [
     id: '3',
     name: '채원',
     questions: [
+      { type: 'date', date: '이틀 전', profile: '#' },
       {
         type: 'message',
         user: '채원',
@@ -465,7 +454,7 @@ export const QUESTIONS_WOMAN: Data[] = [
         time: '11:52',
         profile: `${CONFIG.profileSource}heo.png`,
       },
-      { type: 'date', date: '이틀 전', profile: '#' },
+      { type: 'date', date: '하루 전', profile: '#' },
       {
         type: 'message',
         user: '채원',
@@ -480,7 +469,7 @@ export const QUESTIONS_WOMAN: Data[] = [
         time: '19:02',
         profile: `/images/profile.png`,
       },
-      { type: 'date', date: '하루 전', profile: '#' },
+      { type: 'date', date: '오늘', profile: '#' },
       {
         type: 'message',
         user: '채원',
@@ -576,7 +565,7 @@ export const QUESTIONS_WOMAN: Data[] = [
       {
         type: 'message',
         user: 'me',
-        message: 'ㅇㅇ 뭔데?',
+        message: '응응 뭔데?...',
         time: '23:08',
         profile: `/images/profile.png`,
       },
@@ -603,6 +592,7 @@ export const QUESTIONS_WOMAN: Data[] = [
     id: '6',
     name: '팀플',
     questions: [
+      { type: 'date', date: '하루 전', profile: '#' },
       {
         type: 'message',
         user: '팀원1',
@@ -645,34 +635,27 @@ export const QUESTIONS_WOMAN: Data[] = [
         time: '22:00',
         profile: `${CONFIG.profileSource}team_3.png`,
       },
-      { type: 'date', date: '하루 전', profile: '#' },
+      { type: 'date', date: '오늘', profile: '#' },
       {
         type: 'message',
         user: '팀원1',
-        messageFn: name => `${name}님 오고 계신가요?`,
-        time: '09:06',
+        message: '다들 잘 오고 계신가요?? 저 스터디룸 안에 들어와있습니다!',
+        time: '08:55',
         profile: `${CONFIG.profileSource}team_1.png`,
       },
       {
         type: 'message',
         user: '팀원3',
-        messageFn: name => `${name}님 언제 도착하세요!?`,
-        time: '09:10',
+        message: `네! 저도 곧 들어갑니다`,
+        time: '08:56',
         profile: `${CONFIG.profileSource}team_3.png`,
       },
       {
         type: 'message',
         user: '팀원2',
-        message: '오늘 수고하셨습니다.!',
-        time: '10:30',
+        message: '지금 입구입니다',
+        time: '08:59',
         profile: `${CONFIG.profileSource}team_2.png`,
-      },
-      {
-        type: 'message',
-        user: '팀원1',
-        message: '고생하셨어요~~!',
-        time: '10:30',
-        profile: `${CONFIG.profileSource}team_1.png`,
       },
     ],
     visited: false,
@@ -685,8 +668,7 @@ export const QUESTIONS_WOMAN: Data[] = [
     ],
     newMessage: 4,
     memberCount: 4,
-    description:
-      '먼저 나서서 아침에 보자고 했지만, 늦잠을 자서 팀플에 참석을 못했어요!',
+    description: '9시에 팀플을 하기로 했지만, 버스가 막혀 10분 늦는 상황이다.',
   },
 ];
 
