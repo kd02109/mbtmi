@@ -159,16 +159,47 @@ export const QUESTIONS_MAN: Data[] = [
       {
         type: 'message',
         user: '12기_영훈',
-        picture: '/images/welcome.gif',
+        message: '안녕하세요 잘 부탁드립니다!',
         time: '18:10',
         profile: `${CONFIG.profileSource}club_hun.png`,
       },
       {
         type: 'message',
         user: '12기_영희',
-        messageFn: name => `${name}님! 3일 전 회식 빠른 정산 부탁할게요~!`,
+        message: '안녕하세요!',
         time: '18:20',
         profile: `${CONFIG.profileSource}club_hee.png`,
+      },
+      {
+        type: 'message',
+        user: 'me',
+        message: '반가워요~!!',
+        time: '18:21',
+        profile: `/images/profile.png`,
+      },
+      {
+        type: 'message',
+        user: '12기_영훈',
+        message: '안녕하세용',
+        time: '18:23',
+        profile: `${CONFIG.profileSource}person.png`,
+      },
+      {
+        type: 'message',
+        user: '12기_영희',
+        message:
+          '저희 역할 중 발표자를 먼저 정하라고 하시네요. 발표자 하고싶은 분 계신가요?',
+        time: '19:00',
+        profile: `${CONFIG.profileSource}club_hee.png`,
+      },
+      {
+        type: 'message',
+        user: '12기_영훈',
+        messageFn: (name: string) =>
+          `오늘 ${name}님 말씀하시는 것 들어보니 잘하실 것 같은데!ㅎㅎ 하실 생각 있으세요??`,
+
+        time: '18:10',
+        profile: `${CONFIG.profileSource}club_hun.png`,
       },
     ],
     visited: false,
@@ -180,44 +211,49 @@ export const QUESTIONS_MAN: Data[] = [
       '/images/profile.png',
     ],
     newMessage: 2,
-    memberCount: 25,
+    memberCount: 4,
     description:
-      '정산을 맡았지만, 바로 방을 파지 않아서 다른 동아리원이 방을 판 상황입니다.',
+      '동아리 발표자를 정해야 하는 상황? 나에게 발표를 맡아달로고 부탁하는데..?',
   },
   {
     id: '5',
-    name: '찬호삼촌',
+    name: '내사랑',
     questions: [
       {
         type: 'message',
-        user: '찬호삼촌',
-        messageFn: name =>
-          `${name}아 잘 지내고 있니? 덕화 삼촌이야! 요새 날씨가 많이 추운데 ${name}생각이 많이 난다!`,
-        time: '20:06',
-        profile: `${CONFIG.profileSource}uncle.png`,
+        user: '내사랑',
+        messageFn: name => {
+          const nickName = checkNickname(name, ['아', '야']);
+          return `${nickName} 갑자기 궁금한 거 생겼는데 ㅎ`;
+        },
+        time: '23:06',
+        profile: `${CONFIG.profileSource}love.png`,
       },
       {
         type: 'message',
-        user: '찬호삼촌',
-        messageFn: name =>
-          `엄마가 요새 용돈 잘 안주지? 내가 ${name}이 따뜻한 패딩 사입으라고 용돈 보냈으니까 엄마한테 비밀로 하고 예쁜 옷 한벌 골라보렴~!`,
-        time: '20:12',
-        profile: `${CONFIG.profileSource}uncle.png`,
+        user: 'me',
+        message: 'ㅇㅇ 뭔데?',
+        time: '23:08',
+        profile: `/images/profile.png`,
       },
       {
         type: 'message',
-        user: '찬호삼촌',
-        picture: '/images/gift.png',
-        time: '20:17',
-        profile: `${CONFIG.profileSource}uncle.png`,
+        user: '내사랑',
+        messageFn: name => {
+          const nickName = checkNickname(name, ['이', '']);
+          return `${nickName} 넌 10년 후에 어떤 인생을 살고있을 거 같아??`;
+        },
+        time: '23:09',
+        profile: `${CONFIG.profileSource}love.png`,
       },
     ],
     visited: true,
     answer: [],
-    profile: `${CONFIG.profileSource}uncle.png`,
-    newMessage: 3,
+    profile: `${CONFIG.profileSource}love.png`,
+    newMessage: 1,
     memberCount: 2,
-    description: '삼촌이 주신 용돈을 주신 상황 당신의 답변은?',
+    description:
+      '갑자기 연인에게서 미래에 내가 어떤 인생을 살고있을 것 같은지 물어보는 연락이 왔다',
   },
   {
     id: '6',
@@ -467,16 +503,47 @@ export const QUESTIONS_WOMAN: Data[] = [
       {
         type: 'message',
         user: '12기_영훈',
-        picture: '/images/welcome.gif',
+        message: '안녕하세요 잘 부탁드립니다!',
         time: '18:10',
         profile: `${CONFIG.profileSource}club_hun.png`,
       },
       {
         type: 'message',
         user: '12기_영희',
-        messageFn: name => `${name}님! 어제 회식 빠른 정산 부탁할게요~!`,
+        message: '안녕하세요!',
         time: '18:20',
         profile: `${CONFIG.profileSource}club_hee.png`,
+      },
+      {
+        type: 'message',
+        user: 'me',
+        message: '반가워요~!!',
+        time: '18:21',
+        profile: `/images/profile.png`,
+      },
+      {
+        type: 'message',
+        user: '12기_영훈',
+        message: '안녕하세용',
+        time: '18:23',
+        profile: `${CONFIG.profileSource}person.png`,
+      },
+      {
+        type: 'message',
+        user: '12기_영희',
+        message:
+          '저희 역할 중 발표자를 먼저 정하라고 하시네요. 발표자 하고싶은 분 계신가요?',
+        time: '19:00',
+        profile: `${CONFIG.profileSource}club_hee.png`,
+      },
+      {
+        type: 'message',
+        user: '12기_영훈',
+        messageFn: (name: string) =>
+          `오늘 ${name}님 말씀하시는 것 들어보니 잘하실 것 같은데!ㅎㅎ 하실 생각 있으세요??`,
+
+        time: '18:10',
+        profile: `${CONFIG.profileSource}club_hun.png`,
       },
     ],
     visited: false,
@@ -488,48 +555,49 @@ export const QUESTIONS_WOMAN: Data[] = [
       '/images/profile.png',
     ],
     newMessage: 2,
-    memberCount: 25,
+    memberCount: 4,
     description:
-      '정산을 맡았지만, 바로 방을 파지 않아서 다른 동아리원이 방을 판 상황입니다.',
+      '동아리 발표자를 정해야 하는 상황? 나에게 발표를 맡아달로고 부탁하는데..?',
   },
   {
     id: '5',
-    name: '찬호삼촌',
+    name: '내사랑',
     questions: [
       {
         type: 'message',
-        user: '찬호삼촌',
+        user: '내사랑',
         messageFn: name => {
           const nickName = checkNickname(name, ['아', '야']);
-          return `${nickName} 잘 지내고 있니? 덕화 삼촌이야! 요새 날씨가 많이 추운데 ${name} 생각이 많이 난다!`;
+          return `${nickName} 갑자기 궁금한 거 생겼는데 ㅎ`;
         },
-        time: '20:06',
-        profile: `${CONFIG.profileSource}uncle.png`,
+        time: '23:06',
+        profile: `${CONFIG.profileSource}love.png`,
       },
       {
         type: 'message',
-        user: '찬호삼촌',
+        user: 'me',
+        message: 'ㅇㅇ 뭔데?',
+        time: '23:08',
+        profile: `/images/profile.png`,
+      },
+      {
+        type: 'message',
+        user: '내사랑',
         messageFn: name => {
           const nickName = checkNickname(name, ['이', '']);
-          return `엄마가 요새 용돈 잘 안주지? 내가 ${nickName} 따뜻한 패딩 사입으라고 용돈 보냈으니까 엄마한테 비밀로 하고 예쁜 옷 한벌 골라보렴~!`;
+          return `${nickName} 넌 10년 후에 어떤 인생을 살고있을 거 같아??`;
         },
-        time: '20:12',
-        profile: `${CONFIG.profileSource}uncle.png`,
-      },
-      {
-        type: 'message',
-        user: '찬호삼촌',
-        picture: '/images/gift.png',
-        time: '20:17',
-        profile: `${CONFIG.profileSource}uncle.png`,
+        time: '23:09',
+        profile: `${CONFIG.profileSource}love.png`,
       },
     ],
     visited: true,
     answer: [],
-    profile: `${CONFIG.profileSource}uncle.png`,
-    newMessage: 3,
+    profile: `${CONFIG.profileSource}love.png`,
+    newMessage: 1,
     memberCount: 2,
-    description: '삼촌이 주신 용돈을 주신 상황 당신의 답변은?',
+    description:
+      '갑자기 연인에게서 미래에 내가 어떤 인생을 살고있을 것 같은지 물어보는 연락이 왔다',
   },
   {
     id: '6',
