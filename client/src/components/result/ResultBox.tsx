@@ -12,8 +12,8 @@ import ShariApi from '@/components/share/ShariApi';
 import Spinner from '@/components/Spinner';
 import SpeechBuble from '@/components/svg/SpeechBuble';
 import { CONFIG } from '@/config';
-import useGetTokenAndVisited from '@/hooks/useGetAnswer';
-import useLocalStorage from '@/hooks/useLocalStorage';
+import useDeletToken from '@/hooks/useDeletToken';
+import useGetResultPageAnswer from '@/hooks/useGetResultPageAnswer';
 import useRestart from '@/hooks/useRestart';
 import { ResultInfo } from '@/types/types';
 import getKeys from '@/util/getKeys';
@@ -25,7 +25,7 @@ const variants = {
 
 export default function ResultBox(prop: ResultInfo) {
   const [isExpanded, setIsExpanded] = useState(false);
-  const [isLoading, questions, , token] = useGetTokenAndVisited();
+
   // data 정제
   const friendKey = getKeys(prop.friendName.example);
   const friendExample = friendKey.map(
@@ -37,12 +37,15 @@ export default function ResultBox(prop: ResultInfo) {
 
   const handleReStart = useRestart();
 
-  const [, saveToken] = useLocalStorage<string | null>('token', null);
+  const token = searchParams.get('token');
+
+  const [isLoading, questions] = useGetResultPageAnswer(token!);
+
+  useDeletToken();
 
   useEffect(() => {
     if (searchParams.get(CONFIG.param.key)) setIsExpanded(true);
-    if (searchParams.get('token')) saveToken(searchParams.get('token'));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    //if (searchParams.get('token')) saveToken(searchParams.get('token'));
   }, [searchParams]);
 
   return (
@@ -69,7 +72,7 @@ export default function ResultBox(prop: ResultInfo) {
               {isLoading ? (
                 <Spinner loading={isLoading} />
               ) : (
-                questions.map(question => (
+                questions!.map(question => (
                   <ResultChatContainer
                     key={question.id}
                     chat={`${question.name} : ${question.answer.join(', ')}`}
@@ -106,7 +109,7 @@ export default function ResultBox(prop: ResultInfo) {
       <ShariApi
         setIsExpanded={setIsExpanded}
         isExpended={isExpanded}
-        token={token}
+        token={token!}
         {...prop}
       />
       <button
