@@ -377,6 +377,7 @@ export const QUESTIONS_WOMAN: Data[] = [
     id: '2',
     name: '미정',
     questions: [
+      { type: 'date', date: '하루 전', profile: '#' },
       {
         type: 'message',
         user: '미정',
@@ -391,7 +392,7 @@ export const QUESTIONS_WOMAN: Data[] = [
         time: '21:46',
         profile: `/images/profile.png`,
       },
-      { type: 'date', date: '하루 전', profile: '#' },
+      { type: 'date', date: '오늘', profile: '#' },
       {
         type: 'message',
         user: '미정',
