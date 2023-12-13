@@ -9,9 +9,11 @@ import ResultChatContainer from '@/components/result/ResultChatContainer';
 import ResultList from '@/components/result/ResultList';
 import ResultSection from '@/components/result/ResultSection';
 import ShariApi from '@/components/share/ShariApi';
+import Spinner from '@/components/Spinner';
 import SpeechBuble from '@/components/svg/SpeechBuble';
 import { CONFIG } from '@/config';
-import useDeletToken from '@/hooks/useDeletToken';
+import useGetTokenAndVisited from '@/hooks/useGetAnswer';
+import useLocalStorage from '@/hooks/useLocalStorage';
 import useRestart from '@/hooks/useRestart';
 import { ResultInfo } from '@/types/types';
 import getKeys from '@/util/getKeys';
@@ -23,7 +25,7 @@ const variants = {
 
 export default function ResultBox(prop: ResultInfo) {
   const [isExpanded, setIsExpanded] = useState(false);
-
+  const [isLoading, questions, , token] = useGetTokenAndVisited();
   // data 정제
   const friendKey = getKeys(prop.friendName.example);
   const friendExample = friendKey.map(
@@ -35,11 +37,13 @@ export default function ResultBox(prop: ResultInfo) {
 
   const handleReStart = useRestart();
 
+  const [, saveToken] = useLocalStorage<string | null>('token', null);
+
   useEffect(() => {
     if (searchParams.get(CONFIG.param.key)) setIsExpanded(true);
+    if (searchParams.get('token')) saveToken(searchParams.get('token'));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams]);
-
-  useDeletToken();
 
   return (
     <article
@@ -61,6 +65,19 @@ export default function ResultBox(prop: ResultInfo) {
             variants={variants}
             transition={{ duration: 1.5 }}
             style={{ overflow: 'hidden' }}>
+            <ResultSection title={'내가 한 답변'}>
+              {isLoading ? (
+                <Spinner loading={isLoading} />
+              ) : (
+                questions.map(question => (
+                  <ResultChatContainer
+                    key={question.id}
+                    chat={`${question.name} : ${question.answer.join(' ')}`}
+                  />
+                ))
+              )}
+            </ResultSection>
+
             <ResultSection title={prop.reading.title}>
               <SpeechBuble
                 message={`${(prop.reading.ratio * 100).toFixed(0)}%`}
@@ -89,6 +106,7 @@ export default function ResultBox(prop: ResultInfo) {
       <ShariApi
         setIsExpanded={setIsExpanded}
         isExpended={isExpanded}
+        token={token}
         {...prop}
       />
       <button
