@@ -40,7 +40,7 @@ export default function ResultBox(prop: ResultInfo) {
   const token = searchParams.get('token');
 
   const [isLoading, questions] = useGetResultPageAnswer(token!);
-
+  console.log(questions);
   useDeletToken();
 
   useEffect(() => {
@@ -69,10 +69,11 @@ export default function ResultBox(prop: ResultInfo) {
             transition={{ duration: 1.5 }}
             style={{ overflow: 'hidden' }}>
             <ResultSection title={'내가 한 답변'}>
-              {isLoading ? (
+              {isLoading && !Array.isArray(questions) ? (
                 <Spinner loading={isLoading} />
               ) : (
-                questions!.map(question => (
+                Array.isArray(questions) &&
+                questions.map(question => (
                   <ResultChatContainer
                     key={question.id}
                     chat={`${question.name} : ${question.answer.join(', ')}`}

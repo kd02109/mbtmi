@@ -24,7 +24,7 @@ export default function useGetResultPageAnswer(
 
             return question;
           });
-
+          console.log(questions);
           setQuestion(questions);
           setIsLoading(false);
         }
