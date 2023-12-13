@@ -9,7 +9,7 @@ const CONFIG = Object.freeze({
   gabia: 'https://mbtmi.xyz/',
   since: 2023,
   description:
-    '기존의 O,X 선택지에서 벗어나 정확도가 높은 대화형 mbti app 구현을 목표로 합니다',
+    '말투로 본 나의 찐 성격유형은?!👤 주어진 상황에 자유롭게 대답한 후, AI가 판단한 나의 성격유형을 알아보세요!',
   resultSource: '/images/mbtmi_research/',
   logoImage: 'https://i.imgur.com/A7BAUbv.png',
   profileSource: '/images/profile/',
