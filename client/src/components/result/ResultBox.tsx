@@ -72,7 +72,7 @@ export default function ResultBox(prop: ResultInfo) {
                 questions.map(question => (
                   <ResultChatContainer
                     key={question.id}
-                    chat={`${question.name} : ${question.answer.join(' ')}`}
+                    chat={`${question.name} : ${question.answer.join(', ')}`}
                   />
                 ))
               )}
