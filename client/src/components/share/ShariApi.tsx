@@ -5,7 +5,6 @@ import { createPortal } from 'react-dom';
 import Clipboard from '@/components/share/Clipboard';
 import FaceBookBtn from '@/components/share/FaceBookBtn';
 import KakaoBtn from '@/components/share/KakaoBtn';
-import ShareInsta from '@/components/share/ShareInsta';
 import TwitterBtn from '@/components/share/TwitterBtn';
 import { CONFIG } from '@/config';
 import { ResultInfo } from '@/types/types';
