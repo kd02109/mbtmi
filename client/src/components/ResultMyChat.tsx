@@ -26,10 +26,9 @@ export default function ResultMyChat() {
           const questions = QUESTIONS.map(question => {
             const answers = data?.answer[question.id];
             question.answer = [...answers!];
-            setIsLoading(true);
+            setIsLoading(false);
             return question;
           });
-
           setQuestion(questions);
         }
       })
@@ -37,6 +36,7 @@ export default function ResultMyChat() {
         handleError.showBoundary(e);
         console.log('데이터를 불러오는 과정에서 문제가 발생했습니다.');
       });
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

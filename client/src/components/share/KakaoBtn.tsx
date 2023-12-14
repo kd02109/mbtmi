@@ -38,8 +38,8 @@ export default function KakaoBtn(
         {
           title: '웹으로 보기',
           link: {
-            mobileWebUrl: `${CONFIG.gabia}${path}?${CONFIG.param.query}?token=${prop.token}`,
-            webUrl: `${CONFIG.gabia}${path}?${CONFIG.param.query}?token=${prop.token}`,
+            mobileWebUrl: `${CONFIG.gabia}${path}?${CONFIG.param.query}&token=${prop.token}`,
+            webUrl: `${CONFIG.gabia}${path}?${CONFIG.param.query}&token=${prop.token}`,
           },
         },
       ],
