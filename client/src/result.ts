@@ -430,7 +430,7 @@ const MBTI_RESULT: { [key in Mbti]: ResultInfo } = {
   esfj: {
     path: '24',
     name: '외교관 붕어빵',
-    imgSrc: `${CONFIG.resultSource}fishery.png`,
+    imgSrc: `${CONFIG.resultSource}diplomat.png`,
     imgUrl: 'https://i.imgur.com/5eSf7jS.png',
     shareUrl: 'https://i.imgur.com/dUkLgN9.png',
     mbti: 'ESFJ',
