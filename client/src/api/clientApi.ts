@@ -11,7 +11,7 @@ async function getApiWhitToken<T>(method: ValueOf<Method>, jwt: string) {
     });
     return data.data;
   } catch (e) {
-    console.log(e);
+    throw Error('예상치 못한 문제가 발생했습니다.');
   }
 }
 

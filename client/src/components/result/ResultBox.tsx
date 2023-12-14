@@ -3,11 +3,13 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useSearchParams } from 'next/navigation';
 import { useState, useEffect } from 'react';
+import ErrorContainer from '@/components/ErrorContainer';
 import DownloadImg from '@/components/result/DownloadImg';
 import ReStartBtn from '@/components/result/ReStartBtn';
 import ResultChatContainer from '@/components/result/ResultChatContainer';
 import ResultList from '@/components/result/ResultList';
 import ResultSection from '@/components/result/ResultSection';
+import ResultMyChat from '@/components/ResultMyChat';
 import ShariApi from '@/components/share/ShariApi';
 import Spinner from '@/components/Spinner';
 import SpeechBuble from '@/components/svg/SpeechBuble';
@@ -39,8 +41,6 @@ export default function ResultBox(prop: ResultInfo) {
 
   const token = searchParams.get('token');
 
-  const [isLoading, questions] = useGetResultPageAnswer(token!);
-  console.log(questions);
   useDeletToken();
 
   useEffect(() => {
@@ -68,19 +68,9 @@ export default function ResultBox(prop: ResultInfo) {
             variants={variants}
             transition={{ duration: 1.5 }}
             style={{ overflow: 'hidden' }}>
-            <ResultSection title={'내가 한 답변'}>
-              {isLoading && !Array.isArray(questions) ? (
-                <Spinner loading={isLoading} />
-              ) : (
-                Array.isArray(questions) &&
-                questions.map(question => (
-                  <ResultChatContainer
-                    key={question.id}
-                    chat={`${question.name} : ${question.answer.join(', ')}`}
-                  />
-                ))
-              )}
-            </ResultSection>
+            <ErrorContainer>
+              <ResultMyChat />
+            </ErrorContainer>
 
             <ResultSection title={prop.reading.title}>
               <SpeechBuble
