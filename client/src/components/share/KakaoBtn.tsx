@@ -11,13 +11,14 @@ export default function KakaoBtn(
   prop: ResultInfo & {
     setIsExpanded: Dispatch<SetStateAction<boolean>>;
     isExpended: boolean;
+    token: string;
   },
 ) {
   const path = usePathname();
 
   const handleSendMessage = () => {
     const kakao = window.Kakao;
-    console.log(kakao);
+
     prop.setIsExpanded(true);
     if (!kakao.isInitialized()) {
       kakao.init(process.env.NEXT_PUBLIC_KAKAO_API_KEY);
@@ -32,16 +33,16 @@ export default function KakaoBtn(
           mobileWebUrl: `${CONFIG.gabia}`,
           webUrl: `${CONFIG.gabia}`,
         },
-        buttons: [
-          {
-            title: '웹으로 보기',
-            link: {
-              mobileWebUrl: `${CONFIG.gabia}${path}?${CONFIG.param.query}`,
-              webUrl: `${CONFIG.gabia}${path}?${CONFIG.param.query}`,
-            },
-          },
-        ],
       },
+      buttons: [
+        {
+          title: '웹으로 보기',
+          link: {
+            mobileWebUrl: `${CONFIG.gabia}${path}?${CONFIG.param.query}?token=${prop.token}`,
+            webUrl: `${CONFIG.gabia}${path}?${CONFIG.param.query}?token=${prop.token}`,
+          },
+        },
+      ],
     });
   };
 

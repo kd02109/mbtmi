@@ -50,7 +50,7 @@ export default function ShariApi(
           {prop.isExpended ? '공유하기' : '공유하고 더보기'}
         </button>
       )}
-      {isNotShareApi &&
+      {!isNotShareApi &&
         createPortal(
           <div className="fixed top-0 right-0 w-full h-full flex justify-center items-center z-[9999] backdrop-blur ">
             <section className="w-80 h-[40%] bg-white p-2 flex flex-col items-center justify-center rounded-xl">
