@@ -29,9 +29,18 @@ export default function KakaoBtn(
         description: `${prop.basicFeatures.join(' ')}`,
         imageUrl: prop.shareUrl,
         link: {
-          mobileWebUrl: `${CONFIG.gabia}${path}?${CONFIG.param.query}`,
-          webUrl: `${CONFIG.gabia}${path}?${CONFIG.param.query}`,
+          mobileWebUrl: `${CONFIG.gabia}`,
+          webUrl: `${CONFIG.gabia}`,
         },
+        buttons: [
+          {
+            title: '웹으로 보기',
+            link: {
+              mobileWebUrl: `${CONFIG.gabia}${path}?${CONFIG.param.query}`,
+              webUrl: `${CONFIG.gabia}${path}?${CONFIG.param.query}`,
+            },
+          },
+        ],
       },
     });
   };
