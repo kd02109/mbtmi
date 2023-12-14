@@ -208,7 +208,7 @@ export const QUESTIONS_MAN: Data[] = [
     newMessage: 2,
     memberCount: 4,
     description:
-      '동아리 발표자를 정해야 하는 상황? 나에게 발표를 맡아달로고 부탁하는데..?',
+      '동아리 발표자를 정해야 하는 상황? 나에게 발표를 맡아달라고 부탁하는데..?',
   },
   {
     id: '5',
@@ -547,7 +547,7 @@ export const QUESTIONS_WOMAN: Data[] = [
     newMessage: 2,
     memberCount: 4,
     description:
-      '동아리 발표자를 정해야 하는 상황? 나에게 발표를 맡아달로고 부탁하는데..?',
+      '동아리 발표자를 정해야 하는 상황? 나에게 발표를 맡아달라고 부탁하는데..?',
   },
   {
     id: '5',

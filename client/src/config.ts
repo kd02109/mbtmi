@@ -2,6 +2,8 @@ const CONFIG = Object.freeze({
   info: {
     github: 'https://github.com/kd02109/mbtmi',
     notion: 'https://www.notion.so/MBTMI-0cfcd7f18fca4719ace3d62d65abfb22',
+    insta:
+      'https://www.instagram.com/mbtmi_bo.ong/?igshid=MzMyNGUyNmU2YQ%3D%3D',
   },
   copyright: 'mbtmi All rights reserved.',
   title: 'mbtmi',

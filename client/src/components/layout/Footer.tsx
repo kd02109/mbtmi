@@ -1,6 +1,6 @@
 import Github from '@/components/svg/Github';
 import Gmail from '@/components/svg/Gmail';
-import Notion from '@/components/svg/Notion';
+import Insta from '@/components/svg/Insta';
 import { CONFIG } from '@/config';
 
 export default function Footer() {
@@ -12,8 +12,8 @@ export default function Footer() {
         <a href={CONFIG.info.github} target="blank">
           <Github width="36" height="36" />
         </a>
-        <a href={CONFIG.info.notion} target="blank">
-          <Notion width="30" height="30" />
+        <a href={CONFIG.info.insta} target="blank">
+          <Insta width="30" height="30" />
         </a>
         <a href={'mailto:kd02109@gmail.com'} target="blank">
           <Gmail width="30" height="30" />

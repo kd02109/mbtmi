@@ -96,8 +96,7 @@ export default function ChatPage({ pageId, isVisited }: Prop) {
           <button
             disabled={message.length < 1 ? true : false}
             className={`absolute bottom-4 right-6 border-2 border-solid px-4 py-2 rounded-lg border-yellow-400 bg-yellow-400 font-bold text-black ${
-              message.trim().length < 1 &&
-              'text-gray-300 border-gray-300 bg-white'
+              message.trim().length < 1 && 'text-white border-gray-300 bg-white'
             }`}
             onClick={handleSendMessage}>
             전송
