@@ -6,7 +6,7 @@ const CONFIG = Object.freeze({
   copyright: 'mbtmi All rights reserved.',
   title: 'mbtmi',
   site: 'https://mbtmi.vercel.app',
-  gabia: 'https://mbtmi.xyz/',
+  gabia: 'https://mbtmi.xyz',
   since: 2023,
   description:
     '말투로 본 나의 찐 성격유형은?!👤 주어진 상황에 자유롭게 대답한 후, AI가 판단한 나의 성격유형을 알아보세요!',
