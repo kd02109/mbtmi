@@ -10,6 +10,7 @@ export default function RealMbti() {
   const searchParam = useSearchParams();
   const [isClick, setIsClieck] = useState(false);
   const token = searchParam.get('token');
+  const share = searchParam.get('share');
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -34,23 +35,27 @@ export default function RealMbti() {
     }
   };
   return (
-    <ResultSection title="당신의 실제 MBTI는 무엇인가요?">
-      <span className="mb-4 text-lg">
-        답변해주신 내용은 서비스 개선에 많은 도움이 됩니다! :D
-      </span>
-      <form
-        onSubmit={handleSubmit}
-        className="border-2 border-bgBrown border-solid p-2 w-[60%] flex flex-col justify-center items-center rounded-3xl">
-        <ResultRadio name="IE" />
-        <ResultRadio name="SN" />
-        <ResultRadio name="TF" />
-        <ResultRadio name="JP" />
-        <button
-          className="bg-bgBrown text-white px-4 p-2 mt-2 rounded-3xl font-bold"
-          disabled={isClick}>
-          {isClick ? '감사합니다!' : '실제 MBTI 전달하기'}
-        </button>
-      </form>
-    </ResultSection>
+    <>
+      {!share && (
+        <ResultSection title="당신의 실제 MBTI는 무엇인가요?">
+          <span className="mb-4 text-lg">
+            답변해주신 내용은 서비스 개선에 많은 도움이 됩니다! :D
+          </span>
+          <form
+            onSubmit={handleSubmit}
+            className="border-2 border-bgBrown border-solid p-2 w-[60%] flex flex-col justify-center items-center rounded-3xl">
+            <ResultRadio name="IE" />
+            <ResultRadio name="SN" />
+            <ResultRadio name="TF" />
+            <ResultRadio name="JP" />
+            <button
+              className="bg-bgBrown text-white px-4 p-2 mt-2 rounded-3xl font-bold"
+              disabled={isClick}>
+              {isClick ? '감사합니다!' : '실제 MBTI 전달하기'}
+            </button>
+          </form>
+        </ResultSection>
+      )}
+    </>
   );
 }
