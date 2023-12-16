@@ -79,11 +79,39 @@ async function postResult(token: string) {
   }
 }
 
-export { postUser, getApiWhitToken, postAnswer, getUserNumber, postResult };
+async function patchMbti(
+  token: string,
+  mbti: string,
+): Promise<{ done: boolean }> {
+  try {
+    const data = await instance.patch(
+      `${SERVER_URL}${END_POINT.patchMbti}`,
+      { mbti: mbti },
+      {
+        headers: {
+          '-user-token': token,
+        },
+      },
+    );
+    return data.data;
+  } catch (e) {
+    throw new Error('MBTI 결과를 수정하는 과정에서 에러가 발생했습니다.');
+  }
+}
+
+export {
+  postUser,
+  getApiWhitToken,
+  postAnswer,
+  getUserNumber,
+  postResult,
+  patchMbti,
+};
 export const ClientApi = {
   postUser,
   getApiWhitToken,
   postAnswer,
   getUserNumber,
   postResult,
+  patchMbti,
 };
