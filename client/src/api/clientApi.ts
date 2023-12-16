@@ -11,7 +11,7 @@ async function getApiWhitToken<T>(method: ValueOf<Method>, jwt: string) {
     });
     return data.data;
   } catch (e) {
-    throw Error('예상치 못한 문제가 발생했습니다.');
+    throw new Error('token을 처리하는 과정에서 문제가 발생했습니다.');
   }
 }
 
@@ -20,7 +20,9 @@ async function getUserNumber() {
     const data = await instance.get<{ number: number }>(END_POINT.userNumber);
     return data.data.number;
   } catch (e) {
-    console.log(e);
+    throw new Error(
+      '현재 참가한 유저 정보를 받아오는 것에 문제가 발생했습니다.',
+    );
   }
 }
 
@@ -36,7 +38,7 @@ async function postUser(user: string, sex: Gender) {
     const jwt = data.data;
     return jwt;
   } catch (e) {
-    console.log(e);
+    throw new Error('token을 생성하는 단계에서 문제가 발생했습니다');
   }
 }
 
@@ -56,7 +58,7 @@ async function postAnswer(answer: string, id: Id, token: string) {
     const jwt = data.data;
     return jwt;
   } catch (e) {
-    console.log(e);
+    throw new Error('답변을 저장하는 과정에서 문제가 발생했습니다.');
   }
 }
 
@@ -73,7 +75,7 @@ async function postResult(token: string) {
     );
     return data.data;
   } catch (e) {
-    console.log(e);
+    throw new Error('MBTI 결과를 받아오는 과정에서 문제가 발생했습니다.');
   }
 }
 
