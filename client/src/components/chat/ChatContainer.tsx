@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import NewCircle from '@/components/chat/NewCircle';
-import Profile from '@/components/Profile';
+import Profile from '@/components/chat/Profile';
 import { DataManOrWoman } from '@/types/types';
 
 export default function ChatContainer(prop: DataManOrWoman) {

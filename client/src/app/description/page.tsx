@@ -1,5 +1,5 @@
-import DescriptionSwiper from '@/components/DescriptionSwiper';
 import Footer from '@/components/layout/Footer';
+import DescriptionSwiper from '@/components/swiper/DescriptionSwiper';
 
 export default function DescriptionPage() {
   return (

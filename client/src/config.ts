@@ -33,6 +33,7 @@ const VISITED = {
 const PATH = Object.freeze({
   chatingList: '/chating-list',
   loading: '/loading',
+  description: '/description',
 });
 
 const GENDER: {

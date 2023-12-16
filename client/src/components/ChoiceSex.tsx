@@ -32,7 +32,7 @@ export default function ChoiceSex() {
       if (jwt) {
         saveToken(jwt.token);
         saveIsVisited(VISITED);
-        router.push(PATH.chatingList);
+        router.push(PATH.description);
       } else {
         alert('token 생성에 실패했습니다.');
         setIsLoading(false);

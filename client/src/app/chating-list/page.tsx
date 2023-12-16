@@ -1,6 +1,6 @@
 'use client';
 
-import ChatContainer from '@/components/ChatContainer';
+import ChatContainer from '@/components/chat/ChatContainer';
 import ChatingHeader from '@/components/layout/ChatingHeader';
 import Loading from '@/components/Loading';
 import SubmitBtn from '@/components/SubmitBtn';
