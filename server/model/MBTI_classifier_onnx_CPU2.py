@@ -82,7 +82,7 @@ class MBTISentimentPredictor:
         IE_number = [2,4]
         NS_number = [1,5]
         TF_number = [1,3]
-        JP_number = [2,6]
+        JP_number = [5,6]
 
         IE_value = []
         NS_value = []
@@ -104,16 +104,21 @@ class MBTISentimentPredictor:
         JP_avg = np.mean(JP_value, axis = 0)
 
         IE_max_number = np.argmax(IE_avg)
-        NS_max_number = np.argmax(NS_avg)
-        TF_max_number = np.argmax(TF_avg)
         JP_max_number = np.argmax(JP_avg)
-        
+
+        if NS_avg[0] > 0.4:
+            NS = 'N'
+        else:
+            NS = 'S'
+        if TF_avg[0] > 0.4:
+            TF = 'T'
+        else:
+            TF = 'F'
+
         IE = ['I' ,'E']
-        NS = ['N' ,'S']
-        TF = ['T' ,'F']
         JP = ['J' ,'P']
 
-        res = IE[IE_max_number] + NS[NS_max_number] + TF[TF_max_number] + JP[JP_max_number]
+        res = IE[IE_max_number] + NS + TF + JP[JP_max_number]
         return res
 
 root_path = sys.path[0]+'/model/classifier'
