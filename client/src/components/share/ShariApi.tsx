@@ -47,7 +47,7 @@ export default function ShariApi(
         <button
           onClick={handleShareApi}
           className="text-white text-center font-bold text-xl w-96 py-2 mt-4 bg-bgBrown rounded-3xl max-md:w-[90%]">
-          {prop.isExpended ? '공유하기' : '공유하고 더보기'}
+          {prop.isExpended ? '공유하기' : '공유하고 추가 정보 보기'}
         </button>
       )}
       {isNotShareApi &&

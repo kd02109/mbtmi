@@ -9,13 +9,17 @@ export default function Footer() {
   return (
     <footer className="w-full border-slate-200 flex flex-col items-center p-4">
       <section className="flex w-60 justify-around mb-3">
-        <a href={CONFIG.info.github} target="blank">
+        <a href={CONFIG.info.github} target="blank" className="p-1">
           <Github width="36" height="36" />
         </a>
-        <a href={CONFIG.info.insta} target="blank">
+        <a
+          href={CONFIG.info.insta}
+          target="blank"
+          className="border-2 border-solid border-bgBrown p-1 rounded-xl text-center relative">
           <Insta width="30" height="30" />
+          <div className="bg-bgYellow w-[10px] h-[10px] rounded-full absolute -top-1 right-0 animate-ping"></div>
         </a>
-        <a href={'mailto:kd02109@gmail.com'} target="blank">
+        <a href={'mailto:kd02109@gmail.com'} target="blank" className="p-1">
           <Gmail width="30" height="30" />
         </a>
       </section>

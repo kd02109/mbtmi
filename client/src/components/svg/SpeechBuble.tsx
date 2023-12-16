@@ -10,7 +10,7 @@ export default function SpeechBuble({
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="140"
+      width="130"
       height="149"
       viewBox="0 0 171 149">
       <path

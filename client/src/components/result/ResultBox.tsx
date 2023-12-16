@@ -73,7 +73,7 @@ export default function ResultBox(prop: ResultInfo) {
             </ErrorContainer>
 
             <ResultSection title={prop.readingTitle} classname="">
-              <div className="flex gap-2">
+              <div className="flex gap-2 w-[80%]">
                 {prop.reading.map(item => (
                   <SpeechBuble
                     key={item.title}
@@ -103,7 +103,10 @@ export default function ResultBox(prop: ResultInfo) {
           </motion.div>
         </AnimatePresence>
       )}
-
+      <span className="w-[60%] max-md:w-[100%] font-bold text-bgBrown mb-2">
+        나의 안읽씹지수, 자주 사용하는 단어 Top3 등 실제 MBTI에 대한 추가정보를
+        볼 수 있어요 !!
+      </span>
       <ShariApi
         setIsExpanded={setIsExpanded}
         isExpended={isExpanded}
