@@ -403,13 +403,6 @@ export const QUESTIONS_WOMAN: Data[] = [
       {
         type: 'message',
         user: '미정',
-        message: '요즘 일도 잘 안풀리고 답답해서',
-        time: '22:05',
-        profile: `${CONFIG.profileSource}person.png`,
-      },
-      {
-        type: 'message',
-        user: '미정',
         message: '갑자기 바다 너무 가고 싶다.. ㅜ',
         time: '22:06',
         profile: `${CONFIG.profileSource}person.png`,
