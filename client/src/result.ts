@@ -9,7 +9,12 @@ const MBTI_RESULT: { [key in Mbti]: ResultInfo } = {
     imgUrl: 'https://i.imgur.com/7gTbv97.jpg',
     shareUrl: 'https://i.imgur.com/SuIyAKf.png',
     mbti: 'ISTJ',
-    reading: { title: '나의 카톡 읽씹 지수', ratio: 0.5 },
+    readingTitle: '나의 카톡 지수',
+    reading: [
+      { title: '칼답', ratio: 0.5 },
+      { title: '읽씹', ratio: 0.67 },
+      { title: '안읽씹', ratio: 0.5 },
+    ],
     basicFeatures: [
       '당신은 현실적이면서도 책임감이 강해 어디서든 꼭 필요한 존재!',
       '알잘딱깔센하게 어떤 일이든 잘 처리하는 센스쟁이네요!',
@@ -44,7 +49,12 @@ const MBTI_RESULT: { [key in Mbti]: ResultInfo } = {
     imgUrl: 'https://i.imgur.com/y4gauXs.png',
     shareUrl: 'https://i.imgur.com/UnOmK2U.png',
     mbti: 'ISFJ',
-    reading: { title: '나의 카톡 읽씹 지수', ratio: 0 },
+    readingTitle: '나의 카톡 지수',
+    reading: [
+      { title: '칼답', ratio: 1 },
+      { title: '읽씹', ratio: 0 },
+      { title: '안읽씹', ratio: 0 },
+    ],
     basicFeatures: [
       '당신은 세심하고 배려 깊은, 부드러운 단팥 붕어빵입니다!',
       '공감 능력이 뛰어나 누구에게나 안정감을 주기 때문에 많은 사람들이 당신을 찾아요.',
@@ -79,7 +89,12 @@ const MBTI_RESULT: { [key in Mbti]: ResultInfo } = {
     imgSrc: `${CONFIG.resultSource}soft.png`,
     imgUrl: 'https://i.imgur.com/PwFhETo.png',
     shareUrl: 'https://i.imgur.com/U8gULS7.png',
-    reading: { title: '나의 카톡 읽씹 지수', ratio: 0.38 },
+    readingTitle: '나의 카톡 지수',
+    reading: [
+      { title: '칼답', ratio: 0.75 },
+      { title: '읽씹', ratio: 0.5 },
+      { title: '안읽씹', ratio: 0.38 },
+    ],
     basicFeatures: [
       '당신은 깊은 사고력과 강한 직관력을 갖고 있으며, 동시에 공감능력이 뛰어나 타인을 편안하게 해주는 겉바속촉 붕어빵!',
       '상대와 연락을 할 때 가까운 사람들과의 채팅방에는 빠르게 반응하지만, 일반적으로 메시지에 대해 신중하게 생각하고 답변하는 경향이 있죠.',
@@ -115,7 +130,12 @@ const MBTI_RESULT: { [key in Mbti]: ResultInfo } = {
     imgUrl: 'https://i.imgur.com/nkPBZfw.png',
     shareUrl: 'https://i.imgur.com/4831aAM.png',
     mbti: 'INTJ',
-    reading: { title: '나의 카톡 읽씹 지수', ratio: 0.75 },
+    readingTitle: '나의 카톡 지수',
+    reading: [
+      { title: '칼답', ratio: 0.5 },
+      { title: '읽씹', ratio: 0.83 },
+      { title: '안읽씹', ratio: 0.75 },
+    ],
     basicFeatures: [
       '붕어빵을 좋아해 연구까지 하게 된 사람이 있다면 바로 당신!',
       '사람이 많은 곳보다는 혼자 생각할 수 있는 곳을 선호하며, 복잡한 문제를 전략적으로 잘 해결하는 당신은 붕어빵 연구원!',
@@ -150,7 +170,12 @@ const MBTI_RESULT: { [key in Mbti]: ResultInfo } = {
     imgUrl: 'https://i.imgur.com/Im6O2Av.jpg',
     shareUrl: 'https://i.imgur.com/Ybw47HB.png',
     mbti: 'ISTP',
-    reading: { title: '나의 카톡 읽씹 지수', ratio: 0.88 },
+    readingTitle: '나의 카톡 지수',
+    reading: [
+      { title: '칼답', ratio: 0 },
+      { title: '읽씹', ratio: 1 },
+      { title: '안읽씹', ratio: 0.88 },
+    ],
     basicFeatures: [
       '융통성 있으면서도 현실적이고, 실용적인 해결책을 좋아하는 당신은 붕어맛 붕어빵!',
       '위기 상황이 닥치더라도 유연하게 잘 대처하는 능력을 가지고 있어요!',
@@ -185,7 +210,12 @@ const MBTI_RESULT: { [key in Mbti]: ResultInfo } = {
     imgSrc: `${CONFIG.resultSource}cream.png`,
     shareUrl: 'https://i.imgur.com/sHaAJjW.png',
     mbti: 'ISFP',
-    reading: { title: '나의 카톡 읽씹 지수', ratio: 0.5 },
+    readingTitle: '나의 카톡 지수',
+    reading: [
+      { title: '칼답', ratio: 0 },
+      { title: '읽씹', ratio: 0.33 },
+      { title: '안읽씹', ratio: 0.5 },
+    ],
     basicFeatures: [
       '부드러운 성격으로 타인과의 조화를 중시하고, 개방적 태도로 어디든 잘 어울리는 당신은 슈크림 붕어빵!',
       '친밀한 상대와 연락할 때 혹은 기분이 좋을 때 바로 연락이 되는 경향이 있어요!',
@@ -219,7 +249,12 @@ const MBTI_RESULT: { [key in Mbti]: ResultInfo } = {
     imgSrc: `${CONFIG.resultSource}superconductivity.png`,
     imgUrl: 'https://i.imgur.com/u2mT7jq.png',
     shareUrl: 'https://i.imgur.com/fCh6bDe.png',
-    reading: { title: '나의 카톡 읽씹 지수', ratio: 1 },
+    readingTitle: '나의 카톡 지수',
+    reading: [
+      { title: '칼답', ratio: 0 },
+      { title: '읽씹', ratio: 1 },
+      { title: '안읽씹', ratio: 1 },
+    ],
     basicFeatures: [
       '독창적인 아이디어가 넘쳐나며 뛰어난 분석력을 가진 당신은 초전도체 붕어빵!',
       '호기심이 많은 성격으로 추상적인 개념 탐색을 좋아하는군요.',
@@ -253,7 +288,12 @@ const MBTI_RESULT: { [key in Mbti]: ResultInfo } = {
     imgSrc: `${CONFIG.resultSource}rainbow.png`,
     imgUrl: 'https://i.imgur.com/PgGsKlJ.jpg',
     shareUrl: 'https://i.imgur.com/dKlWQ6S.png',
-    reading: { title: '나의 카톡 읽씹 지수', ratio: 0.63 },
+    readingTitle: '나의 카톡 지수',
+    reading: [
+      { title: '칼답', ratio: 0.25 },
+      { title: '읽씹', ratio: 0.67 },
+      { title: '안읽씹', ratio: 0.63 },
+    ],
     basicFeatures: [
       '창의적이면서 이상주의적이고, 다양한 가치에 공감하며 풍부한 감정을 표현하는 당신은 무지개맛 붕어빵!',
       '당신의 연락 스타일은 그날의 감정에 따라 달라질 수 있어요. 친밀한 상대에게는 빠르게 대답해요!',
@@ -289,7 +329,12 @@ const MBTI_RESULT: { [key in Mbti]: ResultInfo } = {
     imgSrc: `${CONFIG.resultSource}sea.png`,
     imgUrl: `https://i.imgur.com/Okuc8ob.png`,
     shareUrl: 'https://i.imgur.com/kYsRy5C.png',
-    reading: { title: '나의 카톡 읽씹 지수', ratio: 0.25 },
+    readingTitle: '나의 카톡 지수',
+    reading: [
+      { title: '칼답', ratio: 0.5 },
+      { title: '읽씹', ratio: 0.17 },
+      { title: '안읽씹', ratio: 0.25 },
+    ],
     basicFeatures: [
       '활동적이고 에너지가 넘쳐 모험을 즐기는 당신은 바다로 간 붕어빵! 현실적이며 실용적인 것을 좋아하는 면도 있군요.',
       '상대와 연락을 주고받을 때 즐거운 경우 당신은 종종 즉각적으로 답장을 할 수 있습니다.',
@@ -325,7 +370,12 @@ const MBTI_RESULT: { [key in Mbti]: ResultInfo } = {
     imgSrc: `${CONFIG.resultSource}tanghulu.png`,
     imgUrl: 'https://i.imgur.com/5E7xb8j.png',
     shareUrl: 'https://i.imgur.com/8ru94xI.png',
-    reading: { title: '나의 카톡 읽씹 지수', ratio: 0.13 },
+    readingTitle: '나의 카톡 지수',
+    reading: [
+      { title: '칼답', ratio: 0.5 },
+      { title: '읽씹', ratio: 0 },
+      { title: '안읽씹', ratio: 0.125 },
+    ],
     basicFeatures: [
       '사교적이며 활동적인 당신은 유행을 잘 파악하고, 스윗한 성격으로 상대방의 마음도 잘 움직이는 탕후루 붕어빵!',
       '주변에 활력을 불어넣어주는 당신은 연락을 할 때 보통 빠른 답장 속도를 보이는군요!',
@@ -361,7 +411,12 @@ const MBTI_RESULT: { [key in Mbti]: ResultInfo } = {
     imgSrc: `${CONFIG.resultSource}light.png`,
     imgUrl: 'https://i.imgur.com/o9qX7DG.png',
     shareUrl: 'https://i.imgur.com/FlMuSBg.png',
-    reading: { title: '나의 카톡 읽씹 지수', ratio: 0.38 },
+    readingTitle: '나의 카톡 지수',
+    reading: [
+      { title: '칼답', ratio: 0.75 },
+      { title: '읽씹', ratio: 0.33 },
+      { title: '안읽씹', ratio: 0.38 },
+    ],
     basicFeatures: [
       '좋아하는 일에 매우 열정적이고, 언제나 아이디어가 넘쳐나는 당신은 자체발광 붕어빵!',
       '새로운 경험에 개방적인 태도를 갖고 있기도 하군요.',
@@ -398,7 +453,12 @@ const MBTI_RESULT: { [key in Mbti]: ResultInfo } = {
     imgUrl: 'https://i.imgur.com/M6B4Hv9.png',
     shareUrl: 'https://i.imgur.com/zA1OsrR.png',
     mbti: 'ESTJ',
-    reading: { title: '나의 카톡 읽씹 지수', ratio: 0.5 },
+    readingTitle: '나의 카톡 지수',
+    reading: [
+      { title: '칼답', ratio: 1 },
+      { title: '읽씹', ratio: 0.5 },
+      { title: '안읽씹', ratio: 0.5 },
+    ],
     basicFeatures: [
       '체계적이고 실용적이며, 효율적인 일처리를 중시하는 당신은 캐비어맛 붕어빵! 뛰어난 리더십과 조직력을 갖추고 있네요.',
       '효율적인 커뮤니케이션을 중시하는 당신은 연락을 주고받을 때 빠르게 응답할 가능성이 높습니다.',
@@ -434,7 +494,12 @@ const MBTI_RESULT: { [key in Mbti]: ResultInfo } = {
     imgUrl: 'https://i.imgur.com/5eSf7jS.png',
     shareUrl: 'https://i.imgur.com/dUkLgN9.png',
     mbti: 'ESFJ',
-    reading: { title: '나의 카톡 읽씹 지수', ratio: 0.25 },
+    readingTitle: '나의 카톡 지수',
+    reading: [
+      { title: '칼답', ratio: 1 },
+      { title: '읽씹', ratio: 0.17 },
+      { title: '안읽씹', ratio: 0.25 },
+    ],
     basicFeatures: [
       '따뜻하고 친절한 성격을 지녔으며, 즐거운 모임에 나가는 것을 좋아하는 당신은 어장속의 붕어빵! 타인을 돌보는 데 타고났으며 철저한 면모도 있군요.',
       '타인과의 긍정적 관계를 중시하는 당신은 상대와 연락을 주고받을 때  적극적으로 대화에 참여할 가능성이 높습니다.',
@@ -470,7 +535,12 @@ const MBTI_RESULT: { [key in Mbti]: ResultInfo } = {
     imgSrc: `${CONFIG.resultSource}x-large.png`,
     imgUrl: 'https://i.imgur.com/asJNbI2.png',
     shareUrl: 'https://i.imgur.com/7QmwDTz.png',
-    reading: { title: '나의 카톡 읽씹 지수', ratio: 0.25 },
+    readingTitle: '나의 카톡 지수',
+    reading: [
+      { title: '칼답', ratio: 0.5 },
+      { title: '읽씹', ratio: 0.67 },
+      { title: '안읽씹', ratio: 0.625 },
+    ],
     basicFeatures: [
       '목표 지향적이며 효율적으로 일하고, 뭐든 잘하고자 하는 당신은 엑스라지 붕어빵!',
       '스스로에 대한 신뢰가 높으며, 팀에서도 책임감을 갖고 일을 잘 추진하는 성격이군요.',
@@ -506,7 +576,12 @@ const MBTI_RESULT: { [key in Mbti]: ResultInfo } = {
     imgSrc: `${CONFIG.resultSource}mara.png`,
     imgUrl: 'https://i.imgur.com/1TjJxSm.jpg',
     shareUrl: 'https://i.imgur.com/8gHlaO3.png',
-    reading: { title: '나의 카톡 읽씹 지수', ratio: 0.75 },
+    readingTitle: '나의 카톡 지수',
+    reading: [
+      { title: '칼답', ratio: 0.5 },
+      { title: '읽씹', ratio: 0.83 },
+      { title: '안읽씹', ratio: 0.75 },
+    ],
     basicFeatures: [
       '독특하지만 재치있는 성격으로 모임에서 자꾸만 찾게되는 당신은 마라맛 붕어빵!',
       '지적 호기심이 많으며, 새로운 아이디어에 대해 논의하기도 좋아하는군요.',
@@ -542,7 +617,12 @@ const MBTI_RESULT: { [key in Mbti]: ResultInfo } = {
     imgSrc: `${CONFIG.resultSource}hoho.png`,
     imgUrl: 'https://i.imgur.com/UhJth8Q.jpg',
     shareUrl: 'https://i.imgur.com/LUm6mty.png',
-    reading: { title: '나의 카톡 읽씹 지수', ratio: 0.38 },
+    readingTitle: '나의 카톡 지수',
+    reading: [
+      { title: '칼답', ratio: 1 },
+      { title: '읽씹', ratio: 0.33 },
+      { title: '안읽씹', ratio: 0.38 },
+    ],
     basicFeatures: [
       '따뜻하고 친절한 성격을 지녀 추운 겨울날 자꾸 찾게 되는 당신은 호호 불어먹는 붕어빵!',
       '공감능력이 뛰어나고 사람들을 이끄는 데 재주가 있군요.',

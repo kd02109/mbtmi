@@ -72,10 +72,17 @@ export default function ResultBox(prop: ResultInfo) {
               <ResultMyChat />
             </ErrorContainer>
 
-            <ResultSection title={prop.reading.title}>
-              <SpeechBuble
-                message={`${(prop.reading.ratio * 100).toFixed(0)}%`}
-              />
+            <ResultSection title={prop.readingTitle} classname="">
+              <div className="flex gap-2">
+                {prop.reading.map(item => (
+                  <SpeechBuble
+                    key={item.title}
+                    title={item.title}
+                    x={item.title !== '안읽씹' ? '20%' : undefined}
+                    message={`${(item.ratio * 100).toFixed(0)}%`}
+                  />
+                ))}
+              </div>
             </ResultSection>
 
             <ResultSection title={prop.friendName.title}>

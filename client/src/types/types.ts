@@ -96,7 +96,8 @@ export type ResultInfo = {
   imgSrc: string;
   imgUrl: string;
   shareUrl: string;
-  reading: { title: string; ratio: number };
+  readingTitle: string;
+  reading: { title: string; ratio: number }[];
   basicFeatures: string[];
   friendName: {
     title: string;
