@@ -14,6 +14,7 @@ const config: Config = {
         bgBrown: '#401D1D',
         bgYellow: '#FEE502',
       },
+      animation: {},
     },
   },
   plugins: [require('daisyui')],

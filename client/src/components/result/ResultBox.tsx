@@ -72,10 +72,17 @@ export default function ResultBox(prop: ResultInfo) {
               <ResultMyChat />
             </ErrorContainer>
 
-            <ResultSection title={prop.reading.title}>
-              <SpeechBuble
-                message={`${(prop.reading.ratio * 100).toFixed(0)}%`}
-              />
+            <ResultSection title={prop.readingTitle} classname="">
+              <div className="flex gap-2 w-[80%]">
+                {prop.reading.map(item => (
+                  <SpeechBuble
+                    key={item.title}
+                    title={item.title}
+                    x={item.title !== '안읽씹' ? '20%' : undefined}
+                    message={`${(item.ratio * 100).toFixed(0)}%`}
+                  />
+                ))}
+              </div>
             </ResultSection>
 
             <ResultSection title={prop.friendName.title}>
@@ -96,7 +103,10 @@ export default function ResultBox(prop: ResultInfo) {
           </motion.div>
         </AnimatePresence>
       )}
-
+      <span className="w-[60%] max-md:w-[100%] font-bold text-bgBrown mb-2">
+        나의 안읽씹지수, 자주 사용하는 단어 Top3 등 실제 MBTI에 대한 추가정보를
+        볼 수 있어요 !!
+      </span>
       <ShariApi
         setIsExpanded={setIsExpanded}
         isExpended={isExpanded}

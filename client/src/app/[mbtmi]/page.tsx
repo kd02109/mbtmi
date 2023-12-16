@@ -3,6 +3,7 @@ import Image from 'next/image';
 import AD from '@/components/ad/AD';
 import ChatingDetailHeader from '@/components/layout/ChatingDetailHeader';
 import Footer from '@/components/layout/Footer';
+import RealMbti from '@/components/result/RealMbti';
 import ResultBox from '@/components/result/ResultBox';
 import ResultNotification from '@/components/result/ResultNotification';
 import { CONFIG } from '@/config';
@@ -73,6 +74,7 @@ export default function MBTMIPage({ params }: { params: { mbtmi: string } }) {
           priority
         />
         <ResultBox {...MBTI_RESULT[mbti!]} />
+        <RealMbti />
         <AD />
         <Footer />
       </section>

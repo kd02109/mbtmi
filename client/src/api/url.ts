@@ -7,6 +7,7 @@ const END_POINT = Object.freeze({
   getAnswerVisiting: '/answer/visiting',
   userNumber: '/user/number',
   postResult: '/user/answers',
+  patchMbti: `/user/mbti`,
 });
 
 export { SERVER_URL, END_POINT };

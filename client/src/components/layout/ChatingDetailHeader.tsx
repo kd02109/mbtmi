@@ -1,6 +1,6 @@
 'use client';
 import { useRouter } from 'next/navigation';
-import Profile from '@/components/Profile';
+import Profile from '@/components/chat/Profile';
 import Back from '@/components/svg/Back';
 import Habmeger from '@/components/svg/Habmeger';
 import Magnifier from '@/components/svg/Magnifier';

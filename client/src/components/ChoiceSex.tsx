@@ -2,7 +2,7 @@
 import { useLocalStorage } from '@uidotdev/usehooks';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
-import { useState, MouseEvent, FormEvent, useRef, useEffect } from 'react';
+import { useState, MouseEvent, FormEvent, useRef } from 'react';
 import { postUser } from '@/api/clientApi';
 import Spinner from '@/components/Spinner';
 import Check from '@/components/svg/Check';
@@ -32,8 +32,11 @@ export default function ChoiceSex() {
       if (jwt) {
         saveToken(jwt.token);
         saveIsVisited(VISITED);
-        router.push(PATH.chatingList);
-      } else alert('token 생성에 실패했습니다.');
+        router.push(PATH.description);
+      } else {
+        alert('token 생성에 실패했습니다.');
+        setIsLoading(false);
+      }
     }
   };
 
@@ -48,11 +51,6 @@ export default function ChoiceSex() {
       setSex('woman');
     }
   };
-
-  useEffect(() => {
-    if (isLoading && btnRef.current) btnRef.current.disabled = true;
-    if (!isLoading && btnRef.current) btnRef.current.disabled = false;
-  }, [isLoading]);
 
   return (
     <form onSubmit={handleSubmit} className="my-8 w-[90%]">
@@ -107,7 +105,8 @@ export default function ChoiceSex() {
       </section>
       <button
         className="p-4 w-full font-bold mt-4 text-xl bg-white border-2 border-solid border-[#E1E1E1] text-center"
-        onClick={handleSubmit}>
+        onClick={handleSubmit}
+        disabled={isLoading}>
         {!isLoading &&
           (nickname.trim() !== '' ? (
             <motion.span className="text-[#FF5C48]">TEST 시작하기</motion.span>
