@@ -20,17 +20,20 @@ type Prop = {
 export default function ChatPage({ pageId, isVisited }: Prop) {
   const [isLoading, question, userInfo] = useGetOneAnswer(pageId);
   const [token] = useLocalStorage<null | string>('token', null);
-  const [message, setMessage] = useState('');
   const [answers, setAnswers] = useState<string[]>([]);
   const textRef = useRef<HTMLTextAreaElement>(null);
-  const chatDivRef = useResize();
+  const chatDivRef = useResize(answers);
   const sectionRef = useRef<HTMLTableSectionElement>(null);
 
   const handleSendMessage = async () => {
-    setAnswers(prev => [...prev, message]);
-    if (token) await postAnswer(message, question.id, token);
-    setMessage('');
-    if (textRef.current) textRef.current.focus();
+    if (textRef.current?.value) {
+      const inputValue = textRef.current?.value;
+      setAnswers(prev => [...prev, inputValue]);
+      if (token) await postAnswer(textRef.current.value, question.id, token);
+
+      textRef.current.value = '';
+      textRef.current.focus();
+    }
   };
   useSetVisited(isVisited, pageId);
 
@@ -42,19 +45,6 @@ export default function ChatPage({ pageId, isVisited }: Prop) {
     },
     [isLoading, question],
   );
-
-  useEffect(() => {
-    if (window) {
-      window.scrollTo(0, document.body.scrollHeight);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (chatDivRef.current) {
-      //chatDivRef.current.scrollTop = chatDivRef.current.scrollHeight;
-      chatDivRef.current.scrollTo(0, chatDivRef.current.scrollHeight);
-    }
-  }, [answers, chatDivRef]);
 
   if (isLoading) return <Loading />;
   else {
@@ -84,20 +74,13 @@ export default function ChatPage({ pageId, isVisited }: Prop) {
         </section>
         <section className="relative w-full bg-white mt-2">
           <textarea
-            value={message}
-            onChange={e => {
-              setMessage(e.target.value);
-            }}
             rows={3}
             className="w-full pr-24 pl-4 py-2 focus:outline-none resize-none scroll-div bg-white"
             placeholder={`(${question.description})`}
             ref={textRef}
           />
           <button
-            disabled={message.length < 1 ? true : false}
-            className={`absolute bottom-4 right-6 border-2 border-solid px-4 py-2 rounded-lg border-yellow-400 bg-yellow-400 font-bold text-black ${
-              message.trim().length < 1 && 'text-white border-gray-300 bg-white'
-            }`}
+            className={`absolute bottom-4 right-6 border-2 border-solid px-4 py-2 rounded-lg border-yellow-400 bg-yellow-400 font-bold text-black `}
             onClick={handleSendMessage}>
             전송
           </button>

@@ -1,13 +1,13 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
-export default function useResize() {
+export default function useResize(answers: string[]) {
   // Ref for the chat container
   const chatDivRef = useRef<HTMLDivElement>(null);
 
   // State to track window size
   const [windowSize, setWindowSize] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight,
+    width: 0,
+    height: 0,
   });
 
   // Effect to add the resize event listener
@@ -31,5 +31,17 @@ export default function useResize() {
       chatDivRef.current.scrollTop = chatDivRef.current.scrollHeight;
     }
   }, [windowSize]); // Dependency on windowSize
+
+  useEffect(() => {
+    window.scrollTo(0, document.body.scrollHeight);
+  }, []);
+
+  useEffect(() => {
+    if (chatDivRef.current) {
+      //chatDivRef.current.scrollTop = chatDivRef.current.scrollHeight;
+      chatDivRef.current.scrollTo(0, chatDivRef.current.scrollHeight);
+    }
+  }, [answers]);
+
   return chatDivRef;
 }

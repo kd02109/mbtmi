@@ -2,7 +2,7 @@
 import { useLocalStorage } from '@uidotdev/usehooks';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
-import { useState, MouseEvent, FormEvent, useRef } from 'react';
+import { useState, MouseEvent, FormEvent, useRef, ChangeEvent } from 'react';
 import { postUser } from '@/api/clientApi';
 import Spinner from '@/components/Spinner';
 import Check from '@/components/svg/Check';
@@ -10,9 +10,7 @@ import { PATH, VISITED, GENDER } from '@/config';
 import { Gender } from '@/types/types';
 
 export default function ChoiceSex() {
-  const btnRef = useRef<HTMLButtonElement>(null);
   const [sex, setSex] = useState<Gender>(GENDER.man);
-  const [nickname, setNickName] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [, saveToken] = useLocalStorage<null | string>('token', null);
   const [, saveIsVisited] = useLocalStorage<null | { [key: string]: boolean }>(
@@ -21,13 +19,16 @@ export default function ChoiceSex() {
   );
   const router = useRouter();
 
+  const inputRef = useRef<HTMLInputElement>(null);
+
   const handleSubmit = async (e: FormEvent<HTMLFormElement> | MouseEvent) => {
     e.preventDefault();
-
-    if (nickname.trim() === '') alert('Nickname을 작성해주세요!');
+    const inputValue = inputRef.current?.value;
+    if (!inputValue && inputValue?.trim() === '')
+      alert('Nickname을 작성해주세요!');
     else {
       setIsLoading(true);
-      const jwt = await postUser(nickname, sex);
+      const jwt = await postUser(inputValue!, sex);
 
       if (jwt) {
         saveToken(jwt.token);
@@ -74,8 +75,7 @@ export default function ChoiceSex() {
           </button>
           <button
             className="border-t-2 border-r-2 border-solid border-[#E1E1E1] flex-1 flex justify-center items-center relative"
-            onClick={handleChange}
-            ref={btnRef}>
+            onClick={handleChange}>
             {sex === 'woman' ? (
               <>
                 <span className="text-[#FF5C48]">여</span>
@@ -93,10 +93,7 @@ export default function ChoiceSex() {
         <input
           type="text"
           id="nickname"
-          value={nickname}
-          onChange={e => {
-            setNickName(e.target.value);
-          }}
+          ref={inputRef}
           required
           autoFocus
           placeholder="닉네임을 입력해주세요"
@@ -108,7 +105,7 @@ export default function ChoiceSex() {
         onClick={handleSubmit}
         disabled={isLoading}>
         {!isLoading &&
-          (nickname.trim() !== '' ? (
+          (inputRef.current?.value.trim() !== '' ? (
             <motion.span className="text-[#FF5C48]">TEST 시작하기</motion.span>
           ) : (
             <motion.span>TEST 시작하기</motion.span>
