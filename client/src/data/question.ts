@@ -403,7 +403,7 @@ export const QUESTIONS_WOMAN: Data[] = [
       {
         type: 'message',
         user: '미정',
-        message: '갑자기 바다 너무 가고 싶다.. ㅜ',
+        message: '오늘 날씨 너무 좋은데 근처 바다로 드라이브 갈랭? ㅋㅋ',
         time: '22:06',
         profile: `${CONFIG.profileSource}person.png`,
       },
