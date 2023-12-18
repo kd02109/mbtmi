@@ -15,15 +15,15 @@ export default function Home() {
 
   return (
     <main className="flex w-full min-h-screen max-w-xl m-auto flex-col items-center py-8 px-4 bg-bgYellow">
-      <section className="w-100 flex flex-col mb-8">
-        <span className="px-2 border-x-2 border-solid font-medium border-[#7F730C] text-[#7F730C]">
+      <section className="w-100 flex flex-col mb-2">
+        <span className="px-2 border-x-2 border-solid font-bold border-[#7F730C] text-[#7F730C]">
           AI 가 분석하는 나의 카톡 말투는?
         </span>
       </section>
-      <h1 className="text-center font-black text-3xl leading-normal text-bgBrown mb-8">
+      <h1 className="text-center font-black text-2xl leading-normal text-bgBrown mb-8">
         채팅에 직접 답변하는 <br /> 대화형 성격테스트에 참여해보세요!
       </h1>
-      <Logo width="80%" height="80%" />
+      <Logo width="70%" height="70%" />
 
       <ChoiceSex />
       <Footer />

@@ -2,7 +2,6 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Open_Sans } from 'next/font/google';
 import GoogleAnalytics from '@/components/layout/GoogleAnalytics';
-import KaKaoLayout from '@/components/share/KaKaoLayout';
 import { CONFIG } from '@/config';
 
 declare global {
@@ -45,7 +44,7 @@ export default function RootLayout({
       </head>
       <body className={`${openSans.className}`}>
         <GoogleAnalytics />
-        <KaKaoLayout>{children}</KaKaoLayout>
+        {children}
       </body>
     </html>
   );

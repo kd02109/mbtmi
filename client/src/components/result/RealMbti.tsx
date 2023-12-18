@@ -38,7 +38,7 @@ export default function RealMbti() {
     <>
       {!share && (
         <ResultSection title="당신의 실제 MBTI는 무엇인가요?">
-          <span className="mb-4 text-lg">
+          <span className="mb-4 text-lg max-md:w-[80%] text-center">
             답변해주신 내용은 서비스 개선에 많은 도움이 됩니다! :D
           </span>
           <form

@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "prepare": "cd .. && husky install client/.husky",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged",
+    "inspect": "cross-env NODE_OPTIONS='--inspect' next dev"
   },
   "lint-staged": {
     "src/*.{ts, tsx}": [
@@ -34,13 +35,14 @@
     "react-dom": "18.2.0",
     "react-error-boundary": "^4.0.11",
     "react-spinners": "^0.13.8",
+    "swiper": "^10.0.3",
     "tailwindcss": "3.3.3",
-    "typescript": "5.2.2",
-    "swiper": "^10.0.3"
+    "typescript": "5.2.2"
   },
   "devDependencies": {
     "@types/gtag.js": "^0.0.18",
     "@typescript-eslint/parser": "^6.7.0",
+    "cross-env": "^7.0.3",
     "daisyui": "^3.9.2",
     "eslint-config-prettier": "^9.0.0",
     "eslint-import-resolver-typescript": "^3.6.0",

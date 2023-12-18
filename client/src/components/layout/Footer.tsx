@@ -8,7 +8,7 @@ export default function Footer() {
   const since = year === CONFIG.since ? `${year}` : `${CONFIG.since - year}`;
   return (
     <footer className="w-full border-slate-200 flex flex-col items-center p-4">
-      <section className="flex w-60 justify-around mb-3">
+      <section className="flex w-60 justify-around mb-1">
         <a href={CONFIG.info.github} target="blank" className="p-1">
           <Github width="36" height="36" />
         </a>
