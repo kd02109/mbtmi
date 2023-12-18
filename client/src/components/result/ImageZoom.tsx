@@ -5,7 +5,7 @@ import { useState, useRef, useEffect } from 'react';
 const DURATION = 300;
 const TIMEOUT_DELAY = 100;
 const BACKGROUND_OPACITY = 0.9;
-const ZOOM_RATE = 0.9;
+const ZOOM_RATE = 0.7;
 
 export default function ImageZoom(props: ImageProps) {
   const { className, ...imageProps } = props;
@@ -26,8 +26,7 @@ export default function ImageZoom(props: ImageProps) {
     const imageRect = imageRef.current.getBoundingClientRect();
     const clientHeight = imageRect.height;
     const clientWidth = imageRect.width;
-    console.log(clientHeight, clientWidth);
-    console.log(window.innerWidth, window.innerHeight);
+
     const wPrim = (window.innerWidth - imageRect.width) / 2;
     const hPrim = (window.innerHeight - imageRect.height) / 2;
     const cL = imageRect.left;

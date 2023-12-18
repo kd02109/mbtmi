@@ -97,11 +97,11 @@ export default function ChoiceSex() {
           required
           autoFocus
           placeholder="닉네임을 입력해주세요"
-          className="focus:outline-none px-4 py-4 border-2 border-solid border-[#E1E1E1] bg-white col-span-2 font-semibold"
+          className="focus:outline-none px-2 py-2 border-2 border-solid border-[#E1E1E1] bg-white col-span-2 font-semibold"
         />
       </section>
       <button
-        className="p-4 w-full font-bold mt-4 text-xl bg-white border-2 border-solid border-[#E1E1E1] text-center"
+        className="p-1 w-full font-bold mt-4 text-xl bg-white border-2 border-solid border-[#E1E1E1] text-center"
         onClick={handleSubmit}
         disabled={isLoading}>
         {!isLoading &&
