@@ -153,7 +153,7 @@ export const QUESTIONS_MAN: Data[] = [
     questions: [
       {
         type: 'message',
-        user: '12기_영훈',
+        user: '12기_찬호',
         message: '안녕하세요 잘 부탁드립니다!',
         time: '18:10',
         profile: `${CONFIG.profileSource}club_hun.png`,
@@ -189,7 +189,7 @@ export const QUESTIONS_MAN: Data[] = [
       },
       {
         type: 'message',
-        user: '12기_영훈',
+        user: '12기_찬호',
         messageFn: (name: string) =>
           `오늘 ${name}님 말씀하시는 것 들어보니 잘하실 것 같은데!ㅎㅎ 하실 생각 있으세요??`,
 
@@ -485,7 +485,7 @@ export const QUESTIONS_WOMAN: Data[] = [
     questions: [
       {
         type: 'message',
-        user: '12기_영훈',
+        user: '12기_찬호',
         message: '안녕하세요 잘 부탁드립니다!',
         time: '18:10',
         profile: `${CONFIG.profileSource}club_hun.png`,
@@ -521,7 +521,7 @@ export const QUESTIONS_WOMAN: Data[] = [
       },
       {
         type: 'message',
-        user: '12기_영훈',
+        user: '12기_찬호',
         messageFn: (name: string) =>
           `오늘 ${name}님 말씀하시는 것 들어보니 잘하실 것 같은데!ㅎㅎ 하실 생각 있으세요??`,
 
