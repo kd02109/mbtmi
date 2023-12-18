@@ -1,7 +1,7 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import { Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction, useEffect } from 'react';
 import ShareBtn from '@/components/share/ShareBtn';
 import Kakao from '@/components/svg/Kakao';
 import { CONFIG } from '@/config';
@@ -18,7 +18,9 @@ export default function KakaoBtn(
 
   const handleSendMessage = () => {
     const kakao = window.Kakao;
-
+    if (!kakao) {
+      alert('잠시후 다시 시도해주세요! 카카오와 연결중입니당');
+    }
     prop.setIsExpanded(true);
     if (!kakao.isInitialized()) {
       kakao.init(process.env.NEXT_PUBLIC_KAKAO_API_KEY);
@@ -45,6 +47,16 @@ export default function KakaoBtn(
       ],
     });
   };
+
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://developers.kakao.com/sdk/js/kakao.js';
+    script.async = true;
+    document.body.appendChild(script);
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
 
   return (
     <ShareBtn onClick={handleSendMessage} title="카카오">
