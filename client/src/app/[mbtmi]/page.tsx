@@ -3,6 +3,7 @@ import Image from 'next/image';
 import AD from '@/components/ad/AD';
 import ChatingDetailHeader from '@/components/layout/ChatingDetailHeader';
 import Footer from '@/components/layout/Footer';
+import ImageZoom from '@/components/result/ImageZoom';
 import RealMbti from '@/components/result/RealMbti';
 import ResultBox from '@/components/result/ResultBox';
 import ResultNotification from '@/components/result/ResultNotification';
@@ -52,7 +53,7 @@ export default function MBTMIPage({ params }: { params: { mbtmi: string } }) {
   });
   if (!MBTI_RESULT[mbti!]) return <div>잘못된 접근</div>;
   return (
-    <main className="flex w-full min-h-screen max-w-full m-auto flex-col items-center bg-bgChating">
+    <main className="flex w-full min-h-screen max-w-xl m-auto flex-col items-center   bg-bgChating">
       <section className="w-full flex flex-col">
         <ChatingDetailHeader
           name={CONFIG.title}
@@ -61,17 +62,12 @@ export default function MBTMIPage({ params }: { params: { mbtmi: string } }) {
           back={false}
         />
         <ResultNotification />
-        <Image
+        <ImageZoom
+          className={`mx-auto w-auto max-w-full$`}
           src={MBTI_RESULT[mbti!].imgSrc}
           alt={MBTI_RESULT[mbti!].name}
           width={400}
           height={400}
-          style={{
-            width: 'auto',
-            height: 'auto',
-          }}
-          className="rounded-xl my-4"
-          priority
         />
         <ResultBox {...MBTI_RESULT[mbti!]} />
         <RealMbti />
