@@ -55,10 +55,6 @@ export default function ResultBox(prop: ResultInfo) {
           ? 'bg-gradient-to-b from-white from-90% to-bgChating'
           : 'bg-bgChating'
       }`}>
-      <ReStartBtn />
-      {/*       <ResultSection title={`"${prop.name}"`}>
-        <ResultList sentences={prop.basicFeatures} />
-      </ResultSection> */}
       {isExpanded && (
         <AnimatePresence>
           <motion.div
@@ -119,6 +115,11 @@ export default function ResultBox(prop: ResultInfo) {
         다시 테스트 하기
       </button>
       <DownloadImg src={prop.imgSrc} name={prop.name} />
+      <button className="text-white text-center font-bold text-xl w-96 py-2 mt-4 bg-bgBrown rounded-3xl max-md:w-[90%]">
+        <a target="_blank" href={CONFIG.info.insta}>
+          16개 붕어빵 확인하기
+        </a>
+      </button>
     </article>
   );
 }

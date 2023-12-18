@@ -37,7 +37,7 @@ export default function ReStartBtn() {
       {showButton && searchParams.get(CONFIG.param.key) && (
         <button
           onClick={handleRestart}
-          className="text-white text-center font-bold text-xl w-96 py-2 mt-4 bg-bgBrown rounded-3xl max-md:w-[90%] fixed bottom-10 left-[50%] translate-x-[-50%]">
+          className="text-white text-center font-bold text-xl w-96 py-2 mt-4 bg-bgBrown rounded-3xl max-md:w-[80%] fixed bottom-10 rigth-[50%] left-[50%]  translate-x-[-50%]">
           나도 테스트 하러 가기
         </button>
       )}

@@ -52,7 +52,7 @@ export default function MBTMIPage({ params }: { params: { mbtmi: string } }) {
   });
   if (!MBTI_RESULT[mbti!]) return <div>잘못된 접근</div>;
   return (
-    <main className="flex w-full min-h-screen max-w-xl m-auto flex-col items-center   bg-bgChating">
+    <main className="flex w-full min-h-screen max-w-full m-auto flex-col items-center bg-bgChating">
       <section className="w-full flex flex-col">
         <ChatingDetailHeader
           name={CONFIG.title}
