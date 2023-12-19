@@ -118,7 +118,7 @@ class MBTISentimentPredictor:
             TF = 'T'
         else:
             TF = 'F'
-        if JP_avg[0] > 0.4:
+        if JP_avg[0] > 0.35:
             JP = 'J'
         else:
             JP = 'P'
