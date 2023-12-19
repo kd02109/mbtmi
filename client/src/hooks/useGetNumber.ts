@@ -5,12 +5,16 @@ export default function useGetNumber(): [boolean, number] {
   const [isLoading, setIsLoading] = useState(true);
   const [userNumber, setUserNumber] = useState(0);
   useEffect(() => {
+    let ignore = false;
     getUserNumber().then(data => {
-      if (data) {
+      if (data && !ignore) {
         setUserNumber(data);
       }
       setIsLoading(false);
     });
+    return () => {
+      ignore = true;
+    };
   }, []);
   return [isLoading, userNumber];
 }

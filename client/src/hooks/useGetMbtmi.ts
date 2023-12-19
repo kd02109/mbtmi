@@ -12,13 +12,17 @@ export default function useGetMbtmi(): [MbtmiResult | null, string | null] {
   useRedirect(token);
 
   useEffect(() => {
+    let ignore = false;
     if (token) {
       postResult(token).then(data => {
-        if (data) {
+        if (data && !ignore) {
           setMbtmi(data);
         }
       });
     }
+    return () => {
+      ignore = true;
+    };
   }, [token]);
 
   return [mbtmi, token];

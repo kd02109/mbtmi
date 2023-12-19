@@ -12,28 +12,34 @@ export default function useGetResultPageAnswer(
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    let ignore = false;
     getApiWhitToken<AnswerData>(END_POINT.getAnswerVisiting, token!)
       .then(data => {
         if (data) {
-          const QUESTIONS =
-            data?.user.gender === 'man' ? QUESTIONS_MAN : QUESTIONS_WOMAN;
+          if (!ignore) {
+            const QUESTIONS =
+              data?.user.gender === 'man' ? QUESTIONS_MAN : QUESTIONS_WOMAN;
 
-          const questions = QUESTIONS.map(question => {
-            const answers = data?.answer[question.id];
-            question.answer = [...answers!];
+            const questions = QUESTIONS.map(question => {
+              const answers = data?.answer[question.id];
+              question.answer = [...answers!];
 
-            return question;
-          });
-          console.log(questions);
-          setQuestion(questions);
-          setIsLoading(false);
+              return question;
+            });
+
+            setQuestion(questions);
+            setIsLoading(false);
+          }
         }
       })
       .catch(() => {
         console.log('데이터를 불러오는 과정에서 문제가 발생했습니다.');
       });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+
+    return () => {
+      ignore = true;
+    };
+  }, [token]);
 
   return [isLoading, questions];
 }
