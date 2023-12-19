@@ -57,5 +57,5 @@ def get_user_mbtmi(db: Session, token):
     return user_data
 
 def get_user_number(db: Session):
-    user_data = db.query(func.count(UserTable.id)).one()
+    user_data = db.query(func.count(UserTable.id)).filter(UserTable.id>=234, UserTable.nickname.notlike('%TEST%')).one()
     return user_data
