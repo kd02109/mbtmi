@@ -63,7 +63,8 @@ export default function useGetTokenAndVisited(): [
     return () => {
       ignore = true;
     };
-  }, [token, visited, saveToken, saveVisited, router]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [token, visited, router]);
 
   return [isLoading, questions, userInfo, token!];
 }

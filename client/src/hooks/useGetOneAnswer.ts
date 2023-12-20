@@ -61,7 +61,8 @@ export default function useGetOneAnswer(id: Id): [boolean, Data, UserInfo] {
     return () => {
       ignore = true;
     };
-  }, [token, visited, id, router, saveToken, saveVisited]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [token, visited, id]);
 
   return [isLoading, question!, userInfo];
 }

@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState } from 'react';
 
 /**
  * @description 페이지 새로 고침을 통해 상태가 유지되도록 로컬 저장소에 동기화합니다.
@@ -20,28 +20,22 @@ function useLocalStorage<T>(key: string, initialValue: T) {
 
       return item ? JSON.parse(item) : initialValue;
     } catch (error) {
-      console.error(error);
-
       return initialValue;
     }
   });
 
-  const setValue = useCallback(
-    (value: T | ((val: T) => T)) => {
-      try {
-        const valueToStore =
-          value instanceof Function ? value(storedValue) : value;
-        setStoredValue(valueToStore);
-        if (typeof window !== 'undefined') {
-          window.localStorage.setItem(key, JSON.stringify(valueToStore));
-        }
-      } catch (error) {
-        console.error(error);
+  const setValue = (value: T | ((val: T) => T)) => {
+    try {
+      const valueToStore =
+        value instanceof Function ? value(storedValue) : value;
+      setStoredValue(valueToStore);
+      if (typeof window !== 'undefined') {
+        window.localStorage.setItem(key, JSON.stringify(valueToStore));
       }
-    },
-    [key, storedValue],
-  );
-
+    } catch (error) {
+      throw new Error('storage 작업 문제 처리에서 에러가 발생했습니다');
+    }
+  };
   const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
