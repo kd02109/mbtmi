@@ -29,7 +29,7 @@ export default function ShariApi(
           prop.setIsExpanded(true);
         })
         .catch(error => {
-          console.error(error);
+          throw new Error(error);
         });
     } else {
       setIsNotShareApi(true);
@@ -53,7 +53,7 @@ export default function ShariApi(
       {isNotShareApi &&
         createPortal(
           <div className="fixed top-0 right-0 w-full h-full flex justify-center items-center z-[9999] backdrop-blur ">
-            <section className="w-80 h-[40%] bg-white p-2 flex flex-col items-center justify-center rounded-xl">
+            <section className="w-80 h-[50%] bg-white py-10 px-4 flex flex-col items-center justify-center rounded-xl ">
               <header className="flex items-center justify-between w-full p-2 mb-4">
                 <h1 className="font-bold text-2xl">Custom SNS Share</h1>
                 <button className="text-xl" onClick={handleModal}>

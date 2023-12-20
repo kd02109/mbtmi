@@ -24,7 +24,6 @@ export default function useSetVisited(isVisited: boolean, pageId: Id) {
     return () => {
       clearTimeout(id);
     };
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isVisiting]);
+    /* eslint-disable react-hooks/exhaustive-deps */
+  }, [isVisiting, isVisited, pageId]);
 }

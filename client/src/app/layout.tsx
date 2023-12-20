@@ -38,9 +38,6 @@ export default function RootLayout({
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1871872713282095"
           crossOrigin="anonymous"></script>
         <link rel="icon" sizes="any" href="/favicon.ico" />
-        <script
-          defer
-          src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
       </head>
       <body className={`${openSans.className}`}>
         <GoogleAnalytics />

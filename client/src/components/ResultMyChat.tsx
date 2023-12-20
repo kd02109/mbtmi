@@ -34,7 +34,7 @@ export default function ResultMyChat() {
       })
       .catch(e => {
         handleError.showBoundary(e);
-        console.log('데이터를 불러오는 과정에서 문제가 발생했습니다.');
+        throw new Error('데이터를 불러오는 과정에서 문제가 발생했습니다.');
       });
 
     // eslint-disable-next-line react-hooks/exhaustive-deps

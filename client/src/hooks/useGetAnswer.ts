@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { getApiWhitToken } from '@/api/clientApi';
 import { END_POINT } from '@/api/url';
 import { QUESTIONS_MAN, QUESTIONS_WOMAN } from '@/data/question';
@@ -28,27 +28,30 @@ export default function useGetTokenAndVisited(): [
 
   useRedirect(token, visited);
   useEffect(() => {
+    let ignore = false;
     if (token) {
       getApiWhitToken<AnswerData>(END_POINT.getAnswerVisiting, token!)
         .then(data => {
-          const QUESTIONS =
-            data?.user.gender === 'man' ? QUESTIONS_MAN : QUESTIONS_WOMAN;
-          const questions = QUESTIONS.map(question => {
-            question.visited = visited ? visited[question.id] : false;
-            const answers = data?.answer[question.id];
-            question.answer = [...answers!];
-            if (data?.user.gender) {
-              setUserInfo(data.user);
-            }
-            return question;
-          });
+          if (!ignore) {
+            const QUESTIONS =
+              data?.user.gender === 'man' ? QUESTIONS_MAN : QUESTIONS_WOMAN;
+            const questions = QUESTIONS.map(question => {
+              question.visited = visited ? visited[question.id] : false;
+              const answers = data?.answer[question.id];
+              question.answer = [...answers!];
+              if (data?.user.gender) {
+                setUserInfo(data.user);
+              }
+              return question;
+            });
 
-          questions.sort((a, b) => {
-            return a.visited === b.visited ? 0 : a.visited ? 1 : -1;
-          });
+            questions.sort((a, b) => {
+              return a.visited === b.visited ? 0 : a.visited ? 1 : -1;
+            });
 
-          setQuestion(questions);
-          setIsLoading(false);
+            setQuestion(questions);
+            setIsLoading(false);
+          }
         })
         .catch(() => {
           saveToken(null);
@@ -57,8 +60,11 @@ export default function useGetTokenAndVisited(): [
           router.push('/');
         });
     }
+    return () => {
+      ignore = true;
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [token, visited]);
+  }, [token, visited, router]);
 
   return [isLoading, questions, userInfo, token!];
 }

@@ -25,6 +25,8 @@ export default function useGetOneAnswer(id: Id): [boolean, Data, UserInfo] {
   const router = useRouter();
 
   useEffect(() => {
+    let ignore = false;
+
     async function getData() {
       const data = await getApiWhitToken<AnswerData>(
         END_POINT.getAnswerVisiting,
@@ -36,14 +38,16 @@ export default function useGetOneAnswer(id: Id): [boolean, Data, UserInfo] {
     if (token) {
       getData()
         .then(data => {
-          const QUESTIONS =
-            data?.user.gender === 'man' ? QUESTIONS_MAN : QUESTIONS_WOMAN;
-          const question = QUESTIONS.find(question => question.id === id);
-          if (question && data) {
-            question.answer = [...data.answer[id]];
-            setQuestion(question);
-            setUserInfo(data.user);
-            setIsLoading(false);
+          if (!ignore) {
+            const QUESTIONS =
+              data?.user.gender === 'man' ? QUESTIONS_MAN : QUESTIONS_WOMAN;
+            const question = QUESTIONS.find(question => question.id === id);
+            if (question && data) {
+              question.answer = [...data.answer[id]];
+              setQuestion(question);
+              setUserInfo(data.user);
+              setIsLoading(false);
+            }
           }
         })
         .catch(() => {
@@ -53,6 +57,10 @@ export default function useGetOneAnswer(id: Id): [boolean, Data, UserInfo] {
           router.push('/');
         });
     }
+
+    return () => {
+      ignore = true;
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token, visited, id]);
 

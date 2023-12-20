@@ -20,8 +20,6 @@ function useLocalStorage<T>(key: string, initialValue: T) {
 
       return item ? JSON.parse(item) : initialValue;
     } catch (error) {
-      console.error(error);
-
       return initialValue;
     }
   });
@@ -35,10 +33,9 @@ function useLocalStorage<T>(key: string, initialValue: T) {
         window.localStorage.setItem(key, JSON.stringify(valueToStore));
       }
     } catch (error) {
-      console.error(error);
+      throw new Error('storage 작업 문제 처리에서 에러가 발생했습니다');
     }
   };
-
   const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
