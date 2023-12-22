@@ -1,3 +1,4 @@
+'use server';
 import { cache } from 'react';
 import { END_POINT, SERVER_URL } from '@/api/url';
 
