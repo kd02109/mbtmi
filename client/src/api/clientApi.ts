@@ -15,17 +15,6 @@ async function getApiWhitToken<T>(method: ValueOf<Method>, jwt: string) {
   }
 }
 
-async function getUserNumber() {
-  try {
-    const data = await instance.get<{ number: number }>(END_POINT.userNumber);
-    return data.data.number;
-  } catch (e) {
-    throw new Error(
-      '현재 참가한 유저 정보를 받아오는 것에 문제가 발생했습니다.',
-    );
-  }
-}
-
 async function postUser(user: string, sex: Gender) {
   try {
     const data = await instance.post<{ token: string }>(
@@ -99,19 +88,11 @@ async function patchMbti(
   }
 }
 
-export {
-  postUser,
-  getApiWhitToken,
-  postAnswer,
-  getUserNumber,
-  postResult,
-  patchMbti,
-};
+export { postUser, getApiWhitToken, postAnswer, postResult, patchMbti };
 export const ClientApi = {
   postUser,
   getApiWhitToken,
   postAnswer,
-  getUserNumber,
   postResult,
   patchMbti,
 };
