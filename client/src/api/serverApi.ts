@@ -1,14 +1,14 @@
 'use server';
 import { cache } from 'react';
-import { instance } from '@/api/axios';
-import { END_POINT } from '@/api/url';
+import { END_POINT, SERVER_URL } from '@/api/url';
 
 async function getUserNumber() {
   try {
-    const response = await instance(`${END_POINT.userNumber}`);
-    return response.data;
+    const response = await fetch(`${SERVER_URL}${END_POINT.userNumber}`);
+    const data: { number: number } = await response.json();
+    return data.number;
   } catch {
-    return 2500;
+    return 25000;
   }
 }
 

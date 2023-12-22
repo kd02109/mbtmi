@@ -1,4 +1,4 @@
-import { getUserNumber } from '@/api/clientApi';
+import getUserNumber from '@/api/serverApi';
 import Home from '@/components/layout/Home';
 
 export const revalidate = 1200;
