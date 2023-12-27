@@ -38,6 +38,10 @@ export default function RootLayout({
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1871872713282095"
           crossOrigin="anonymous"></script>
         <link rel="icon" sizes="any" href="/favicon.ico" />
+        <script
+          type="text/javascript"
+          src="//t1.daumcdn.net/kas/static/ba.min.js"
+          async></script>
       </head>
       <body className={`${openSans.className}`}>
         <GoogleAnalytics />
