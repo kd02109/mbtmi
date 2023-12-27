@@ -2,6 +2,7 @@
 
 import NumberCount from '@/components/chat/NumberCount';
 import ChoiceSex from '@/components/ChoiceSex';
+import KakaoAdfit from '@/components/KakaoAdfit';
 import Footer from '@/components/layout/Footer';
 import Loading from '@/components/Loading';
 import Logo from '@/components/svg/Logo';
@@ -28,6 +29,7 @@ export default function Home({ userNumber }: { userNumber: number }) {
       </h1>
       <Logo width="70%" height="70%" />
       <ChoiceSex />
+      <KakaoAdfit />
       <Footer />
     </main>
   );
