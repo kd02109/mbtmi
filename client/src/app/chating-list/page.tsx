@@ -1,5 +1,6 @@
 'use client';
 
+import KakaoChatingAd from '@/components/ad/KakaoChatingAd';
 import ChatContainer from '@/components/chat/ChatContainer';
 import ChatingHeader from '@/components/layout/ChatingHeader';
 import Loading from '@/components/Loading';
@@ -16,6 +17,7 @@ export default function ChatingList() {
     <>
       <ChatingHeader />
       <article className="w-full relative">
+        <KakaoChatingAd />
         <div>
           {question.map(item => (
             <ChatContainer key={item.id} {...item} {...userInfo} />

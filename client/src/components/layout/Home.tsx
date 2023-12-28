@@ -1,8 +1,8 @@
 'use client';
 
+import KakaoAdfit from '@/components/ad/KakaoAdfit';
 import NumberCount from '@/components/chat/NumberCount';
 import ChoiceSex from '@/components/ChoiceSex';
-import KakaoAdfit from '@/components/KakaoAdfit';
 import Footer from '@/components/layout/Footer';
 import Loading from '@/components/Loading';
 import Logo from '@/components/svg/Logo';
