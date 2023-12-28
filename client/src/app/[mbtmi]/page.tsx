@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
-import AD from '@/components/ad/AD';
+import KakaoChatingAd from '@/components/ad/KakaoChatingAd';
+import KakaoResultAd from '@/components/ad/kakaoResultAd';
 import ChatingDetailHeader from '@/components/layout/ChatingDetailHeader';
 import Footer from '@/components/layout/Footer';
 import ImageZoom from '@/components/result/ImageZoom';
@@ -61,6 +61,7 @@ export default function MBTMIPage({ params }: { params: { mbtmi: string } }) {
           number={1}
           back={false}
         />
+        <KakaoChatingAd />
         <ResultNotification />
         <ImageZoom
           className={`mx-auto w-auto max-w-full$`}
@@ -71,7 +72,7 @@ export default function MBTMIPage({ params }: { params: { mbtmi: string } }) {
         />
         <ResultBox {...MBTI_RESULT[mbti!]} />
         <RealMbti />
-        <AD />
+        <KakaoResultAd />
         <Footer />
       </section>
     </main>

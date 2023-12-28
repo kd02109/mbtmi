@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { postAnswer } from '@/api/clientApi';
+import KakaoChatingAd from '@/components/ad/KakaoChatingAd';
 import Chat from '@/components/chat/Chat';
 import SelectMessageForm from '@/components/chat/SelectMessageForm';
 import ChatingDetailHeader from '@/components/layout/ChatingDetailHeader';
@@ -57,8 +58,9 @@ export default function ChatPage({ pageId, isVisited }: Prop) {
           number={question.memberCount}
           profile={question.profile}
         />
+        <KakaoChatingAd />
         <section
-          className="flex flex-col px-4 gap-2 max-h-[80vh] grow overflow-y-auto scroll-div"
+          className="flex flex-col px-4 gap-2 my-4 max-h-[80vh] grow overflow-y-auto scroll-div"
           ref={chatDivRef}>
           {question.questions.map((item, index) => (
             <SelectMessageForm
