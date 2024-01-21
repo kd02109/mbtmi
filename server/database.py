@@ -9,8 +9,7 @@ config = Config('.env')
 SQLALCHEMY_DATABASE_URL = config('SQLALCHEMY_DATABASE_URL')
 
 SQLALCHEMY_ENGINE_OPTIONS = {
-    "pool_pre_ping": True,
-    "pool_size": 20,
+    "pool_size": 10,
     "max_overflow": 10,
     "pool_timeout": 10,
     "pool_recycle": 30,
