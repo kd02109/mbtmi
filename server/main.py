@@ -12,7 +12,6 @@ origins = [
     "http://localhost:3000",
     "https://mbtmi.vercel.app",
     "https://www.mbtmi.xyz",
-    "https://mbtmi.xyz"
 ]
 
 app.add_middleware(
