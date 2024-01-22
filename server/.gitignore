@@ -6,3 +6,5 @@ alembic.ini
 migrations/
 model/classifier/
 model/onnx/
+/logs
+/log
