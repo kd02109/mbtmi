@@ -7,6 +7,7 @@
 - **배포 링크 :** [mbtmi](https://mbtmi.xyz)
 - **블로그 :** [blog](https://mbtmi-sogang.tistory.com/)
 - **인스타 그램:** [instagram](https://www.instagram.com/mbtmi_bo.ong/?igshid=MzMyNGUyNmU2YQ%3D%3D)
+- **피그마:** [figma](https://www.figma.com/file/wAhjRpyKeVK6coieXGegGO/mbtmi?type=design&node-id=31-8&mode=design&t=fI3DDJ3tRguoJLL1-0)
 
 ## 🛫 Intro
 
