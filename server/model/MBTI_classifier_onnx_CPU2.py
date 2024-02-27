@@ -2,9 +2,7 @@ import torch
 import sys
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
 import torch.nn.functional as F
-import onnx
 import onnxruntime as ort
-import json
 import numpy as np
 
 class MBTISentimentPredictor:

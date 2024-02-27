@@ -4,7 +4,7 @@ from sqlalchemy.orm import Session
 
 from domain.answer.answer_schema import AnswerCreate
 from models import Answer, UserTable
-from auth.auth_handler import decodeJWT
+
 
 def create_answer(db: Session, answer_create: AnswerCreate, token, question_id):
     user_id = db.query(UserTable.id).filter(UserTable.jwt_token==token)
