@@ -4,7 +4,19 @@
 myapi.db
 alembic.ini
 migrations/
-model/classifier/
-model/onnx/
+
 /logs
 /log
+
+# model classifier
+model/classifier/IE2
+model/classifier/JP2
+model/classifier/NS2
+model/classifier/TF2
+
+
+# model onnx
+model/onnx/IE_model_quantized.onnx
+model/onnx/JP_model_quantized.onnx
+model/onnx/NS_model_quantized.onnx
+model/onnx/TF_model_quantized.onnx

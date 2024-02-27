@@ -1,13 +1,9 @@
 from fastapi import APIRouter, Depends, HTTPException, Header
-from fastapi.encoders import jsonable_encoder
-from fastapi.responses import JSONResponse
 from sqlalchemy.orm import Session
-from starlette import status
-from typing import Optional, Union
+from typing import Optional
 
 from database import get_db
 from domain.answer import answer_schema, answer_crud
-from domain.user import user_schema, user_crud
 
 router = APIRouter(
     prefix="/answer"
