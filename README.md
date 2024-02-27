@@ -197,3 +197,21 @@ alembic upgrade head
 ```
 uvicorn main:app --reload
 ```
+
+## 시연영상
+
+### main
+
+https://github.com/kd02109/mbtmi/assets/57277708/a4f2892b-452d-405e-81ad-c87ada8b1cac
+
+### chating
+
+https://github.com/kd02109/mbtmi/assets/57277708/b48d60be-31ed-4427-ae2e-8c5abd653ee4
+
+### result
+
+https://github.com/kd02109/mbtmi/assets/57277708/75fb8c3b-a07a-4f78-a0b3-017990456b5f
+
+
+
+
