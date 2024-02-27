@@ -197,3 +197,36 @@ alembic upgrade head
 ```
 uvicorn main:app --reload
 ```
+
+## 시연영상
+
+### main
+
+https://github.com/kd02109/mbtmi/assets/57277708/a4f2892b-452d-405e-81ad-c87ada8b1cac
+
+### chating
+
+https://github.com/kd02109/mbtmi/assets/57277708/b48d60be-31ed-4427-ae2e-8c5abd653ee4
+
+### result
+
+https://github.com/kd02109/mbtmi/assets/57277708/75fb8c3b-a07a-4f78-a0b3-017990456b5f
+
+
+## Screen Shot Phone
+
+| 홈 화면 | 상세 설명 페이지 | 초기 채팅 화명 |
+| :---: | :---: | :---: |
+|<img src="https://github.com/kd02109/mbtmi/assets/57277708/f453980d-4a71-46c4-90d1-e3c7d14f698b"  alt="home" width="300"/>| <img src="https://github.com/kd02109/mbtmi/assets/57277708/ccd52189-8a94-4e39-94af-b8fb6d0b25d7" alt="description" width="300"/>| <img src="https://github.com/kd02109/mbtmi/assets/57277708/3b948459-14d4-4af0-b295-5ecf64930095" alt="description" width="300"/> |
+
+
+| 채팅 입력 페이지 | 채팅 입력 완료 | 로딩 페이지 | 
+| :---: | :---: |:---: |
+|<img src="https://github.com/kd02109/mbtmi/assets/57277708/26a14714-3c5f-440f-be5d-e84b0483bf6f"  alt="chating detail" width="300"/>| <img src="https://github.com/kd02109/mbtmi/assets/57277708/854c71d6-9e9f-47ae-8c21-0eb18533689f" alt="chat done" width="300"/>| <img src="https://github.com/kd02109/mbtmi/assets/57277708/854c71d6-9e9f-47ae-8c21-0eb18533689f" alt="loading" width="300"/> |
+
+| 결과 페이지 | 공유 페이지 | 
+| :---: | :---: |
+|<img src="https://github.com/kd02109/mbtmi/assets/57277708/2cf795ef-c7f3-42cd-91b1-08ed07f9e5bc"  alt="result" width="300"/>| <img src="https://github.com/kd02109/mbtmi/assets/57277708/b9bbec24-7834-4cea-9ab4-9783ce995750"  alt="share" width="300"/>|
+
+
+
